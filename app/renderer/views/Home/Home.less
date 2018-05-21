@@ -1,4 +1,4 @@
-@import "../../style/common";
+@import '../../style/common';
 
 .RebirthDB_home {
   position: absolute;
@@ -6,13 +6,14 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 760px;
-  &__banner, &__empty__message {
+  &__banner,
+  &__empty__message {
     text-align: center;
   }
   &__banner {
     &__title {
       font-size: 50px;
-      font-weight:900;
+      font-weight: 900;
       background: @MAIN_GRADIENT;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -26,6 +27,5 @@
     p {
       margin: 10px 0 30px;
     }
-
   }
 }

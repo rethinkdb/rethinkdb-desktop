@@ -8,19 +8,19 @@ const history = createHashHistory()
 import './style/app.less'
 
 class App extends Component {
-	constructor(props) {
-		super(props)
-	}
+  constructor(props) {
+    super(props)
+  }
 
-	componentDidMount() {}
+  componentDidMount() {}
 
-	render() {
-		return (
-			<Router history={history}>
-				<Routes />
-			</Router>
-		)
-	}
+  render() {
+    return (
+      <Router history={history}>
+        <Routes />
+      </Router>
+    )
+  }
 }
 
 export default hot(module)(App)
