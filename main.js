@@ -89,6 +89,10 @@ app.on('ready', async () => {
 			mainWindow.webContents.openDevTools()
 	})
 
+	mainWindow.on('close', () => {
+		mainWindow.webContents.closeDevTools()
+	})
+
 	mainWindow.on('closed', () => {
 		mainWindow = null
 	})
