@@ -20,8 +20,8 @@ class NewConnection extends PureComponent {
   }
   render() {
     return (
-      <NewConnection>
-        <div className="RebirthDB_NewConnection-row RebirthDB_remoteConnection">
+      <StyledNewConnection>
+        <div className="row RebirthDB_remoteConnection">
           <div className="top">
             <img className="icon" src={CloudIcon} width={32} />
             <h2 className="title">Remote Connection</h2>
@@ -35,7 +35,7 @@ class NewConnection extends PureComponent {
             <button onClick={() => {}}>Connect</button>
           </div>
         </div>
-      </NewConnection>
+      </StyledNewConnection>
     )
   }
 }

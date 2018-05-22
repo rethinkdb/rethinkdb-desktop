@@ -9,27 +9,29 @@ export const StyledHome = styled.div`
   transform: translate(-50%, -50%);
   width: 760px;
 
-  .banner,
-  .empty__message {
+  > .banner,
+  > .empty__message {
     text-align: center;
   }
 
-  .banner {
-    .title {
+  > .banner {
+    > .banner__title {
       font-size: 50px;
       font-weight: 900;
-      background: @MAIN_GRADIENT;
+      background: ${theme.mainGradient};
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
   }
 
-  .empty__message {
+  > .empty__message {
     margin-top: 50px;
-    h2 {
+
+    > h2 {
       font-size: 22px;
     }
-    p {
+
+    > p {
       margin: 10px 0 30px;
     }
   }

@@ -1,7 +1,5 @@
 const { ipcMain } = require('electron')
 
-function init () {
-
-}
+function init() {}
 
 module.exports = init

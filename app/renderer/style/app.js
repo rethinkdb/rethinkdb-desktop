@@ -1,6 +1,6 @@
-import { injectGlobal } from 'react-emotion';
+import { injectGlobal } from 'react-emotion'
 
-import theme from './common.js';
+import theme from './common.js'
 
 injectGlobal`
   * {
@@ -29,4 +29,4 @@ injectGlobal`
     font-weight: 300;
     font-size: 14px;
   }
-`;
+`
