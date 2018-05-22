@@ -20,7 +20,8 @@
     "test": "jest",
     "test-all": "npm run lint && npm run flow && npm run build && npm run test && npm run test-e2e",
     "test-e2e": "cross-env NODE_ENV=test BABEL_DISABLE_CACHE=1 node --trace-warnings -r babel-register ./internals/scripts/RunTests.js e2e",
-    "test-watch": "npm test -- --watch"
+    "test-watch": "npm test -- --watch",
+    "lint": "prettier 'app/**/*.js' --write"
   },
   "repository": {
     "type": "git",
@@ -28,17 +29,20 @@
   },
   "keywords": [],
   "author": "",
-  "license": "Apache 2",
+  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/RebirthDB/electron-admin/issues"
   },
   "homepage": "https://github.com/RebirthDB/electron-admin#readme",
   "dependencies": {
+    "babel-plugin-emotion": "^9.1.2",
     "electron-better-ipc": "^0.1.1",
+    "emotion": "^9.1.3",
     "history": "^4.7.2",
     "prop-types": "^15.6.1",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
+    "react-emotion": "^9.1.3",
     "react-error-boundary": "^1.2.2",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",

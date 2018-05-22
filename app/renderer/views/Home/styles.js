@@ -1,31 +1,38 @@
-@import '../../style/common';
+import styled from 'react-emotion'
 
-.RebirthDB_home {
+import theme from '@/style/common'
+
+export const StyledHome = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 760px;
-  &__banner,
-  &__empty__message {
+
+  > .banner,
+  > .empty__message {
     text-align: center;
   }
-  &__banner {
-    &__title {
+
+  > .banner {
+    > .banner__title {
       font-size: 50px;
       font-weight: 900;
-      background: @MAIN_GRADIENT;
+      background: ${theme.mainGradient};
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
   }
-  &__empty__message {
+
+  > .empty__message {
     margin-top: 50px;
-    h2 {
+
+    > h2 {
       font-size: 22px;
     }
-    p {
+
+    > p {
       margin: 10px 0 30px;
     }
   }
-}
+`

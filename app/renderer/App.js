@@ -5,7 +5,7 @@ import Routes from './routes'
 import createHashHistory from 'history/createHashHistory'
 const history = createHashHistory()
 
-import './style/app.less'
+import './style/app.js'
 
 class App extends Component {
   constructor(props) {
