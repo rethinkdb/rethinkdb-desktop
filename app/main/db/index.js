@@ -1,4 +1,4 @@
-const r = require('rethinkdbdash')()
+const r = require('rethinkdbdash')
 
 const ipc = require('electron-better-ipc')
 
