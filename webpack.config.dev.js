@@ -7,6 +7,8 @@ const ErrorOverlayPlugin = require('error-overlay-webpack-plugin')
 const PORT = process.env.PORT || 7000
 const PUBLIC_PATH = `http://localhost:${PORT}/dist/`
 
+console.log(path.resolve(__dirname, 'app', 'renderer'))
+
 module.exports = {
   bail: true,
   // sourcemaps
@@ -47,13 +49,10 @@ module.exports = {
           plugins: [
             'transform-class-properties',
             'transform-es2015-classes',
-            'react-hot-loader/babel'
+            'react-hot-loader/babel',
+            'emotion'
           ]
         }
-      },
-      {
-        test: /\.less$/,
-        loader: `style-loader!css-loader!less-loader?{"javascriptEnabled":true, "sourceMap":true,}`
       },
       { test: /\.css$/, loader: 'style-loader!css-loader' },
       {
@@ -86,7 +85,9 @@ module.exports = {
   ],
   // manipulations
   resolve: {
-    alias: {}
+    alias: {
+      '@': path.resolve(__dirname, 'app', 'renderer')
+    }
   },
   // dev server
   devServer: {

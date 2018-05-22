@@ -2,8 +2,9 @@ const { dialog } = require('electron').remote
 
 import React, { PureComponent } from 'react'
 import { connect } from '../../service/ipc'
-import './NewConnection.less'
 import CloudIcon from '../../static/svg/cloud.svg'
+
+import { StyledNewConnection } from './NewConnection.styles.js'
 
 class NewConnection extends PureComponent {
   constructor(props) {
@@ -19,7 +20,7 @@ class NewConnection extends PureComponent {
   }
   render() {
     return (
-      <div className="RebirthDB_NewConnection">
+      <NewConnection>
         <div className="RebirthDB_NewConnection-row RebirthDB_remoteConnection">
           <div className="top">
             <img className="icon" src={CloudIcon} width={32} />
@@ -34,7 +35,7 @@ class NewConnection extends PureComponent {
             <button onClick={() => {}}>Connect</button>
           </div>
         </div>
-      </div>
+      </NewConnection>
     )
   }
 }

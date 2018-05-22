@@ -1,6 +1,7 @@
-@import "../../style/common";
+import styled from 'react-emotion';
+import theme from '@/style/common'
 
-.RebirthDB_NewConnection {
+export const StyledNewConnection = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
@@ -59,4 +60,4 @@
     }
 
   }
-}
+`
