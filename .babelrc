@@ -1,0 +1,23 @@
+{
+  "ignore": [],
+  "presets": [["env", {"useBuiltIns": true, "targets": { "node": 10 }}], "stage-0", "react"],
+  "plugins": [
+    "transform-class-properties",
+    "transform-es2015-classes",
+    "emotion"
+  ],
+  "env": {
+    "test": {
+      "presets": [],
+      "plugins": []
+    },
+    "production": {
+      "presets": [],
+      "plugins": []
+    },
+    "development": {
+      "presets": [],
+      "plugins": ["react-hot-loader/babel"]
+    }
+  }
+}

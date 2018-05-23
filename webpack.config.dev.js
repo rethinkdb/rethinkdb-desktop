@@ -35,23 +35,6 @@ module.exports = {
         options: {
           // https://github.com/babel/babel-loader#options
           cacheDirectory: true,
-          presets: [
-            [
-              'env',
-              {
-                targets: { node: 8 },
-                useBuiltIns: true
-              }
-            ],
-            'stage-0',
-            'react'
-          ],
-          plugins: [
-            'transform-class-properties',
-            'transform-es2015-classes',
-            'react-hot-loader/babel',
-            'emotion'
-          ]
         }
       },
       { test: /\.css$/, loader: 'style-loader!css-loader' },
