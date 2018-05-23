@@ -43,8 +43,12 @@ module.exports = {
         loader: 'url-loader?limit=8192&name=[path][name].[ext]?[hash]' // inline base64 URLs for <=8k, direct URLs for the rest
       },
       {
-        test: /\.(ico|svg|woff|woff2|ttf|eot)$/,
+        test: /\.(ico|woff|woff2|ttf|eot)$/,
         loader: 'url-loader?limit=1&name=[path][name].[ext]'
+      },
+      {
+        test: /\.svg$/,
+        loader: 'svg-sprite-loader'
       }
     ]
   },

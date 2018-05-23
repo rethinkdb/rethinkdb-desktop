@@ -11,7 +11,7 @@ export const StyledNewConnection = styled.div`
     width: 100%;
     height: 140px;
 
-    .icon,
+    .rebirth-icon,
     .title {
       display: inline-block;
       vertical-align: middle;

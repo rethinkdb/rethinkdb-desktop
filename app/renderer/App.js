@@ -4,6 +4,7 @@ import { Router } from 'react-router'
 import Routes from './routes'
 import createHashHistory from 'history/createHashHistory'
 const history = createHashHistory()
+import './components/Icon/icons'
 
 import './style/app.js'
 

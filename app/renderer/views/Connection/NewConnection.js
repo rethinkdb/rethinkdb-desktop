@@ -1,8 +1,6 @@
-const { dialog } = require('electron').remote
-
 import React, { PureComponent } from 'react'
 import { connect } from '../../service/ipc'
-import CloudIcon from '../../static/svg/cloud.svg'
+import Icon from '../../components/Icon'
 
 import { StyledNewConnection } from './NewConnection.styles.js'
 
@@ -23,7 +21,7 @@ class NewConnection extends PureComponent {
       <StyledNewConnection>
         <div className="row RebirthDB_remoteConnection">
           <div className="top">
-            <img className="icon" src={CloudIcon} width={32} />
+            <Icon type="cloud" size={32} />
             <h2 className="title">Remote Connection</h2>
           </div>
           <div className="bottom">
