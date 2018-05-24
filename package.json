@@ -35,7 +35,6 @@
   },
   "homepage": "https://github.com/RebirthDB/electron-admin#readme",
   "dependencies": {
-    "@sindresorhus/string-hash": "^1.0.0",
     "babel-plugin-emotion": "^9.1.2",
     "electron-better-ipc": "^0.1.1",
     "electron-store": "^1.3.0",
