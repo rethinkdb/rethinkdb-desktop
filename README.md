@@ -1,6 +1,14 @@
 # electron-admin
-RebirthDB admin - desktop app based on electron
 
-`npm i`
+[![CircleCI](https://circleci.com/gh/RebirthDB/electron-admin.svg?style=svg)](https://circleci.com/gh/RebirthDB/electron-admin)
 
-`npm run dev`
+## Overview
+
+RebirthDB Admin Desktop App - this project goal is to seperate the current admin from the core database and provide it as a desktop app.
+
+## Setup
+### Installation
+
+`yarn install`
+
+`yarn run dev`
