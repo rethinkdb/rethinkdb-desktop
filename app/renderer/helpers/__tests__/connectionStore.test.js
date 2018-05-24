@@ -1,4 +1,9 @@
-// ToDo: convert this to real tests
+import {
+  CONNECTION_DEFAULT_HOST,
+  CONNECTION_DEFAULT_NAME,
+  CONNECTION_DEFAULT_PORT
+} from '../constants'
+
 import {
   getConnection,
   addConnection,
@@ -8,48 +13,58 @@ import {
   clear
 } from '../connectionStore'
 
-let uid = null
 
-function clean() {
+
+function cleanTest() {
   clear()
-  uid = null
 }
-export default function testing() {
-  clean()
-  // use defaults
-  uid = addConnection({name: 'foo'})
-  console.log('use defaults: ', getConnectionList())
-  clean()
-  // remove
-  uid = addConnection({ name: 'test', host: 'test', port: 8888 })
+
+beforeEach(() => {
+  cleanTest()
+})
+
+test('use defaults ---> default name', () => {
+  let uid = addConnection({ host: 'foo' })
+  const result = getConnection(uid)
+  expect(result.name).toBe(CONNECTION_DEFAULT_NAME)
+})
+
+test('use defaults ---> default host', () => {
+  let uid = addConnection({ name: 'foo' })
+  const result = getConnection(uid)
+  expect(result.host).toBe(CONNECTION_DEFAULT_HOST)
+})
+
+test('use defaults ---> default port', () => {
+  let uid = addConnection({ name: 'foo' })
+  const result = getConnection(uid)
+  expect(result.port).toBe(CONNECTION_DEFAULT_PORT)
+})
+
+test('remove connection', () => {
+  let uid = addConnection({ host: 'test' })
+  const result = getConnection(uid)
+  expect(result.name).toBe(CONNECTION_DEFAULT_NAME)
   removeConnection(uid)
-  console.log('remove: ', getConnectionList())
-  clean()
-  // adding one
-  uid = addConnection({ name: 'test', host: 'test', port: 8888 })
-  console.log('adding one: ', getConnectionList())
-  clean()
-  // no duplicates
-  uid = addConnection({ name: 'test', host: 'test', port: 8888 })
-  let uid2 = addConnection({ name: 'test', host: 'test', port: 8888 })
-  console.log('not adding dupes: ', getConnectionList())
-  console.log('uid2: ', uid2)
-  clean()
-  // adding multiple
-  uid = addConnection({ name: 'test1', host: 'test', port: 1 })
-  let uid3 = addConnection({ name: 'test1', host: 'test2', port: 1 })
-  let uid4 = addConnection({ name: 'test1', host: 'test2', port: 2 })
-  console.log('adding multiple: ', getConnectionList())
-  clean()
-  // updates
-  uid = addConnection({ name: 'test1', host: 'test', port: 1 })
-  let u = updateConnection(uid, { name: 'test2' })
-  console.log('updates: ', getConnectionList())
-  console.log('updates return: ', u)
-  clean()
-  // get single
-  uid = addConnection({ name: 'test1', host: 'test', port: 1 })
-  let single = getConnection(uid)
-  console.log('get single: ', single)
-  clean()
-}
+  const deleteResult = getConnection(uid)
+  expect(deleteResult).toEqual({})
+})
+
+test('prevents duplicate entries', () => {
+  addConnection({ name: 'test', host: 'test', port: 8888 })
+  addConnection({ name: 'test', host: 'test', port: 8888 })
+  expect(Object.keys(getConnectionList()).length).toBe(1)
+})
+
+test('adding multiple', () => {
+  addConnection({ name: 'test', host: 'test', port: 1 })
+  addConnection({ name: 'test', host: 'test', port: 2 })
+  expect(Object.keys(getConnectionList()).length).toBe(2)
+})
+
+test('able to update connection', () => {
+  let uid = addConnection({ name: 'test1', host: 'test', port: 1 })
+  updateConnection(uid, { name: 'test2' })
+  const result = getConnection(uid)
+  expect(result.name).toBe('test2')
+})
