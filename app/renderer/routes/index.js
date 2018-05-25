@@ -2,8 +2,8 @@ import React from 'react'
 import ErrorBoundary from 'react-error-boundary'
 import Error from '../components/error'
 import { Switch, Route } from 'react-router'
-import Home from '../views/home'
-import NewConnection from '../views/connection/NewConnection'
+import Home from '../views/Home'
+import NewConnection from '../views/Connection/NewConnection'
 
 export default () => (
   <ErrorBoundary FallbackComponent={Error}>
