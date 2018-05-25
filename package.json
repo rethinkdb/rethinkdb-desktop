@@ -1,5 +1,5 @@
 {
-  "name": "electron-admin",
+  "name": "rebirthdb-desktop",
   "version": "1.0.0",
   "description": "RebirthDB desktop client",
   "main": "main.js",
@@ -25,15 +25,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RebirthDB/electron-admin.git"
+    "url": "git+https://github.com/RebirthDB/rebirthdb-desktop.git"
   },
   "keywords": [],
   "author": "",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/RebirthDB/electron-admin/issues"
+    "url": "https://github.com/RebirthDB/rebirthdb-desktop/issues"
   },
-  "homepage": "https://github.com/RebirthDB/electron-admin#readme",
+  "homepage": "https://github.com/RebirthDB/rebirthdb-desktop#readme",
   "dependencies": {
     "babel-plugin-emotion": "^9.1.2",
     "electron-better-ipc": "^0.1.1",
