@@ -1,4 +1,4 @@
-# electron-admin
+# RebirthDB Desktop
 
 [![CircleCI](https://circleci.com/gh/RebirthDB/electron-admin.svg?style=svg)](https://circleci.com/gh/RebirthDB/electron-admin)
 
