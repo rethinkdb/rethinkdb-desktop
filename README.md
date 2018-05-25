@@ -1,6 +1,6 @@
 # RebirthDB Desktop
 
-[![CircleCI](https://circleci.com/gh/RebirthDB/electron-admin.svg?style=svg)](https://circleci.com/gh/RebirthDB/electron-admin)
+[![CircleCI](https://circleci.com/gh/RebirthDB/rebirthdb-desktop.svg?style=svg)](https://circleci.com/gh/RebirthDB/rebirthdb-desktop)
 
 ## Overview
 
