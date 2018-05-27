@@ -26,9 +26,10 @@ const Container = styled.header`
     }
   }
 `
+
 const Header = () =>
   <Container>
-    <a>RethinkDB</a>
+    <a>RebirthDB</a>
     <nav>
       <ul>
         <li><Link to="/dashboard">Dashboard</Link></li>

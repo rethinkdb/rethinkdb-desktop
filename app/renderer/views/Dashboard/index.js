@@ -1,5 +1,5 @@
 import React from 'react'
-import Page from '../Page/index'
+import Page from '../../components/page'
 import styled from 'react-emotion'
 
 const Box = styled.div`

@@ -1,7 +1,7 @@
 import React  from 'react'
-import Header from './Header'
-import Footer from './Footer'
-import Info from './Info'
+import Header from './header'
+import Footer from './footer'
+import Info from './info'
 import styled from 'react-emotion'
 
 const Container = styled.div` 
@@ -16,7 +16,7 @@ const Body = styled.div`
   color: black;
 `
 
-const Pagee = ({children}) =>
+const Page = ({children}) =>
   <Container>
     <Header/>
     <Info/>
@@ -26,4 +26,4 @@ const Pagee = ({children}) =>
     <Footer/>
   </Container>
 
-export default Pagee
+export default Page
