@@ -6,58 +6,55 @@ export const StyledNewConnection = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 360px;
+  width: 280px;
   .row {
     width: 100%;
-    height: 140px;
-
-    .rebirth-icon,
-    .title {
-      display: inline-block;
-      vertical-align: middle;
-      margin-right: 10px;
-    }
-    .top {
-      margin-bottom: 20px;
-    }
-    .bottom {
-      position: relative;
-    }
-    .browse {
-      position: absolute;
-      left: 230px;
-      top: 10px;
-      cursor: pointer;
-    }
+    padding: 15px 0;
     input[type='text'] {
-      width: 250px;
+      width: 100%;
       height: 38px;
       background: transparent;
       border: none;
-      border-bottom: 1px solid #fff;
+      border-bottom: 1px solid #603e85;
       transition: all ease-in 500ms;
       color: ${theme.mainTextColor};
       &:focus {
         outline: none;
-        border-bottom-color: #48a4ed;
+        border-bottom-color: #EB48CA;
       }
     }
     button {
       width: 90px;
+      height: 34px;
       background: transparent;
-      border: 1px solid ${theme.mainTextColor};
-      color: ${theme.mainTextColor};
-      height: 38px;
-      margin-left: 10px;
+      border: 1px solid #603e85;
+      color: #603e85;
       transition: all ease-in 500ms;
       cursor: pointer;
       &:hover {
-        border-color: ${theme.secColor};
-        color: ${theme.secColor};
+        border-color: #EB48CA;
+        color: #EB48CA;
       }
       &:focus {
         outline: none;
       }
     }
+    &.actions {
+      display: flex;
+      flex-flow: row-reverse;
+    }
   }
 `
+
+export const ConnectionInfo = styled('p')({
+  fontSize: '10px',
+  letterSpacing: '1px',
+  color: theme.secTextColor,
+  position: 'absolute',
+  bottom: '20%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  '> span': {
+    fontWeight: 700
+  }
+})
