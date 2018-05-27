@@ -47,7 +47,8 @@
     "react-error-boundary": "^1.2.2",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
-    "rethinkdbdash": "^2.3.31"
+    "rethinkdbdash": "^2.3.31",
+    "valid-url": "^1.0.9"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",

@@ -23,7 +23,7 @@ injectGlobal`
   }
 
   body {
-    background: #222; // #8ACE9F
+    background: ${theme.secColor};
     color: ${theme.mainTextColor};
     font-family: ${theme.fontStack};
     font-weight: 300;
