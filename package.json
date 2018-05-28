@@ -20,8 +20,8 @@
     "start": "cross-env NODE_ENV=production electron .",
     "start-main-dev": "cross-env HOT=1 NODE_ENV=development electron .",
     "start-renderer-dev": "cross-env NODE_ENV=development node --trace-warnings -r babel-register ./node_modules/webpack-dev-server/bin/webpack-dev-server --mode development --config webpack.config.dev.js",
-    "test": "jest",
-    "test-all": "npm run standard && npm run lint && npm run flow && npm run build && npm run test && npm run test-e2e",
+    "test": "npm run standard && jest",
+    "test-all": "npm run lint && npm run flow && npm run build && npm run test && npm run test-e2e",
     "test-e2e": "cross-env NODE_ENV=test BABEL_DISABLE_CACHE=1 node --trace-warnings -r babel-register ./internals/scripts/RunTests.js e2e",
     "test-watch": "npm test -- --watch",
     "lint": "prettier 'app/**/*.js' --write"
@@ -54,6 +54,7 @@
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.3",
     "babel-jest": "^22.4.4",
     "babel-loader": "^7.1.4",
     "babel-plugin-add-module-exports": "^0.2.1",
@@ -89,5 +90,8 @@
     "webpack": "^4.6.0",
     "webpack-cli": "^2.0.15",
     "webpack-dev-server": "^3.1.3"
+  },
+  "standard": {
+    "parser": "babel-eslint"
   }
 }
