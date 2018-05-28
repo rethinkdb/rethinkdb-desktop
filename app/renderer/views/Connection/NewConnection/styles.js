@@ -20,7 +20,7 @@ export const StyledNewConnection = styled.div`
       color: ${theme.mainTextColor};
       &:focus {
         outline: none;
-        border-bottom-color: #EB48CA;
+        border-bottom-color: #eb48ca;
       }
     }
     button {
@@ -32,8 +32,8 @@ export const StyledNewConnection = styled.div`
       transition: all ease-in 500ms;
       cursor: pointer;
       &:hover {
-        border-color: #EB48CA;
-        color: #EB48CA;
+        border-color: #eb48ca;
+        color: #eb48ca;
       }
       &:focus {
         outline: none;
@@ -57,4 +57,25 @@ export const ConnectionInfo = styled('p')({
   '> span': {
     fontWeight: 700
   }
+})
+
+export const ConnectionError = styled('p')({
+  fontSize: '12px',
+  fontWeight: 700,
+  letterSpacing: '1px',
+  color: theme.error,
+  position: 'absolute',
+  top: '20%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)'
+})
+
+export const Connecting = styled('p')({
+  fontSize: '14px',
+  fontWeight: 700,
+  color: theme.info,
+  position: 'absolute',
+  top: '20%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)'
 })

@@ -1,7 +1,7 @@
 import styled, { css } from 'react-emotion'
 
 const baseError = css`
-  width: 50%;
+  width: 100%;
   top: 50%;
   left: 50%;
   position: absolute;
@@ -19,9 +19,8 @@ const baseError = css`
     font-size: 10px;
     padding: 5px;
     background: #000;
-    border: 1px solid #ddd;
+    color: #00ff00;
     text-align: left;
-    border-radius: 4px;
   }
 `
 
