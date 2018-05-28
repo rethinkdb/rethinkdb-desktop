@@ -7,6 +7,7 @@ import { StyledHome } from './styles.js'
 function Home(props) {
   return (
     <StyledHome>
+
       <div className="banner">
         <h1 className="banner__title">RebirthDB</h1>
       </div>
@@ -16,6 +17,11 @@ function Home(props) {
         <Link to="/newConnection">
           <Icon type="plus" size={32} />
         </Link>
+        <div>
+          <Link to="/dashboard" style={{color: 'white', fontSize: '3rem'}}>
+            Temp
+          </Link>
+        </div>
       </div>
     </StyledHome>
   )
