@@ -8,11 +8,12 @@ const Box = styled.div`
   margin: 2rem;
 `
 
-const Dashboard = () =>
+const Dashboard = () => (
   <Page>
     <Box>servers, tables, indexes, Resource</Box>
     <Box>Cluster Performance</Box>
     <Box>Recent Logs entries</Box>
   </Page>
+)
 
 export default Dashboard

@@ -14,7 +14,7 @@
     "package-linux": "npm run build && build --linux",
     "package-win": "npm run build && build --win --x64",
     "prestart": "npm run build",
-    "standard": "standard --fix 'app/**/*.js'",
+    "standard": "standard --fix 'app/**/*.js' && yarn run lint",
     "standard-html": "standard --fix --plugin html '**/*.html'",
     "standard-markdown": "standard --fix --plugin markdown '**/*.md'",
     "start": "cross-env NODE_ENV=production electron .",

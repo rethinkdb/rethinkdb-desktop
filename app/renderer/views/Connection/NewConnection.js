@@ -16,6 +16,9 @@ class NewConnection extends PureComponent {
   onInputChange = event => {
     this.setState({ local: event.target.value })
   }
+  onButtonClick = event => {
+    connect(this.state.local)
+  }
   render() {
     return (
       <StyledNewConnection>
@@ -30,7 +33,7 @@ class NewConnection extends PureComponent {
               placeholder="https://localhost:28015"
               onChange={this.onInputChange}
             />
-            <button onClick={() => {}}>Connect</button>
+            <button onClick={this.onButtonClick}>Connect</button>
           </div>
         </div>
       </StyledNewConnection>

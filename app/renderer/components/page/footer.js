@@ -7,22 +7,22 @@ const Container = styled.footer`
   display: flex;
   padding: 1rem 10%;
   color: black;
-  
+
   > * {
     flex: 1;
   }
-  
+
   ul {
     display: flex;
     list-style: none;
-    
+
     li {
-      flex: 1;     
+      flex: 1;
     }
   }
 `
 
-const Footer = () =>
+const Footer = () => (
   <Container>
     <nav>
       <ul>
@@ -30,5 +30,6 @@ const Footer = () =>
       </ul>
     </nav>
   </Container>
+)
 
 export default Footer

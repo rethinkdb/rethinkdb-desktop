@@ -1,10 +1,10 @@
-import React  from 'react'
+import React from 'react'
 import Header from './header'
 import Footer from './footer'
 import Info from './info'
 import styled from 'react-emotion'
 
-const Container = styled.div` 
+const Container = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -16,14 +16,13 @@ const Body = styled.div`
   color: black;
 `
 
-const Page = ({children}) =>
+const Page = ({ children }) => (
   <Container>
-    <Header/>
-    <Info/>
-    <Body>
-      {children}
-    </Body>
-    <Footer/>
+    <Header />
+    <Info />
+    <Body>{children}</Body>
+    <Footer />
   </Container>
+)
 
 export default Page
