@@ -4,10 +4,10 @@ import Error from '../components/error'
 import { Switch, Route } from 'react-router'
 import Home from '../views/Home'
 import NewConnection from '../views/Connection/NewConnection'
-import Dashboard from '../views/Dashboard';
-import Tables from '../views/Tables';
-import Explorer from '../views/Explorer';
-import Logs from '../views/Logs';
+import Dashboard from '../views/Dashboard'
+import Tables from '../views/Tables'
+import Explorer from '../views/Explorer'
+import Logs from '../views/Logs'
 
 export default () => (
   <ErrorBoundary FallbackComponent={Error}>
