@@ -1,6 +1,5 @@
 const ipc = require('electron-better-ipc')
 
-export const connect = async path => {
-  const result = await ipc.callMain('connect', path)
-  return result
+export const connect = ({ name, address }) => {
+  return ipc.callMain('connect', { name, address })
 }
