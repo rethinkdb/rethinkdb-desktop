@@ -1,3 +1,5 @@
+/* eslint-env jest */
+
 import {
   CONNECTION_DEFAULT_HOST,
   CONNECTION_DEFAULT_NAME,
@@ -12,8 +14,6 @@ import {
   updateConnection,
   clear
 } from '../connectionStore'
-
-
 
 function cleanTest() {
   clear()

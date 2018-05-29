@@ -1,8 +1,8 @@
-const hash = (str) => {
+const hash = str => {
   let hash = 5381
   let i = str.length
-  while(i) {
-    hash = (hash * 33) ^ str.charCodeAt(--i);
+  while (i) {
+    hash = (hash * 33) ^ str.charCodeAt(--i)
   }
   /* JavaScript does bitwise operations (like XOR, above) on 32-bit signed
    * integers. Since we want the results to be always positive, convert the

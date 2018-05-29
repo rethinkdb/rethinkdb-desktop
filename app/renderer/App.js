@@ -3,16 +3,14 @@ import { hot } from 'react-hot-loader'
 import { Router } from 'react-router'
 import Routes from './routes'
 import createHashHistory from 'history/createHashHistory'
-const history = createHashHistory()
+
 import './components/Icon/icons'
 
 import './style/app.js'
 
-class App extends Component {
-  constructor(props) {
-    super(props)
-  }
+const history = createHashHistory()
 
+class App extends Component {
   componentDidMount() {}
 
   render() {

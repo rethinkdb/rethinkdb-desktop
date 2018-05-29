@@ -34,5 +34,5 @@ export const updateConnection = (uid, { name, host, port }) => {
 
 export const getConnection = uid => {
   const connection = storage.get(uid)
-  return connection ? connection : {}
+  return connection || {}
 }

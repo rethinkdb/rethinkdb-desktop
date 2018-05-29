@@ -17,12 +17,13 @@ const Item = styled.li`
   text-align: center;
 `
 
-const Info = () =>
+const Info = () => (
   <List>
     <Item>Connected to</Item>
     <Item>Issued</Item>
     <Item>Servers</Item>
     <Item>Tables</Item>
   </List>
+)
 
 export default Info
