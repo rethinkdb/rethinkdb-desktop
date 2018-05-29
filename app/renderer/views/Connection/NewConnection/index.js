@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react'
-
-import { connect } from '../../../service/ipc'
+import connection from '../../../service/connection'
 import { isValidUrl } from '../../../helpers/validator'
 import { StyledNewConnection, ConnectionInfo, ConnectionError, Connecting } from './styles'
 import AppHeader from '../../../components/AppHeader'
@@ -11,6 +10,7 @@ import {
   CONNECTION_DEFAULT_HOST,
   CONNECTION_DEFAULT_PORT
 } from '../../../helpers/constants'
+import ConnectionList from '../Connections/ConnectionList'
 
 class NewConnection extends PureComponent {
   constructor(props) {
@@ -21,7 +21,8 @@ class NewConnection extends PureComponent {
       name: this.defaultName,
       address: this.defaultAddress,
       connecting: false,
-      error: undefined
+      error: undefined,
+      connections: []
     }
   }
 
@@ -37,11 +38,14 @@ class NewConnection extends PureComponent {
       this.setState({ error: `seems like "${address}" is not a valid URL` })
     } else {
       this.setState({ error: undefined, connecting: true })
-      const connection = await connect({ name, address })
-      if (connection.error) {
-        this.setState({ error: connection.error })
+
+      const result = await connection.create({ name, address })
+      if (result.error) {
+        this.setState({ error: result.error, connecting: false })
       } else {
+
         this.setState({ connecting: false })
+        this.fetchConnections()
         // show success message
         // update connection list
         // redirect to Dashboard
@@ -57,12 +61,22 @@ class NewConnection extends PureComponent {
     this.setState({ address: event.target.value })
   }
 
+  fetchConnections = () => {
+    const connectionList = connection.getConnections()
+    this.setState({ connections: connectionList })
+  }
+  componentDidMount() {
+    this.fetchConnections()
+  }
+
   render() {
-    const { error, connecting } = this.state
+    const { error, connecting, connections } = this.state
     return (
       <div>
         <AppHeader />
-        <SideBar />
+        <SideBar>
+          <ConnectionList data={connections} />
+        </SideBar>
         <MainContent>
           {error && <ConnectionError>{error}</ConnectionError>}
           {connecting && <Connecting>Connecting...</Connecting>}

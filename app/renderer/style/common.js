@@ -1,6 +1,8 @@
 export default {
   // colors
   mainColor: '#603e85',
+  mainColorDark: '#321353',
+  mainColorLight: '#ad8cd1',
   secColor: '#F1F0F9',
   mainLightColor: '#f7f7f7',
   mainGradient: 'linear-gradient( 180deg, #FF6FD8 10%, #3813C2 100%)',
@@ -16,6 +18,5 @@ export default {
   grayTextColor: '#8f8e9b',
   // elements dimensions
   appHeaderHeight: '38px',
-  sideBarWidth: '220px'
+  sideBarWidth: '90px'
 }
-

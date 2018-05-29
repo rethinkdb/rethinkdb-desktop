@@ -4,10 +4,11 @@ const SideBar = ({ children }) => {
   return (
     <StyledSideBar>
       {children}
-      <Logo><span>ReBirth</span></Logo>
+      <Logo>
+        <span>ReBirth</span>
+      </Logo>
     </StyledSideBar>
   )
-
 }
 
 export default SideBar
