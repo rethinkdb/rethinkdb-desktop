@@ -12,6 +12,6 @@ ipc.answerRenderer('connect', async ({ name, address }) => {
     return Promise.resolve({ status: 'success', name })
   } catch (e) {
     console.error(e)
-    return Promise.reject({ error: e })
+    return Promise.reject(new Error(e))
   }
 })
