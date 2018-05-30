@@ -43,7 +43,6 @@ class NewConnection extends PureComponent {
       if (result.error) {
         this.setState({ error: result.error, connecting: false })
       } else {
-
         this.setState({ connecting: false })
         this.fetchConnections()
         // show success message

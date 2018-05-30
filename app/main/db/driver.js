@@ -4,13 +4,9 @@ let connection
 
 const driver = {
   getConnection() {
-    if (connection) {
-      return connection
-    } else {
-      throw new Error('there is no active connection')
-    }
+    return connection
   },
-  async connect(config) {
+  async connect(config = {}) {
     if (connection) {
       console.info('there is an active connection - closing current connection')
       await driver.disconnect()

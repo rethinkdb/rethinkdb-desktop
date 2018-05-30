@@ -7,13 +7,15 @@ const connection = {
       const result = await connect({ name, address })
       if (result.open) {
         saveConnection({ name, address })
-        return { status: 'success' }
+        return { status: 'OK' }
+      } else {
+        return { error: 'could not establish connection' }
       }
     } catch (e) {
       return { error: e.message }
     }
   },
-  getConnections () {
+  getConnections() {
     return getConnectionList()
   }
 }

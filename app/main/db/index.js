@@ -1,7 +1,5 @@
 const { URL } = require('url')
-
 const { connect } = require('./driver')
-
 const ipc = require('electron-better-ipc')
 
 ipc.answerRenderer('connect', ({ name, address }) => {
