@@ -6,7 +6,7 @@ const disconnect = driver.disconnect
 
 beforeEach(() => {
   // need to figure out why driver.disconnect.mockClear not working
- driver.disconnect = disconnect
+  driver.disconnect = disconnect
 })
 
 test('driver - does not disconnect if no active connection', async () => {
