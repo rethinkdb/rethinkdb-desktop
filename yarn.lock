@@ -7510,6 +7510,10 @@ realpath-native@^1.0.0:
   dependencies:
     util.promisify "^1.0.0"
 
+"rebirthdbts@https://github.com/ronzeidman/rebirthdbts.git":
+  version "0.0.1"
+  resolved "https://github.com/ronzeidman/rebirthdbts.git#468a4d6563e42f5ba5c8618568cc75c386b6f016"
+
 recast@^0.12.5:
   version "0.12.9"
   resolved "https://registry.yarnpkg.com/recast/-/recast-0.12.9.tgz#e8e52bdb9691af462ccbd7c15d5a5113647a15f1"
@@ -9082,10 +9086,6 @@ validate-npm-package-license@^3.0.1:
   dependencies:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
-
-validator@^10.2.0:
-  version "10.2.0"
-  resolved "https://registry.yarnpkg.com/validator/-/validator-10.2.0.tgz#61d6b10c3d5c9f368c75c2ce8ca2b792522eaafa"
 
 value-equal@^0.4.0:
   version "0.4.0"

@@ -3,11 +3,11 @@ import ConnectionListHeader from './ConnectionListHeader'
 import ConnectionItem from './ConnectionItem'
 import { StyledConnectionList } from './styles'
 const ConnectionList = props => {
-  const { data } = props
+  const { data, onItemClick } = props
   return (
     <StyledConnectionList>
       <ConnectionListHeader />
-      <ul>{data.map(c => <ConnectionItem key={c.id} item={c} />)}</ul>
+      <ul>{data.map(c => <ConnectionItem key={c.id} item={c} onItemClick={onItemClick} />)}</ul>
     </StyledConnectionList>
   )
 }

@@ -5,8 +5,9 @@ const connection = {
   async create({ name, address }) {
     try {
       const result = await connect({ name, address })
-      if (result.open) {
-        saveConnection({ name, address })
+      if (result.socket.isOpen) {
+        // if we got name in args - it's a new connection, we need to save it
+        if (name) saveConnection({ name, address })
         return { status: 'OK' }
       } else {
         return { error: 'could not establish connection' }

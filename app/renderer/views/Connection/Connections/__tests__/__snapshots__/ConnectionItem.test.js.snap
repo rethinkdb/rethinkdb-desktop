@@ -3,6 +3,7 @@
 exports[`ConnectionList render items 1`] = `
 <
   color="#fff"
+  onClick={[Function]}
 >
   test
 </>

@@ -3,9 +3,16 @@ import randomColor from 'randomcolor'
 import { StyledConnectionItem } from './styles'
 
 const ConnectionItem = props => {
-  const { id, name } = props.item
+  const { onItemClick, item } = props
+  const { id, name, address } = item
   const color = randomColor({ seed: id, luminosity: 'bright' })
-  return <StyledConnectionItem color={color}>{name}</StyledConnectionItem>
+  const handleClick = () => onItemClick({ id, name, address })
+
+  return (
+    <StyledConnectionItem color={color} onClick={handleClick}>
+      {name}
+    </StyledConnectionItem>
+  )
 }
 
 export default ConnectionItem

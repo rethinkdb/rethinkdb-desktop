@@ -1,9 +1,8 @@
-const { URL } = require('url')
 const { connect } = require('./driver')
 const ipc = require('electron-better-ipc')
+const url = require('../helpers/url')
 
 ipc.answerRenderer('connect', ({ name, address }) => {
-  const { protocol, hostname, port } = new URL(address)
-  const host = ['http://', 'https://'].includes(protocol) ? protocol + hostname : hostname
+  const { host, port } = url.extract(address)
   return connect({ host, port })
 })

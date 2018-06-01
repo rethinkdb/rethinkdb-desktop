@@ -1,7 +1,7 @@
 import driver from '../driver'
 
-const conn = { host: 'test', port: 3000 }
-const conn2 = { host: 'test2', port: 3000 }
+const conn = { pool: false, servers: [{ host: 'test', port: 3000 }] }
+const conn2 = { pool: false, servers: [{ host: 'test2', port: 3000 }] }
 const disconnect = driver.disconnect
 
 beforeEach(() => {

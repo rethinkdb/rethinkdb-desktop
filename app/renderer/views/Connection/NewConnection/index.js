@@ -1,6 +1,6 @@
 import React, { PureComponent, Fragment } from 'react'
+import { withRouter } from 'react-router'
 import connection from '../../../service/connection'
-import { isValidUrl } from '../../../helpers/validator'
 import { ConnectionInfo, ConnectionError, Connecting } from './styles'
 import AppHeader from '../../../components/AppHeader'
 import SideBar from '../../../components/SideBar'
@@ -24,35 +24,35 @@ class NewConnection extends PureComponent {
     }
   }
 
-  onCreate = async (name, address) => {
+  makeConnectionRequest = async ({ name, address }) => {
+    this.setState({ error: undefined, connecting: true })
+    const result = await connection.create({ name, address })
+    if (result.error) {
+      this.setState({ error: result.error, connecting: false })
+    } else {
+      const { history } = this.props
+      this.setState({ connecting: false })
+      this.fetchConnections()
+      history.push('/dashboard')
+    }
+  }
+  onCreate = (name, address) => {
     if (!name.trim().length) {
       name = this.defaultName
     }
     if (!address.trim().length) {
       address = this.defaultAddress
     }
-    if (!isValidUrl(address)) {
-      this.setState({ error: `seems like "${address}" is not a valid URL` })
-    } else {
-      this.setState({ error: undefined, connecting: true })
-
-      const result = await connection.create({ name, address })
-      if (result.error) {
-        this.setState({ error: result.error, connecting: false })
-      } else {
-        this.setState({ connecting: false })
-        this.fetchConnections()
-        // show success message
-        // update connection list
-        // redirect to Dashboard
-      }
-    }
+    return this.makeConnectionRequest({ name, address })
   }
+
+  onQuickConnect = ({ address }) => this.makeConnectionRequest({ address })
 
   fetchConnections = () => {
     const connectionList = connection.getConnections()
     this.setState({ connections: connectionList })
   }
+
   componentDidMount() {
     this.fetchConnections()
   }
@@ -63,7 +63,7 @@ class NewConnection extends PureComponent {
       <Fragment>
         <AppHeader />
         <SideBar>
-          <ConnectionList data={connections} />
+          <ConnectionList data={connections} onItemClick={this.onQuickConnect} />
         </SideBar>
         <MainContent>
           {error && <ConnectionError>{error}</ConnectionError>}
@@ -84,4 +84,4 @@ class NewConnection extends PureComponent {
 }
 NewConnection.propTypes = {}
 
-export default NewConnection
+export default withRouter(NewConnection)
