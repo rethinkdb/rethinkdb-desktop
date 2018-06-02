@@ -1,6 +1,7 @@
 import connection from '../connection'
 import { connect } from '../ipc'
 import { saveConnection as mockedSaveConnection } from '../../helpers/connectionStore'
+import { getConnectionList as mockedGetConnectionList } from '../../helpers/connectionStore'
 
 jest.mock('../ipc')
 jest.mock('../../helpers/connectionStore')
@@ -40,4 +41,9 @@ test('create - un-verified successful connection return error', async () => {
   connect.mockImplementationOnce(() => Promise.resolve({ socket: { isOpen: false } }))
   const result = await connection.create(conn)
   expect(result).toEqual({ error: 'could not establish connection' })
+})
+
+test('getConnections - calls the right store method', () => {
+  connection.getConnections()
+  expect(mockedGetConnectionList).toBeCalled()
 })

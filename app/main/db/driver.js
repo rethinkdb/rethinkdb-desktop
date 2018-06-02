@@ -20,9 +20,9 @@ const driver = {
       connection = await r.connect(options)
       console.info('connected')
       return connection
-    } catch (e) {
-      console.error(e)
-      return e
+    } catch (error) {
+      console.error(error)
+      return { error }
     }
   },
   async disconnect() {

@@ -47,13 +47,13 @@ test('remove connection', () => {
 test('prevents duplicate entries', () => {
   saveConnection({ name: 'test', address: 'test:8888' })
   saveConnection({ name: 'test', address: 'test:8888' })
-  expect(getConnectionList().length).toBe(1)
+  expect(getConnectionList()).toHaveLength(1)
 })
 
 test('saving multiple', () => {
   saveConnection({ name: 'test', address: 'test:8888' })
   saveConnection({ name: 'test', address: 'test:8889' })
-  expect(getConnectionList().length).toBe(2)
+  expect(getConnectionList()).toHaveLength(2)
 })
 
 test('able to update connection', () => {
@@ -61,4 +61,9 @@ test('able to update connection', () => {
   updateConnection(uid, { name: 'test2' })
   const result = getConnection(uid)
   expect(result.name).toBe('test2')
+})
+
+test('getConnectionList can handle empty store', () => {
+  expect(getConnectionList()).toBeDefined()
+  expect(getConnectionList()).toHaveLength(0)
 })
