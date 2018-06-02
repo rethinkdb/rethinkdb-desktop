@@ -2,12 +2,8 @@ const { spawn } = require('child_process')
 const path = require('path')
 const webpack = require('webpack')
 
-const ErrorOverlayPlugin = require('error-overlay-webpack-plugin')
-
 const PORT = process.env.PORT || 7000
 const PUBLIC_PATH = `http://localhost:${PORT}/dist/`
-
-console.log(path.resolve(__dirname, 'app', 'renderer'))
 
 module.exports = {
   bail: true,
@@ -55,15 +51,10 @@ module.exports = {
 
   // plugins
   plugins: [
-    new ErrorOverlayPlugin(),
     new webpack.HotModuleReplacementPlugin({
       multiStep: true
     }),
     new webpack.NoEmitOnErrorsPlugin(),
-    new webpack.LoaderOptionsPlugin({
-      debug: true
-    }),
-
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('development')

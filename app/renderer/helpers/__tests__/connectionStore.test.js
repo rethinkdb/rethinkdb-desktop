@@ -8,7 +8,7 @@ import {
 
 import {
   getConnection,
-  addConnection,
+  saveConnection,
   getConnectionList,
   removeConnection,
   updateConnection,
@@ -24,25 +24,19 @@ beforeEach(() => {
 })
 
 test('use defaults ---> default name', () => {
-  let uid = addConnection({ host: 'foo' })
+  let uid = saveConnection({ host: 'foo' })
   const result = getConnection(uid)
   expect(result.name).toBe(CONNECTION_DEFAULT_NAME)
 })
 
-test('use defaults ---> default host', () => {
-  let uid = addConnection({ name: 'foo' })
+test('use defaults ---> default address', () => {
+  let uid = saveConnection({ name: 'foo' })
   const result = getConnection(uid)
-  expect(result.host).toBe(CONNECTION_DEFAULT_HOST)
-})
-
-test('use defaults ---> default port', () => {
-  let uid = addConnection({ name: 'foo' })
-  const result = getConnection(uid)
-  expect(result.port).toBe(CONNECTION_DEFAULT_PORT)
+  expect(result.address).toBe(`${CONNECTION_DEFAULT_HOST}:${CONNECTION_DEFAULT_PORT}`)
 })
 
 test('remove connection', () => {
-  let uid = addConnection({ host: 'test' })
+  let uid = saveConnection({ address: 'test:123' })
   const result = getConnection(uid)
   expect(result.name).toBe(CONNECTION_DEFAULT_NAME)
   removeConnection(uid)
@@ -51,20 +45,25 @@ test('remove connection', () => {
 })
 
 test('prevents duplicate entries', () => {
-  addConnection({ name: 'test', host: 'test', port: 8888 })
-  addConnection({ name: 'test', host: 'test', port: 8888 })
-  expect(Object.keys(getConnectionList()).length).toBe(1)
+  saveConnection({ name: 'test', address: 'test:8888' })
+  saveConnection({ name: 'test', address: 'test:8888' })
+  expect(getConnectionList()).toHaveLength(1)
 })
 
-test('adding multiple', () => {
-  addConnection({ name: 'test', host: 'test', port: 1 })
-  addConnection({ name: 'test', host: 'test', port: 2 })
-  expect(Object.keys(getConnectionList()).length).toBe(2)
+test('saving multiple', () => {
+  saveConnection({ name: 'test', address: 'test:8888' })
+  saveConnection({ name: 'test', address: 'test:8889' })
+  expect(getConnectionList()).toHaveLength(2)
 })
 
 test('able to update connection', () => {
-  let uid = addConnection({ name: 'test1', host: 'test', port: 1 })
+  let uid = saveConnection({ name: 'test1', address: 'test:8888' })
   updateConnection(uid, { name: 'test2' })
   const result = getConnection(uid)
   expect(result.name).toBe('test2')
+})
+
+test('getConnectionList can handle empty store', () => {
+  expect(getConnectionList()).toBeDefined()
+  expect(getConnectionList()).toHaveLength(0)
 })

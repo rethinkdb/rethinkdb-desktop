@@ -1,17 +1,8 @@
-const { URL } = require('url')
-
 const { connect } = require('./driver')
-
 const ipc = require('electron-better-ipc')
+const url = require('../helpers/url')
 
-ipc.answerRenderer('connect', async ({ name, address }) => {
-  try {
-    const { protocol, hostname, port } = new URL(address)
-    const host = ['http://', 'https://'].includes(protocol) ? protocol + hostname : hostname
-    await connect({ host, port })
-    return Promise.resolve({ status: 'success', name })
-  } catch (e) {
-    console.error(e)
-    return Promise.reject(new Error(e))
-  }
+ipc.answerRenderer('connect', ({ name, address }) => {
+  const { host, port } = url.extract(address)
+  return connect({ host, port })
 })

@@ -1,17 +1,33 @@
-const r = require('rethinkdbdash')
+const { r } = require('rebirthdbts')
+// const r = require('rethinkdb')
 
 let connection
 
 const driver = {
-  connect(config) {
-    if (connection) {
-      driver.disconnect()
-    }
-    return r(config)
+  getConnection() {
+    return connection
   },
-  disconnect() {
-    if (connection && connection.getPoolMaster) {
-      connection.getPoolMaster().drain()
+  connect: async function(config = {}) {
+    try {
+      const options = { pool: false, servers: [{ ...config }] }
+      if (connection) {
+        console.info('there is an active connection - closing current connection')
+        await driver.disconnect()
+        console.info('closed')
+      }
+
+      console.info('new connection request')
+      connection = await r.connect(options)
+      console.info('connected')
+      return connection
+    } catch (error) {
+      console.error(error)
+      return { error }
+    }
+  },
+  async disconnect() {
+    if (connection && connection.close) {
+      return connection.close()
     }
   }
 }

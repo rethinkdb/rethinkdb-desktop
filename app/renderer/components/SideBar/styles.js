@@ -12,16 +12,16 @@ export const StyledSideBar = styled('aside')(props => ({
 
 export const Logo = styled('div')(props => ({
   position: 'absolute',
-  bottom: '100px',
+  bottom: '70px',
   textAlign: 'center',
   width: '100%',
 
-  '> span':  {
-    fontSize: '22px',
+  '> span': {
+    fontSize: '18px',
     fontFamily: 'Quicksand',
     fontWeight: 700,
-    color: theme.contrastTextColor,
-    border: 'solid #fff',
-    borderWidth: '3px 0'
+    color: theme.mainColorLight,
+    border: `solid ${theme.mainColorLight}`,
+    borderWidth: '1px 0'
   }
 }))

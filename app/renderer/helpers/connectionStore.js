@@ -8,23 +8,21 @@ import {
 
 const getHash = str => stringHash(str)
 export const removeConnection = uid => storage.delete(uid)
-export const getConnectionList = () => storage.store
 export const clear = () => storage.clear()
 
-export const addConnection = ({
+export const saveConnection = ({
   name = CONNECTION_DEFAULT_NAME,
-  host = CONNECTION_DEFAULT_HOST,
-  port = CONNECTION_DEFAULT_PORT
+  address = `${CONNECTION_DEFAULT_HOST}:${CONNECTION_DEFAULT_PORT}`
 }) => {
-  const uid = getHash(name + host + port)
+  const uid = getHash(name + address)
   if (!storage.has(uid)) {
-    storage.set(uid, { name, host, port })
+    storage.set(uid, { name, address })
     return uid
   }
 }
 
-export const updateConnection = (uid, { name, host, port }) => {
-  const obj = { name, host, port }
+export const updateConnection = (uid, { name, address }) => {
+  const obj = { name, address }
   const current = getConnection(uid)
   Object.keys(obj).forEach(key => obj[key] === undefined && delete obj[key])
   const updated = Object.assign({}, current, obj)
@@ -35,4 +33,15 @@ export const updateConnection = (uid, { name, host, port }) => {
 export const getConnection = uid => {
   const connection = storage.get(uid)
   return connection || {}
+}
+
+export const getConnectionList = () => {
+  // transform from key:value to collection
+  const items = storage.store
+  const keys = Object.keys(items)
+  if (keys.length) {
+    return keys.map(key => ({ id: key, ...items[key] }))
+  } else {
+    return []
+  }
 }
