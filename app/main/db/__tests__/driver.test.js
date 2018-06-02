@@ -1,5 +1,5 @@
 import driver from '../driver'
-import {r as mockedR} from 'rebirthdbts'
+import { r as mockedR } from 'rebirthdbts'
 
 const conn = { pool: false, servers: [{ host: 'test', port: 3000 }] }
 const conn2 = { pool: false, servers: [{ host: 'test2', port: 3000 }] }
