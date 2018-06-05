@@ -7,9 +7,8 @@ const driver = {
   getConnection() {
     return connection
   },
-  async getStats() {
-    const data = await r.db('rethinkdb').table('stats').filter(row => row('id').nth(0).eq('server')).coerceTo('array').run(connection)
-    return data
+  getServers() {
+    return r.db('rethinkdb').table('stats').filter(row => row('id').nth(0).eq('server')).coerceTo('array').run(connection)
   },
   connect: async function(config = {}) {
     try {

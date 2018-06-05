@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'react-emotion'
 import theme from '@/style/common'
+import {ServersConsumer} from '../../contexts/servers'
 
 const List = styled.ul`
   background: ${theme.infoBarsColor};
@@ -18,12 +19,16 @@ const Item = styled.li`
 `
 
 const Info = () => (
-  <List>
-    <Item>Connected to</Item>
-    <Item>Issued</Item>
-    <Item>Servers</Item>
-    <Item>Tables</Item>
-  </List>
+  <ServersConsumer>
+    {servers => {
+      return <List>
+        <Item>Connected to {servers[0] ? JSON.stringify(servers[0].server) : ''}</Item>
+        <Item>Issued</Item>
+        <Item>{servers.length} {servers.length > 1 ? 'Servers' : 'Server'}</Item>
+        <Item>Tables</Item>
+      </List>
+    }}
+  </ServersConsumer>
 )
 
 export default Info

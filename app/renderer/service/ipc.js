@@ -4,6 +4,6 @@ export const connect = ({ name, address }) => {
   return ipc.callMain('connect', { name, address })
 }
 
-export const getStats = () => {
-  return ipc.callMain('stats')
+export const getServers = () => {
+  return ipc.callMain('servers')
 }

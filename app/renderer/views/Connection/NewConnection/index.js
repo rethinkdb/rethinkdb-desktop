@@ -33,9 +33,7 @@ class NewConnection extends PureComponent {
       const { history } = this.props
       this.setState({ connecting: false })
       this.fetchConnections()
-      setTimeout(() => {
-        this.fetchStats()
-      }, 2000);
+      this.props.onConnected(connection);
       history.push('/dashboard')
     }
   }
@@ -54,12 +52,6 @@ class NewConnection extends PureComponent {
   fetchConnections = () => {
     const connectionList = connection.getConnections()
     this.setState({ connections: connectionList })
-  }
-
-  async fetchStats() {
-    const stats = await connection.getStats()
-    console.log('stats')
-    console.log(stats)
   }
 
   componentDidMount() {

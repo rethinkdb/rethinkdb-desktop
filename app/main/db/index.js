@@ -1,4 +1,4 @@
-const { connect, getStats } = require('./driver')
+const { connect, getServers } = require('./driver')
 const ipc = require('electron-better-ipc')
 const url = require('../helpers/url')
 
@@ -7,6 +7,4 @@ ipc.answerRenderer('connect', ({ name, address }) => {
   return connect({ host, port })
 })
 
-ipc.answerRenderer('stats', () => {
-  return getStats()
-})
+ipc.answerRenderer('servers', () => getServers())
