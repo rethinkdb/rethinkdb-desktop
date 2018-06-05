@@ -7597,7 +7597,7 @@ realpath-native@^1.0.0:
 
 "rebirthdbts@https://github.com/ronzeidman/rebirthdbts.git":
   version "0.0.1"
-  resolved "https://github.com/ronzeidman/rebirthdbts.git#dd9692abe0a6131cb44d07315e1ce246f974a10b"
+  resolved "https://github.com/ronzeidman/rebirthdbts.git#ce55f08cfad6e38720ac27b868eac677ead61113"
 
 recast@^0.12.5:
   version "0.12.9"

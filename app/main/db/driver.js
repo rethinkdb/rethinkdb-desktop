@@ -8,14 +8,8 @@ const driver = {
     return connection
   },
   async getStats() {
-    const stam1 = await r.table('stam').get('80b4ce56-659e-48a2-a518-75be1b53a5d0')
-    console.log(stam1) //{ [Function]
-                       // term: [ 16, [ [Array], '80b4ce56-659e-48a2-a518-75be1b53a5d0' ] ] }
-
-    const stam2 = await connection.table('stam').get('80b4ce56-659e-48a2-a518-75be1b53a5d0')
-    console.log(stam2) // stuck...
-    console.log('oooo')
-    return stam1;
+    const data = await r.db('rethinkdb').table('stats').filter(row => row('id').nth(0).eq('server')).coerceTo('array').run(connection)
+    return data
   },
   connect: async function(config = {}) {
     try {
