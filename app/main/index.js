@@ -1,5 +1,7 @@
-// const { ipcMain } = require('electron')
+require('./db')
 
-function init() {}
+function init() {
+  console.log('registering IPC handlers...')
+}
 
 module.exports = init
