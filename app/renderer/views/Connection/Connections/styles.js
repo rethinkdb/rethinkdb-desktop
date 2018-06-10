@@ -1,4 +1,4 @@
-import styled from 'react-emotion'
+import styled, { css } from 'react-emotion'
 import theme from '@/style/common'
 
 export const StyledConnectionList = styled('ul')({
@@ -6,20 +6,19 @@ export const StyledConnectionList = styled('ul')({
   listStyle: 'none'
 })
 
-export const StyledConnectionItem = styled('div')(props => ({
-  fontSize: '11px',
+export const StyledConnectionItem = styled('li')(props => ({
+  fontSize: '14px',
   padding: '5px 0',
-  borderRadius: '5px',
   marginBottom: '5px',
   position: 'relative',
   paddingLeft: '15px',
-  wordBreak: 'break-word',
   color: theme.mainColorLight,
+  display: 'flex',
   '&:before': {
     content: '""',
     position: 'absolute',
     left: 0,
-    top: '10px',
+    top: '9px',
     background: props.color,
     width: '8px',
     height: '8px',
@@ -29,3 +28,27 @@ export const StyledConnectionItem = styled('div')(props => ({
     color: theme.contrastTextColor
   }
 }))
+
+export const StyledConnectionName = styled('span')(props => ({
+  marginRight: 'auto',
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
+  whiteSpace: 'nowrap',
+  cursor: 'pointer',
+  '&:hover': {
+    color: theme.contrastTextColor
+  }
+}))
+
+export const StyledActionsButton = styled('span')(props => ({
+  cursor: 'pointer',
+  '&:hover': {
+    color: theme.contrastTextColor
+  }
+}))
+
+export const MenuItemIcon = css({
+  'i': {
+    marginRight: '10px'
+  }
+})

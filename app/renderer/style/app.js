@@ -1,5 +1,4 @@
 import { injectGlobal } from 'react-emotion'
-
 import theme from './common.js'
 
 injectGlobal`

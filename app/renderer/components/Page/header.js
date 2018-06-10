@@ -29,7 +29,7 @@ const Container = styled.header`
 
 const Header = () => (
   <Container>
-    <a>RebirthDB</a>
+    <Link to="/newConnection">Rebirth<span>DB</span></Link>
     <nav>
       <ul>
         <li>

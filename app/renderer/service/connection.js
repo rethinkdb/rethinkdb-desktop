@@ -1,5 +1,5 @@
 import { connect } from './ipc'
-import { saveConnection, getConnectionList } from '../helpers/connectionStore'
+import { saveConnection, getConnectionList, removeConnection } from '../helpers/connectionStore'
 
 const connection = {
   async create({ name, address }) {
@@ -16,6 +16,11 @@ const connection = {
       return { error: e.message }
     }
   },
+
+  deleteConnection(id) {
+    removeConnection(id)
+  },
+
   getConnections() {
     return getConnectionList()
   }

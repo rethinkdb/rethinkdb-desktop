@@ -9,7 +9,7 @@ const toTitle = (error, componentStack) => {
 
 const ErrorBoundaryFallbackComponent = ({ componentStack, error }) => (
   <ErrorBoundryMessage>
-    <Icon type="error" size={96} color="#FD6585" />
+    <Icon className="error-icon" type="error" size={52} color="#29d829" />
     <h2>Something went wrong...</h2>
     <pre>{toTitle(error, componentStack)}</pre>
   </ErrorBoundryMessage>

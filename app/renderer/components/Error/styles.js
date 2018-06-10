@@ -1,26 +1,29 @@
 import styled, { css } from 'react-emotion'
+import theme from '@/style/common'
 
 const baseError = css`
   width: 100%;
-  top: 50%;
-  left: 50%;
-  position: absolute;
-  transform: translate(-50%, -50%);
+  height: 100%;
+  top: ${theme.appHeaderHeight};
+  left: 0;
+  position: fixed;
   text-align: center;
-
+  background: #000;
+  color: #29d829;
+  margin-top: 10px;
+  font-size: 10px;
+  padding: 5px;
+  text-align: left;
+  padding: 10px;
   h2 {
     font-weight: 700;
     margin: 20px 0;
     font-size: 22px;
   }
-  pre {
-    overflow: scroll;
-    margin-top: 10px;
-    font-size: 10px;
-    padding: 5px;
-    background: #000;
-    color: #00ff00;
-    text-align: left;
+  .error-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
   }
 `
 

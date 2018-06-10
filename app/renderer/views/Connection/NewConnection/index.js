@@ -20,7 +20,8 @@ class NewConnection extends PureComponent {
     this.defaultName = CONNECTION_DEFAULT_NAME
     this.defaultAddress = `${CONNECTION_DEFAULT_HOST}:${CONNECTION_DEFAULT_PORT}`
     this.state = {
-      connections: []
+      error: undefined,
+      connecting: false
     }
   }
 
@@ -32,7 +33,6 @@ class NewConnection extends PureComponent {
     } else {
       const { history } = this.props
       this.setState({ connecting: false })
-      this.fetchConnections()
       history.push('/dashboard')
     }
   }
@@ -48,22 +48,14 @@ class NewConnection extends PureComponent {
 
   onQuickConnect = ({ address }) => this.makeConnectionRequest({ address })
 
-  fetchConnections = () => {
-    const connectionList = connection.getConnections()
-    this.setState({ connections: connectionList })
-  }
-
-  componentDidMount() {
-    this.fetchConnections()
-  }
 
   render() {
-    const { error, connecting, connections } = this.state
+    const { error, connecting } = this.state
     return (
       <Fragment>
         <AppHeader />
         <SideBar>
-          <ConnectionList data={connections} onItemClick={this.onQuickConnect} />
+          <ConnectionList onItemClick={this.onQuickConnect} />
         </SideBar>
         <MainContent>
           {error && <ConnectionError>{error}</ConnectionError>}
