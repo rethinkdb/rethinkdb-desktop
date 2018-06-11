@@ -1,12 +1,18 @@
-import styled from 'react-emotion'
+import styled, { css } from 'react-emotion'
 import theme from '@/style/common'
 
-export const StyledNewConnection = styled('div')({
+export const StyledEditForm = styled('div')({
   position: 'absolute',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: '280px',
+  '.title': {
+    textAlign: 'center',
+    'h2': {
+      margin: '15px 0'
+    },
+  },
   '.row': {
     width: '100%',
     padding: '15px 0',
@@ -46,36 +52,17 @@ export const StyledNewConnection = styled('div')({
   }
 })
 
-export const ConnectionInfo = styled('p')({
-  fontSize: '10px',
+export const GoBackLink = css({
+  fontSize: '14px',
+  textDecoration: 'none',
   letterSpacing: '1px',
   color: theme.secTextColor,
   position: 'absolute',
-  bottom: '20%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  '> span': {
-    fontWeight: 700
-  }
+  top: '58px',
+  left: '20px',
+  '&:hover': {
+    color: '#eb48ca'
+  },
 })
 
-export const ConnectionError = styled('p')({
-  fontSize: '12px',
-  fontWeight: 700,
-  letterSpacing: '1px',
-  color: theme.error,
-  position: 'absolute',
-  top: '20%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)'
-})
 
-export const Connecting = styled('p')({
-  fontSize: '14px',
-  fontWeight: 700,
-  color: theme.info,
-  position: 'absolute',
-  top: '20%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)'
-})
