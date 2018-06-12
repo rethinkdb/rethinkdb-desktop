@@ -7,7 +7,7 @@ export const Title = styled('h2')({
   top: '32%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: '280px',
+  width: '280px'
 })
 
 export const StyledNewConnection = styled('div')({

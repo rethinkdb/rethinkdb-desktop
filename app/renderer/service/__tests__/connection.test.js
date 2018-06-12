@@ -8,12 +8,12 @@ jest.mock('../../helpers/connectionStore')
 
 const conn = { name: 'test', address: 'foo:3000' }
 const conn2 = { address: 'foo:3000' }
-const error = { error: 'oi vy' }
+const error = new Error('oi vy')
 
 test('create - unsuccessful connection return error object', async () => {
-  connect.mockImplementationOnce(() => Promise.reject(new Error('oi vy')))
+  connect.mockImplementationOnce(() => Promise.reject(error))
   const result = await connection.create(conn)
-  expect(result).toEqual(error)
+  expect(result.error).toEqual(error)
 })
 
 test('create - verified successful connection return status', async () => {
