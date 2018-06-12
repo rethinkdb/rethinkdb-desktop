@@ -5,7 +5,7 @@ export default {
   mainColorLight: '#ad8cd1',
   secColor: '#F1F0F9',
   mainLightColor: '#f7f7f7',
-  mainGradient: 'linear-gradient( 180deg, #FF6FD8 10%, #3813C2 100%)',
+  mainGradient: 'linear-gradient(180deg, #FF6FD8 10%, #3813C2 100%)',
   mainBorderColor: '#d9d8ff',
   success: '#1ad1b5',
   error: '#FD6585',
@@ -19,5 +19,7 @@ export default {
   grayTextColor: '#8f8e9b',
   // elements dimensions
   appHeaderHeight: '38px',
-  sideBarWidth: '180px'
+  sideBarWidth: '180px',
+  headerBackground: '#272729',
+  headerGradient: '0 1px 3px rgba(0,0,0,.2), inset 0 -2px 4px rgba(0,0,0,.15)'
 }

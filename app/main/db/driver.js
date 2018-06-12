@@ -1,4 +1,5 @@
 const { r } = require('rebirthdb-ts')
+const { getServers, getTables } = require('./queries/stats')
 // const r = require('rethinkdb')
 
 let connection
@@ -6,6 +7,12 @@ let connection
 const driver = {
   getConnection() {
     return connection
+  },
+  getServers() {
+    return getServers().run(connection)
+  },
+  getTables() {
+    return getTables().run(connection)
   },
   connect: async function(config = {}) {
     if (connection) {
