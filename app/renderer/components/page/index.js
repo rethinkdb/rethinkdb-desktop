@@ -12,7 +12,7 @@ const Container = styled.div`
 
 const Body = styled.div`
   flex: 1;
-  background: #E5E5E5;
+  background: #e5e5e5;
   color: black;
 `
 

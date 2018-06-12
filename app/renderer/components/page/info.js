@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'react-emotion'
 import theme from '@/style/common'
-import {ServersConsumer} from '../../contexts/servers'
-import {TablesConsumer} from '../../contexts/tables'
+import { ServersConsumer } from '../../contexts/servers'
+import { TablesConsumer } from '../../contexts/tables'
 import _Icon from '../Icon'
 
 const List = styled.ul`
@@ -12,7 +12,7 @@ const List = styled.ul`
   padding: 1rem 10%;
   list-style: none;
   color: black;
-  box-shadow: 0 1px 0 rgba(255,255,255,.4), inset 0 -1px 1px #c3c3c3;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4), inset 0 -1px 1px #c3c3c3;
   border-bottom: thin solid #d0d0d0;
 `
 
@@ -52,7 +52,7 @@ const JJ = styled.div`
   font-weight: bold;
 `
 
-const Info = () =>
+const Info = () => (
   <List>
     <Item>
       <DD>
@@ -61,7 +61,7 @@ const Info = () =>
       <FF>
         <KK>Connected to</KK>
         <ServersConsumer>
-        {servers => <JJ>{servers[0] ? JSON.stringify(servers[0].server) : ''}</JJ>}
+          {servers => <JJ>{servers[0] ? JSON.stringify(servers[0].server) : ''}</JJ>}
         </ServersConsumer>
       </FF>
     </Item>
@@ -80,9 +80,7 @@ const Info = () =>
       </DD>
       <FF>
         <kk>Servers</kk>
-        <ServersConsumer>
-        {servers => <JJ>{servers.length} Connected</JJ>}
-        </ServersConsumer>
+        <ServersConsumer>{servers => <JJ>{servers.length} Connected</JJ>}</ServersConsumer>
       </FF>
     </Item>
     <Item>
@@ -92,10 +90,15 @@ const Info = () =>
       <FF>
         <KK>Tables</KK>
         <TablesConsumer>
-        {tables => <JJ>{tables.length}/{tables.length} ready</JJ>}
+          {tables => (
+            <JJ>
+              {tables.length}/{tables.length} ready
+            </JJ>
+          )}
         </TablesConsumer>
       </FF>
     </Item>
   </List>
+)
 
 export default Info

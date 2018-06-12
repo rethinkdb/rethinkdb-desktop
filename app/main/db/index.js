@@ -13,13 +13,13 @@ ipc.answerRenderer('connect', ({ name, address }) => {
 })
 
 Object.keys(queries).forEach(name => {
-  const action = queries[name];
+  const action = queries[name]
   ipc.answerRenderer(name, () => {
     try {
       return action(arguments)
     } catch (e) {
-      console.error(name, e);
-      throw e;
+      console.error(name, e)
+      throw e
     }
   })
-});
+})

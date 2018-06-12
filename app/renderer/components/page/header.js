@@ -14,7 +14,6 @@ const Container = styled.header`
     flex: 1;
     margin-left: 5rem;
   }
-  
 
   ul {
     display: flex;
@@ -28,7 +27,7 @@ const Container = styled.header`
         font-size: 1rem;
         text-decoration: none;
         font-weight: bolder;
-        
+
         &.active {
           color: white;
         }
@@ -38,12 +37,12 @@ const Container = styled.header`
 `
 
 const Logo = styled(Link)`
-  font-family: "Copse";
+  font-family: 'Copse';
   color: white;
   text-decoration: none;
   font-size: 1.5rem;
   font-weight: bolder;
-  
+
   span {
     color: ${theme.info};
   }
@@ -51,20 +50,30 @@ const Logo = styled(Link)`
 
 const Header = () => (
   <Container>
-    <Logo to="/newConnection">Rebirth<span>DB</span></Logo>
+    <Logo to="/newConnection">
+      Rebirth<span>DB</span>
+    </Logo>
     <nav>
       <ul>
         <li>
-          <NavLink to="/dashboard" activeClassName="active">Dashboard</NavLink>
-        </li  >
-        <li>
-          <NavLink to="/tables" activeClassName="active">Tables</NavLink>
+          <NavLink to="/dashboard" activeClassName="active">
+            Dashboard
+          </NavLink>
         </li>
         <li>
-          <NavLink to="/explorer" activeClassName="active">Data Explorer</NavLink>
+          <NavLink to="/tables" activeClassName="active">
+            Tables
+          </NavLink>
         </li>
         <li>
-          <NavLink to="/logs" activeClassName="active">Logs</NavLink>
+          <NavLink to="/explorer" activeClassName="active">
+            Data Explorer
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/logs" activeClassName="active">
+            Logs
+          </NavLink>
         </li>
       </ul>
     </nav>

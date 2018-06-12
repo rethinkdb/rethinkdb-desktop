@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { hot } from 'react-hot-loader'
 import { Router } from 'react-router'
 import Routes from './routes'
-import {ServersProvider} from './contexts/servers'
-import {TablesProvider} from './contexts/tables'
+import { ServersProvider } from './contexts/servers'
+import { TablesProvider } from './contexts/tables'
 import createHashHistory from 'history/createHashHistory'
 
 import './components/Icon/icons'
@@ -19,32 +19,29 @@ class App extends Component {
 
   componentDidMount() {}
 
-  onConnected = (connection) => {
-    this.registerForStats(connection);
+  onConnected = connection => {
+    this.registerForStats(connection)
   }
 
   registerForStats(connection) {
     if (this.statsFetchInterval) {
-      clearInterval(this.statsFetchInterval);
+      clearInterval(this.statsFetchInterval)
     }
 
     this.statsFetchInterval = setInterval(async () => {
-      const [servers, tables] = await Promise.all([
-        connection.getServers(),
-        connection.getTables()
-      ]);
+      const [servers, tables] = await Promise.all([connection.getServers(), connection.getTables()])
 
       this.setState({ servers, tables })
-    }, 2000);
+    }, 2000)
   }
 
   render() {
-    const {servers, tables} = this.state
+    const { servers, tables } = this.state
     return (
       <ServersProvider value={servers}>
         <TablesProvider value={tables}>
           <Router history={history}>
-            <Routes onConnected={this.onConnected}/>
+            <Routes onConnected={this.onConnected} />
           </Router>
         </TablesProvider>
       </ServersProvider>

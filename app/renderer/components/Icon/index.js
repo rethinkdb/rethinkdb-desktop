@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 const Icon = ({ type = '', size = 24, color = '#000', className = 'rebirth-icon' }) => {
   return (
-    <span className={className} style={{width: size, height: size}}>
+    <span className={className} style={{ width: size, height: size }}>
       <svg width={size} height={size} fill={color}>
         <use xlinkHref={`#${type}`} />
       </svg>
