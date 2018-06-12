@@ -1,14 +1,14 @@
 import React from 'react'
-//import { slide as Menu } from 'react-burger-menu'
+// import { slide as Menu } from 'react-burger-menu'
 import { StyledSideBar, Logo } from './styles.js'
 const SideBar = ({ children }) => {
   return (
-      <StyledSideBar>
-        {children}
-        <Logo>
-          <span>ReBirth</span>
-        </Logo>
-      </StyledSideBar>
+    <StyledSideBar>
+      {children}
+      <Logo>
+        <span>ReBirth</span>
+      </Logo>
+    </StyledSideBar>
   )
 }
 

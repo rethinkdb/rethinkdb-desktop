@@ -1,6 +1,7 @@
 import React, { PureComponent, Fragment } from 'react'
 import connection from '../../../service/connection'
 import AppHeader from '../../../components/AppHeader'
+import Toast, { ToastContainer } from '../../../components/Toast'
 import EditConnectionForm from './EditConnectionForm'
 
 class EditConnection extends PureComponent {
@@ -12,8 +13,11 @@ class EditConnection extends PureComponent {
     }
   }
 
-  onSaveConnection = (values) => {
-    connection.update(this.state.id, values)
+  onSaveConnection = values => {
+    try {
+      connection.update(this.state.id, values)
+      Toast.success('Connection saved!')
+    } catch (e) {}
   }
 
   componentDidMount() {
@@ -23,7 +27,7 @@ class EditConnection extends PureComponent {
       }
     } = this.props
     const selected = connection.getConnectionById(id)
-    this.setState({selected, id})
+    this.setState({ selected, id })
   }
 
   render() {
@@ -31,6 +35,7 @@ class EditConnection extends PureComponent {
     return (
       <Fragment>
         <AppHeader />
+        <ToastContainer stack effect="slide" timeout={3000} offset={20} />
         <EditConnectionForm connection={selected} onSave={this.onSaveConnection} />
       </Fragment>
     )

@@ -51,8 +51,10 @@
     "react-error-boundary": "^1.2.2",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
-    "rebirthdbts": "https://github.com/ronzeidman/rebirthdbts.git",
-    "rethinkdb": "^2.3.3"
+    "react-s-alert": "^1.4.1",
+    "rebirthdb-ts": "https://github.com/rebirthdb/rebirthdb-ts.git",
+    "rethinkdb": "^2.3.3",
+    "shortid": "^2.2.8"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",

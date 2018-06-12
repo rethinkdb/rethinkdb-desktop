@@ -10,15 +10,12 @@ const EditConnectionForm = () => {
       </a>
       <StyledEditForm>
         <div className="title">
-          <Icon type="database" size={32} /><h2>Manage Connection</h2>
+          <Icon type="database" size={32} />
+          <h2>Manage Connection</h2>
         </div>
         <Form>
           <div className="row">
-            <Field
-              name="name"
-              type="text"
-              maxLength={20}
-            />
+            <Field name="name" type="text" maxLength={20} />
           </div>
           <div className="row">
             <Field name="address" type="text" />
@@ -40,7 +37,7 @@ export default withFormik({
       address: connection.address || ''
     }
   },
-  handleSubmit(values, {props}) {
+  handleSubmit(values, { props }) {
     props.onSave(values)
   }
 })(EditConnectionForm)

@@ -17,11 +17,11 @@ class ConnectionList extends PureComponent {
     this.setState({ connections: connectionList })
   }
 
-  onEditConnection = (id) => {
+  onEditConnection = id => {
     window.location.hash = `#/editConnection/${id}`
   }
 
-  onDeleteConnection = (id) => {
+  onDeleteConnection = id => {
     connection.deleteConnection(id)
     this.fetchConnections()
   }

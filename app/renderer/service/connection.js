@@ -19,7 +19,7 @@ const connection = {
         return { error: 'could not establish connection' }
       }
     } catch (e) {
-      return { error: e.message }
+      return { error: e }
     }
   },
   update(id, values) {

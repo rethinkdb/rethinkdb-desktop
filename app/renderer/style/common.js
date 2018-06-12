@@ -7,6 +7,7 @@ export default {
   mainLightColor: '#f7f7f7',
   mainGradient: 'linear-gradient( 180deg, #FF6FD8 10%, #3813C2 100%)',
   mainBorderColor: '#d9d8ff',
+  success: '#1ad1b5',
   error: '#FD6585',
   info: '#4C83FF',
   // text

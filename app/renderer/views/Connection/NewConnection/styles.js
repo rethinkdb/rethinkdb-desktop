@@ -79,3 +79,10 @@ export const Connecting = styled('p')({
   left: '50%',
   transform: 'translate(-50%, -50%)'
 })
+
+export const Logo = styled('img')({
+  position: 'absolute',
+  top: '45%',
+  left: '30%',
+  transform: 'translate(-50%, -50%)'
+})

@@ -48,7 +48,7 @@ export const StyledActionsButton = styled('span')(props => ({
 }))
 
 export const MenuItemIcon = css({
-  'i': {
+  i: {
     marginRight: '10px'
   }
 })

@@ -9,9 +9,9 @@ export const StyledEditForm = styled('div')({
   width: '280px',
   '.title': {
     textAlign: 'center',
-    'h2': {
+    h2: {
       margin: '15px 0'
-    },
+    }
   },
   '.row': {
     width: '100%',
@@ -62,7 +62,5 @@ export const GoBackLink = css({
   left: '20px',
   '&:hover': {
     color: '#eb48ca'
-  },
+  }
 })
-
-

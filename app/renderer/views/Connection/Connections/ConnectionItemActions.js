@@ -27,9 +27,13 @@ class ConnectionItemActions extends PureComponent {
 
   menu = (
     <Menu onSelect={this.onAction}>
-      <MenuItem key="edit" className={MenuItemIcon}><i className="icon-pencil" /> Edit</MenuItem>
+      <MenuItem key="edit" className={MenuItemIcon}>
+        <i className="icon-pencil" /> Edit
+      </MenuItem>
       <Divider />
-      <MenuItem key="delete" className={MenuItemIcon}><i className="icon-trash" /> Delete</MenuItem>
+      <MenuItem key="delete" className={MenuItemIcon}>
+        <i className="icon-trash" /> Delete
+      </MenuItem>
     </Menu>
   )
 
@@ -41,7 +45,9 @@ class ConnectionItemActions extends PureComponent {
         animation="slide-up"
         onVisibleChange={this.onVisibleChange}
       >
-        <StyledActionsButton><i className="icon-options" /></StyledActionsButton>
+        <StyledActionsButton>
+          <i className="icon-options" />
+        </StyledActionsButton>
       </Dropdown>
     )
   }
