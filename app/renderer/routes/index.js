@@ -11,7 +11,7 @@ import Explorer from '../views/Explorer'
 import Logs from '../views/Logs'
 
 class Routes extends Component {
-  newConnection () {
+  newConnection = () => {
     return <NewConnection onConnected={this.props.onConnected}/>
   }
 
