@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import ErrorBoundary from 'react-error-boundary'
 import Error from '../components/Error'
 import { Switch, Route } from 'react-router'
@@ -10,20 +10,27 @@ import Tables from '../views/Tables'
 import Explorer from '../views/Explorer'
 import Logs from '../views/Logs'
 
-export default ({ onConnected }) => (
-  <ErrorBoundary FallbackComponent={Error}>
-    <Switch>
-      <Route exact path="/" component={Home} />
-      <Route
-        exact
-        path="/newConnection"
-        component={() => <NewConnection onConnected={onConnected} />}
-      />
-      <Route exact path="/editConnection/:id" component={EditConnection} />
-      <Route exact path="/dashboard" component={Dashboard} />
-      <Route exact path="/tables" component={Tables} />
-      <Route exact path="/explorer" component={Explorer} />
-      <Route exact path="/logs" component={Logs} />
-    </Switch>
-  </ErrorBoundary>
-)
+class Routes extends Component {
+  newConnection = () => {
+    return <NewConnection onConnected={this.props.onConnected}/>
+  }
+
+  render() {
+    return <ErrorBoundary FallbackComponent={Error}>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route
+          exact
+          path="/newConnection"
+          component={this.newConnection}
+        />
+        <Route exact path="/editConnection/:id" component={EditConnection} />
+        <Route exact path="/dashboard" component={Dashboard} />
+        <Route exact path="/tables" component={Tables} />
+        <Route exact path="/explorer" component={Explorer} />
+        <Route exact path="/logs" component={Logs} />
+      </Switch>
+    </ErrorBoundary>
+  }
+}
+export default Routes
