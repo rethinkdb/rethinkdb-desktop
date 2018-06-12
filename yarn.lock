@@ -346,6 +346,10 @@ acorn@^5.0.0, acorn@^5.3.0, acorn@^5.5.0:
   version "5.6.1"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.6.1.tgz#c9e50c3e3717cf897f1b071ceadbb543bbc0a8d4"
 
+add@^2.0.6:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/add/-/add-2.0.6.tgz#248f0a9f6e5a528ef2295dbeec30532130ae2235"
+
 address@1.0.3, address@^1.0.1:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/address/-/address-1.0.3.tgz#b5f50631f8d6cec8bd20c963963afb55e06cbce9"
@@ -7595,9 +7599,13 @@ realpath-native@^1.0.0:
   dependencies:
     util.promisify "^1.0.0"
 
-"rebirthdbts@https://github.com/ronzeidman/rebirthdbts.git":
-  version "0.0.1"
-  resolved "https://github.com/ronzeidman/rebirthdbts.git#dd9692abe0a6131cb44d07315e1ce246f974a10b"
+"rebirthdb-ts@https://github.com/rebirthdb/rebirthdb-ts.git":
+  version "2.4.0-beta.2"
+  resolved "https://github.com/rebirthdb/rebirthdb-ts.git#8a280218f3b647ba4bcb0163b34f2f69a3688f49"
+
+rebirthdb-ts@rebirthdb/rebirthdb-ts:
+  version "2.4.0-beta.2"
+  resolved "https://codeload.github.com/rebirthdb/rebirthdb-ts/tar.gz/8a280218f3b647ba4bcb0163b34f2f69a3688f49"
 
 recast@^0.12.5:
   version "0.12.9"
@@ -9665,6 +9673,10 @@ yargs@~3.10.0:
     cliui "^2.1.0"
     decamelize "^1.0.0"
     window-size "0.1.0"
+
+`yarn@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/yarn/-/yarn-1.7.0.tgz#0076b9fde6010e01950526a609bc53bc175ef925"
 
 yauzl@2.4.1:
   version "2.4.1"

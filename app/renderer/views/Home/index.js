@@ -16,11 +16,6 @@ function Home(props) {
         <Link to="/newConnection">
           <Icon type="plus" size={32} />
         </Link>
-        <div>
-          <Link to="/dashboard" style={{ color: 'white', fontSize: '3rem' }}>
-            Temp
-          </Link>
-        </div>
       </div>
     </StyledHome>
   )
