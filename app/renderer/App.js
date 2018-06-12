@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { hot } from 'react-hot-loader'
 import { Router } from 'react-router'
+import createHashHistory from 'history/createHashHistory'
 import Routes from './routes'
 import { ServersProvider } from './contexts/servers'
 import { TablesProvider } from './contexts/tables'
-import createHashHistory from 'history/createHashHistory'
-
+import query from './service/query'
 import './components/Icon/icons'
 import './style/app.js'
 
@@ -17,22 +17,13 @@ class App extends Component {
     servers: []
   }
 
-  componentDidMount() {}
-
-  onConnected = connection => {
-    this.registerForStats(connection)
+  onLiveStats = (data) => {
+    const { servers, tables } = data
+    this.setState({ servers, tables })
   }
 
-  registerForStats(connection) {
-    if (this.statsFetchInterval) {
-      clearInterval(this.statsFetchInterval)
-    }
-
-    this.statsFetchInterval = setInterval(async () => {
-      const [servers, tables] = await Promise.all([connection.getServers(), connection.getTables()])
-
-      this.setState({ servers, tables })
-    }, 2000)
+  componentDidMount() {
+    query.subscribeToLiveStats(this.onLiveStats)
   }
 
   render() {
@@ -41,7 +32,7 @@ class App extends Component {
       <ServersProvider value={servers}>
         <TablesProvider value={tables}>
           <Router history={history}>
-            <Routes onConnected={this.onConnected} />
+            <Routes />
           </Router>
         </TablesProvider>
       </ServersProvider>

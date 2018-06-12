@@ -35,7 +35,7 @@ class NewConnection extends PureComponent {
     } else {
       const { history } = this.props
       this.setState({ connecting: false })
-      this.props.onConnected(connection)
+      // this.props.onConnected(connection)
       history.push('/dashboard')
     }
   }

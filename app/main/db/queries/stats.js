@@ -1,25 +1,14 @@
-const { r } = require('rebirthdb-ts')
+const driver = require('../driver')
+const { serverList } = require('./server')
+const { tableList } = require('./table')
+
+const connection = () => driver.getConnection()
+
+const getStats = () => {
+  if(!connection()) return
+  return Promise.all([serverList(), tableList()])
+}
 
 module.exports = {
-  getServers,
-  getTables
-}
-
-function getServers() {
-  return r
-    .db('rethinkdb')
-    .table('stats')
-    .filter(row =>
-      row('id')
-        .nth(0)
-        .eq('server')
-    )
-    .coerceTo('array')
-}
-
-function getTables() {
-  return r
-    .db('rethinkdb')
-    .table('table_config')
-    .coerceTo('array')
+  getStats
 }

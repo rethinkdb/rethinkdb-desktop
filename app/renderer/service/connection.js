@@ -31,12 +31,6 @@ const connection = {
   getConnectionById(id) {
     return getConnection(id)
   },
-  getServers() {
-    return getServers()
-  },
-  getTables() {
-    return getTables()
-  },
   getConnections() {
     return getConnectionList()
   }
