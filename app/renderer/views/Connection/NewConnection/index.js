@@ -33,6 +33,7 @@ class NewConnection extends PureComponent {
       const { history } = this.props
       this.setState({ connecting: false })
       this.fetchConnections()
+      this.props.onConnected(connection)
       history.push('/dashboard')
     }
   }

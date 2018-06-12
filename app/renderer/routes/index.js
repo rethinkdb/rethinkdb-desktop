@@ -1,6 +1,6 @@
 import React from 'react'
 import ErrorBoundary from 'react-error-boundary'
-import Error from '../components/error'
+import Error from '../components/Error'
 import { Switch, Route } from 'react-router'
 import Home from '../views/Home'
 import NewConnection from '../views/Connection/NewConnection'
@@ -9,11 +9,15 @@ import Tables from '../views/Tables'
 import Explorer from '../views/Explorer'
 import Logs from '../views/Logs'
 
-export default () => (
+export default ({ onConnected }) => (
   <ErrorBoundary FallbackComponent={Error}>
     <Switch>
       <Route exact path="/" component={Home} />
-      <Route exact path="/newConnection" component={NewConnection} />
+      <Route
+        exact
+        path="/newConnection"
+        component={() => <NewConnection onConnected={onConnected} />}
+      />
       <Route exact path="/dashboard" component={Dashboard} />
       <Route exact path="/tables" component={Tables} />
       <Route exact path="/explorer" component={Explorer} />
