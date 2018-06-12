@@ -1,8 +1,8 @@
 import driver from '../driver'
-import { r as mockedR } from 'rebirthdbts'
+import { r as mockedR } from 'rebirthdb-ts'
 
-const conn = { pool: false, servers: [{ host: 'test', port: 3000 }] }
-const conn2 = { pool: false, servers: [{ host: 'test2', port: 3000 }] }
+const conn = { host: 'test', port: 3000 }
+const conn2 = { host: 'test2', port: 3000 }
 const disconnect = driver.disconnect
 
 beforeEach(() => {
@@ -33,11 +33,4 @@ test('driver - return connection', async () => {
   await driver.connect(conn)
   const c = driver.getConnection()
   expect(c).toBeDefined()
-})
-
-test('driver - connect can handle exceptions', async () => {
-  const error = 'Oy Vi'
-  mockedR.connect.mockImplementationOnce(() => Promise.reject(error))
-  const result = await driver.connect(conn)
-  expect(result.error).toBe(error)
 })

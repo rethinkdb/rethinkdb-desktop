@@ -1,5 +1,5 @@
-import React, { PureComponent } from 'react'
-import { StyledNewConnection } from './styles'
+import React, { PureComponent, Fragment } from 'react'
+import { Title, StyledNewConnection } from './styles'
 
 class NewConnectionForm extends PureComponent {
   constructor(props) {
@@ -27,22 +27,25 @@ class NewConnectionForm extends PureComponent {
   render() {
     const { defaultName, defaultAddress } = this.props
     return (
-      <StyledNewConnection>
-        <div className="row">
-          <input
-            type="text"
-            placeholder={defaultName}
-            onChange={this.onNameChange}
-            maxLength={20}
-          />
-        </div>
-        <div className="row">
-          <input type="text" placeholder={defaultAddress} onChange={this.onAddressChange} />
-        </div>
-        <div className="row actions">
-          <button onClick={this.handleCreate}>Connect</button>
-        </div>
-      </StyledNewConnection>
+      <Fragment>
+        <Title>Add New Connection</Title>
+        <StyledNewConnection>
+          <div className="row">
+            <input
+              type="text"
+              placeholder={defaultName}
+              onChange={this.onNameChange}
+              maxLength={20}
+            />
+          </div>
+          <div className="row">
+            <input type="text" placeholder={defaultAddress} onChange={this.onAddressChange} />
+          </div>
+          <div className="row actions">
+            <button onClick={this.handleCreate}>Connect</button>
+          </div>
+        </StyledNewConnection>
+      </Fragment>
     )
   }
 }

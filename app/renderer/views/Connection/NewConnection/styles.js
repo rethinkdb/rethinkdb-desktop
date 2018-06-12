@@ -1,6 +1,15 @@
 import styled from 'react-emotion'
 import theme from '@/style/common'
 
+export const Title = styled('h2')({
+  textAlign: 'center',
+  position: 'absolute',
+  top: '32%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: '280px'
+})
+
 export const StyledNewConnection = styled('div')({
   position: 'absolute',
   top: '50%',
