@@ -1,16 +1,18 @@
 import React from 'react'
 import randomColor from 'randomcolor'
-import { StyledConnectionItem } from './styles'
+import ConnectionItemActions from './ConnectionItemActions'
+import { StyledConnectionItem, StyledConnectionName } from './styles'
 
 const ConnectionItem = props => {
-  const { onItemClick, item } = props
-  const { id, name, address } = item
-  const color = randomColor({ seed: id, luminosity: 'bright' })
+  const { item, onItemClick, onEdit, onDelete } = props
+  const { id, name, address, connectionId } = item
+  const color = randomColor({ seed: connectionId, luminosity: 'bright' })
   const handleClick = () => onItemClick({ id, name, address })
 
   return (
-    <StyledConnectionItem color={color} onClick={handleClick}>
-      {name}
+    <StyledConnectionItem color={color}>
+      <StyledConnectionName onClick={handleClick}>{name}</StyledConnectionName>
+      <ConnectionItemActions connectionId={id} onEdit={onEdit} onDelete={onDelete} />
     </StyledConnectionItem>
   )
 }

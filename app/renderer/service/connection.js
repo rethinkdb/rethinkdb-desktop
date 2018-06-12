@@ -1,5 +1,11 @@
 import { connect, getServers, getTables } from './ipc'
-import { saveConnection, getConnectionList } from '../helpers/connectionStore'
+import {
+  saveConnection,
+  getConnectionList,
+  removeConnection,
+  getConnection,
+  updateConnection
+} from '../helpers/connectionStore'
 
 const connection = {
   async create({ name, address }) {
@@ -13,8 +19,17 @@ const connection = {
         return { error: 'could not establish connection' }
       }
     } catch (e) {
-      return { error: e.message }
+      return { error: e }
     }
+  },
+  update(id, values) {
+    updateConnection(id, values)
+  },
+  deleteConnection(id) {
+    removeConnection(id)
+  },
+  getConnectionById(id) {
+    return getConnection(id)
   },
   getServers() {
     return getServers()

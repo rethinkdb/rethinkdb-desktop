@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import Page from '../../components/page'
+import Page from '../../components/Page'
 import styled from 'react-emotion'
 import { ServersConsumer } from '../../contexts/servers'
 import { TablesConsumer } from '../../contexts/tables'

@@ -1,4 +1,5 @@
 import React from 'react'
+// import { slide as Menu } from 'react-burger-menu'
 import { StyledSideBar, Logo } from './styles.js'
 const SideBar = ({ children }) => {
   return (

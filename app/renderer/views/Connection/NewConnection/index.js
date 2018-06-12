@@ -1,7 +1,6 @@
 import React, { PureComponent, Fragment } from 'react'
 import { withRouter } from 'react-router'
 import connection from '../../../service/connection'
-import { ConnectionInfo, ConnectionError, Connecting } from './styles'
 import AppHeader from '../../../components/AppHeader'
 import SideBar from '../../../components/SideBar'
 import MainContent from '../../../components/MainContent'
@@ -14,13 +13,17 @@ import {
   CONNECTION_DEFAULT_PORT
 } from '../../../helpers/constants'
 
+import { ConnectionInfo, ConnectionError, Connecting, Logo } from './styles'
+import logoImg from '../../../static/png/rebirth_logo.png'
+
 class NewConnection extends PureComponent {
   constructor(props) {
     super(props)
     this.defaultName = CONNECTION_DEFAULT_NAME
     this.defaultAddress = `${CONNECTION_DEFAULT_HOST}:${CONNECTION_DEFAULT_PORT}`
     this.state = {
-      connections: []
+      error: undefined,
+      connecting: false
     }
   }
 
@@ -28,7 +31,7 @@ class NewConnection extends PureComponent {
     this.setState({ error: undefined, connecting: true })
     const result = await connection.create({ name, address })
     if (result.error) {
-      this.setState({ error: result.error, connecting: false })
+      this.setState({ error: result.error.code, connecting: false })
     } else {
       const { history } = this.props
       this.setState({ connecting: false })
@@ -49,26 +52,18 @@ class NewConnection extends PureComponent {
 
   onQuickConnect = ({ address }) => this.makeConnectionRequest({ address })
 
-  fetchConnections = () => {
-    const connectionList = connection.getConnections()
-    this.setState({ connections: connectionList })
-  }
-
-  componentDidMount() {
-    this.fetchConnections()
-  }
-
   render() {
-    const { error, connecting, connections } = this.state
+    const { error, connecting } = this.state
     return (
       <Fragment>
         <AppHeader />
         <SideBar>
-          <ConnectionList data={connections} onItemClick={this.onQuickConnect} />
+          <ConnectionList onItemClick={this.onQuickConnect} />
         </SideBar>
         <MainContent>
           {error && <ConnectionError>{error}</ConnectionError>}
           {connecting && <Connecting>Connecting...</Connecting>}
+          <Logo src={logoImg} />
           <NewConnectionForm
             defaultName={this.defaultName}
             defaultAddress={this.defaultAddress}
