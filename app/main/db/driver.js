@@ -1,4 +1,5 @@
-const { r } = require('rebirthdbts')
+const { r } = require('rebirthdb-ts')
+const { getServers, getTables } = require('./queries/stats')
 // const r = require('rethinkdb')
 
 let connection
@@ -8,11 +9,13 @@ const driver = {
     return connection
   },
   getServers() {
-    return r.db('rethinkdb').table('stats').filter(row => row('id').nth(0).eq('server')).coerceTo('array').run(connection)
+    return getServers().run(connection)
+  },
+  getTables() {
+    return getTables().run(connection)
   },
   connect: async function(config = {}) {
     try {
-      const options = { pool: false, servers: [{ ...config }] }
       if (connection) {
         console.info('there is an active connection - closing current connection')
         await driver.disconnect()
@@ -20,7 +23,7 @@ const driver = {
       }
 
       console.info('new connection request')
-      connection = await r.connect(options)
+      connection = await r.connect(config)
       console.info('connected')
       return connection
     } catch (error) {

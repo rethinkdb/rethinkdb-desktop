@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'react-emotion'
 import theme from '@/style/common'
 import {ServersConsumer} from '../../contexts/servers'
+import {TablesConsumer} from '../../contexts/tables'
 import _Icon from '../Icon'
 
 const List = styled.ul`
@@ -51,49 +52,50 @@ const JJ = styled.div`
   font-weight: bold;
 `
 
-const Info = () => (
-  <ServersConsumer>
-    {servers => {
-      return <List>
-        <Item>
-          <DD>
-            <Icon type="database" size={28} color={theme.mainColorLight} />
-          </DD>
-          <FF>
-            <KK>Connected to</KK>
-            <JJ>{servers[0] ? JSON.stringify(servers[0].server) : ''}</JJ>
-          </FF>
-        </Item>
-        <Item>
-          <DD>
-            <Icon type="database" size={28} color={theme.mainColorLight} />
-          </DD>
-          <FF>
-            <KK>Issues</KK>
-            <JJ>No Issues</JJ>
-          </FF>
-        </Item>
-        <Item>
-          <DD>
-            <Icon type="database" size={28} color={theme.mainColorLight} />
-          </DD>
-          <FF>
-            <kk>Servers</kk>
-            <JJ>{servers.length} Connected</JJ>
-          </FF>
-        </Item>
-        <Item>
-          <DD>
-            <Icon type="database" size={28} color={theme.mainColorLight} />
-          </DD>
-          <FF>
-            <KK>Tables</KK>
-            <JJ>0/0 ready</JJ>
-          </FF>
-        </Item>
-      </List>
-    }}
-  </ServersConsumer>
-)
+const Info = () =>
+  <List>
+    <Item>
+      <DD>
+        <Icon type="database" size={28} color={theme.mainColorLight} />
+      </DD>
+      <FF>
+        <KK>Connected to</KK>
+        <ServersConsumer>
+        {servers => <JJ>{servers[0] ? JSON.stringify(servers[0].server) : ''}</JJ>}
+        </ServersConsumer>
+      </FF>
+    </Item>
+    <Item>
+      <DD>
+        <Icon type="database" size={28} color={theme.mainColorLight} />
+      </DD>
+      <FF>
+        <KK>Issues</KK>
+        <JJ>No Issues</JJ>
+      </FF>
+    </Item>
+    <Item>
+      <DD>
+        <Icon type="database" size={28} color={theme.mainColorLight} />
+      </DD>
+      <FF>
+        <kk>Servers</kk>
+        <ServersConsumer>
+        {servers => <JJ>{servers.length} Connected</JJ>}
+        </ServersConsumer>
+      </FF>
+    </Item>
+    <Item>
+      <DD>
+        <Icon type="database" size={28} color={theme.mainColorLight} />
+      </DD>
+      <FF>
+        <KK>Tables</KK>
+        <TablesConsumer>
+        {tables => <JJ>{tables.length}/{tables.length} ready</JJ>}
+        </TablesConsumer>
+      </FF>
+    </Item>
+  </List>
 
 export default Info

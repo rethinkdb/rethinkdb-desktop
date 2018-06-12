@@ -2,6 +2,7 @@ import React, { Fragment } from 'react'
 import Page from '../../components/page'
 import styled from 'react-emotion'
 import { ServersConsumer } from '../../contexts/servers'
+import { TablesConsumer } from '../../contexts/tables'
 
 const Box = styled.div`
   border: 1px solid #cfcfcf;
@@ -47,17 +48,31 @@ const Dashboard = () => (
           </Fragment>
           }
         </ServersConsumer>
-
       </Stat>
       <Stat>
-        <h3>Tables</h3>
-        <div><b>0</b> tables ready</div>
-        <div><b>0</b> tables with issues</div>
+        <TablesConsumer>
+          {tables =>
+          <Fragment>
+            <h3>Tables</h3>
+            <div><b>{tables.length}</b> tables ready</div>
+            <div><b>0</b> tables with issues</div>
+          </Fragment>
+          }
+        </TablesConsumer>
       </Stat>
       <Stat>
-        <h3>Indexed</h3>
-        <div><b>0</b> secondary indexes</div>
-        <div><b>0</b> indexes building</div>
+        <TablesConsumer>
+          {tables => {
+            const indexCount = tables.reduce((acc, table) => {
+              return acc + table.indexes.length;
+            }, 0);
+            return <Fragment>
+              <h3>Indexed</h3>
+              <div><b>{indexCount}</b> secondary indexes</div>
+              <div><b>0</b> indexes building</div>
+            </Fragment>
+          }}
+        </TablesConsumer>
       </Stat>
       <Stat>
         <h3>Resources</h3>

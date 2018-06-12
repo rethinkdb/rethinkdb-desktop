@@ -7,3 +7,7 @@ export const connect = ({ name, address }) => {
 export const getServers = () => {
   return ipc.callMain('servers')
 }
+
+export const getTables = () => {
+  return ipc.callMain('tables')
+}

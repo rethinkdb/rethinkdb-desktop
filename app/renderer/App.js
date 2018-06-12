@@ -3,6 +3,7 @@ import { hot } from 'react-hot-loader'
 import { Router } from 'react-router'
 import Routes from './routes'
 import {ServersProvider} from './contexts/servers'
+import {TablesProvider} from './contexts/tables'
 import createHashHistory from 'history/createHashHistory'
 
 import './components/Icon/icons'
@@ -12,6 +13,7 @@ const history = createHashHistory()
 
 class App extends Component {
   state = {
+    tables: [],
     servers: []
   }
 
@@ -27,18 +29,24 @@ class App extends Component {
     }
 
     this.statsFetchInterval = setInterval(async () => {
-      const servers = await connection.getServers()
-      this.setState({servers})
+      const [servers, tables] = await Promise.all([
+        connection.getServers(),
+        connection.getTables()
+      ]);
+
+      this.setState({ servers, tables })
     }, 2000);
   }
 
   render() {
-    const {servers} = this.state
+    const {servers, tables} = this.state
     return (
-      <ServersProvider value={servers} >
-        <Router history={history}>
-          <Routes onConnected={this.onConnected}/>
-        </Router>
+      <ServersProvider value={servers}>
+        <TablesProvider value={tables}>
+          <Router history={history}>
+            <Routes onConnected={this.onConnected}/>
+          </Router>
+        </TablesProvider>
       </ServersProvider>
     )
   }

@@ -1,4 +1,4 @@
-import { connect, getServers } from './ipc'
+import { connect, getServers, getTables } from './ipc'
 import { saveConnection, getConnectionList } from '../helpers/connectionStore'
 
 const connection = {
@@ -18,6 +18,9 @@ const connection = {
   },
   getServers() {
     return getServers()
+  },
+  getTables() {
+    return getTables()
   },
   getConnections() {
     return getConnectionList()
