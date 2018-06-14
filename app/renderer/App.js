@@ -17,8 +17,7 @@ class App extends Component {
     servers: []
   }
 
-  onLiveStats = (data) => {
-    const { servers, tables } = data
+  onLiveStats = ({ servers, tables }) => {
     this.setState({ servers, tables })
   }
 

@@ -1,10 +1,6 @@
 const { r } = require('rebirthdb-ts')
-const driver = require('../driver')
-
-const connection = () => driver.getConnection()
 
 const serverList = () => {
-  const conn = connection()
   return r
     .db('rethinkdb')
     .table('stats')
@@ -14,7 +10,6 @@ const serverList = () => {
         .eq('server')
     )
     .coerceTo('array')
-    .run(conn)
 }
 
 module.exports = {

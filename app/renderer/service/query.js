@@ -1,8 +1,8 @@
 import { liveStats } from './ipc'
 
 const query = {
-  subscribeToLiveStats(callback) {
-    liveStats(callback)
+  subscribeToLiveStats(statsListener) {
+    liveStats(statsListener)
   }
 }
 

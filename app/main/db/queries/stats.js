@@ -6,7 +6,9 @@ const connection = () => driver.getConnection()
 
 const getStats = () => {
   if(!connection()) return
-  return Promise.all([serverList(), tableList()])
+  const serverPromise = serverList().run(connection())
+  const tablePromise = tableList().run(connection())
+  return Promise.all([serverPromise, tablePromise])
 }
 
 module.exports = {
