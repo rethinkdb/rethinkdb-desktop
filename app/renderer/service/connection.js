@@ -1,4 +1,4 @@
-import { connect, getServers, getTables } from './ipc'
+import { connect } from './ipc'
 import {
   saveConnection,
   getConnectionList,
