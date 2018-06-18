@@ -1,7 +1,8 @@
 const ipc = require('electron-better-ipc')
 const {
+  CONNECT_CHANNEL_NAME,
   STATS_CHANNEL_NAME
-} = require('../../shared/constants')
+} = require('../../shared/channels')
 
 // ToDo: instead of hard coding the channels, we should create a channel factory
 /*
@@ -13,7 +14,7 @@ export const method = (callback) => {
 }
   */
 export const connect = ({ name, address }) => {
-  return ipc.callMain('connect', { name, address })
+  return ipc.callMain(CONNECT_CHANNEL_NAME, { name, address })
 }
 
 // the following channels are for "push" updates from main to renderer

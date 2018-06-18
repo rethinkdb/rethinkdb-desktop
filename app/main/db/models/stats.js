@@ -1,22 +1,28 @@
 const { BrowserWindow } = require('electron')
 
 const ipc = require('electron-better-ipc')
-const { getStats } = require('../queries/stats')
 const {
-  STATS_CHANNEL_NAME
-} = require('../../../shared/constants')
+  getServerStats,
+  getTableStats,
+  getIndexStats,
+  getResourceStats
+} = require('../queries/stats')
+
+const { STATS_CHANNEL_NAME } = require('../../../shared/channels')
 
 let statsInterval = null
 
 const stats = {
   async onTick() {
     try {
-      const result = await getStats()
-      if(!result) return
-      const [servers, tables] = result
+      const servers = await getServerStats()
+      const tables = await getTableStats()
+      const indexes = await getIndexStats()
+      const resources = await getResourceStats()
+
       const win = BrowserWindow.getAllWindows()
-      if(win.length) {
-        ipc.callRenderer(win[0], STATS_CHANNEL_NAME, {servers, tables})
+      if (win.length) {
+        ipc.callRenderer(win[0], STATS_CHANNEL_NAME, { servers, tables, indexes, resources })
       }
     } catch (e) {
       console.warn('startLiveStats failed: ', e)
