@@ -1,8 +1,7 @@
 import React from 'react'
 import styled from 'react-emotion'
 import theme from '@/style/common'
-import { ServersConsumer } from '../../contexts/servers'
-import { TablesConsumer } from '../../contexts/tables'
+
 import _Icon from '../Icon'
 
 const List = styled.ul`
@@ -60,9 +59,9 @@ const Info = () => (
       </DD>
       <FF>
         <KK>Connected to</KK>
-        <ServersConsumer>
-          {servers => <JJ>{servers[0] ? JSON.stringify(servers[0].server) : ''}</JJ>}
-        </ServersConsumer>
+        {/*<ServersConsumer>*/}
+          {/*{servers => <JJ>{servers[0] ? JSON.stringify(servers[0].server) : ''}</JJ>}*/}
+        {/*</ServersConsumer>*/}
       </FF>
     </Item>
     <Item>
@@ -80,7 +79,7 @@ const Info = () => (
       </DD>
       <FF>
         <kk>Servers</kk>
-        <ServersConsumer>{servers => <JJ>{servers.length} Connected</JJ>}</ServersConsumer>
+        {/*<ServersConsumer>{servers => <JJ>{servers.length} Connected</JJ>}</ServersConsumer>*/}
       </FF>
     </Item>
     <Item>
@@ -89,13 +88,13 @@ const Info = () => (
       </DD>
       <FF>
         <KK>Tables</KK>
-        <TablesConsumer>
-          {tables => (
-            <JJ>
-              {tables.length}/{tables.length} ready
-            </JJ>
-          )}
-        </TablesConsumer>
+        {/*<TablesConsumer>*/}
+          {/*{tables => (*/}
+            {/*<JJ>*/}
+              {/*{tables.length}/{tables.length} ready*/}
+            {/*</JJ>*/}
+          {/*)}*/}
+        {/*</TablesConsumer>*/}
       </FF>
     </Item>
   </List>
