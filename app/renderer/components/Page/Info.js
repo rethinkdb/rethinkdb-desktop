@@ -1,8 +1,7 @@
 import React from 'react'
 import styled from 'react-emotion'
+import Icon from '../../components/Icon'
 import theme from '@/style/common'
-
-import _Icon from '../Icon'
 
 const List = styled.ul`
   background: ${theme.infoBarsColor};
@@ -11,8 +10,7 @@ const List = styled.ul`
   padding: 1rem 10%;
   list-style: none;
   color: black;
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4), inset 0 -1px 1px #c3c3c3;
-  border-bottom: thin solid #d0d0d0;
+  border-bottom: thin solid ${theme.mainBorderColor};
 `
 
 const Item = styled.li`
@@ -21,14 +19,8 @@ const Item = styled.li`
   text-align: center;
 `
 
-const Icon = styled(_Icon)`
-  svg {
-    fill: white;
-  }
-`
 
 const DD = styled.div`
-  background: #3873ea;
   display: inline-block;
   padding: 0.5rem;
   margin-right: 1rem;
@@ -55,7 +47,7 @@ const Info = () => (
   <List>
     <Item>
       <DD>
-        <Icon type="database" size={28} color={theme.mainColorLight} />
+        <Icon type="connections" size={30} color={theme.mainColorLight} />
       </DD>
       <FF>
         <KK>Connected to</KK>
@@ -66,7 +58,7 @@ const Info = () => (
     </Item>
     <Item>
       <DD>
-        <Icon type="database" size={28} color={theme.mainColorLight} />
+        <Icon type="danger" size={30} color={theme.mainColorLight} />
       </DD>
       <FF>
         <KK>Issues</KK>
@@ -75,7 +67,7 @@ const Info = () => (
     </Item>
     <Item>
       <DD>
-        <Icon type="database" size={28} color={theme.mainColorLight} />
+        <Icon type="servers" size={30} color={theme.mainColorLight} />
       </DD>
       <FF>
         <kk>Servers</kk>
@@ -84,7 +76,7 @@ const Info = () => (
     </Item>
     <Item>
       <DD>
-        <Icon type="database" size={28} color={theme.mainColorLight} />
+        <Icon type="table" size={30} color={theme.mainColorLight} />
       </DD>
       <FF>
         <KK>Tables</KK>

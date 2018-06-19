@@ -7,7 +7,7 @@ export const StyledPanels = styled('div')({
   justifyContent: 'space-around',
   width: '100%',
   backgroundColor: '#fff',
-  boxShadow: '1px 1px 3px rgba(88, 66, 88, 0.1)'
+  borderBottom: `1px solid ${theme.mainBorderColor}`
 })
 
 export const StyledPanel = styled('div')({

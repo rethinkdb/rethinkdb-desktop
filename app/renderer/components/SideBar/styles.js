@@ -6,7 +6,7 @@ export const StyledSideBar = styled('aside')(props => ({
   top: theme.appHeaderHeight,
   height: '100vh',
   width: theme.sideBarWidth,
-  background: '#603e85',
+  background: theme.mainColor,
   zIndex: 2
 }))
 
