@@ -1,6 +1,21 @@
 import styled from 'react-emotion'
 import theme from '@/style/common'
 
+export const StyledPanels = styled('div')({
+  padding: '10px',
+  display: 'flex',
+  justifyContent: 'space-around',
+  width: '100%',
+  backgroundColor: '#fff',
+  boxShadow: '1px 1px 3px rgba(88, 66, 88, 0.1)'
+})
+
+export const StyledPanel = styled('div')({
+  outline: 'none',
+  padding: '10px',
+  margin: '5px'
+})
+
 export const StyledPanelContent = styled('div')(({ hasIssues }) => ({
   h3: {
     fontWeight: 700,
