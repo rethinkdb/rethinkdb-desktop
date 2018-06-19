@@ -12,8 +12,6 @@ const Container = styled.div`
 
 const Body = styled.div`
   flex: 1;
-  background: #e5e5e5;
-  color: black;
 `
 
 const Page = ({ children }) => (

@@ -1,7 +1,2 @@
-module.exports = {
-  r: {
-    connect: jest.fn(() => Promise.resolve({
-      close: jest.fn(() => Promise.resolve('closed'))
-    }))
-  }
-}
+const mock = require('./rebirthdb-mock')
+module.exports = mock

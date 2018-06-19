@@ -4,8 +4,7 @@ import { NavLink, Link } from 'react-router-dom'
 import theme from '@/style/common'
 
 const Container = styled.header`
-  background: ${theme.headerBackground};
-  box-shadow: ${theme.headerGradient};
+  background: ${theme.mainColor};
   display: flex;
   padding: 1rem 10%;
   align-items: center;
@@ -23,7 +22,7 @@ const Container = styled.header`
       flex: 1;
       text-align: center;
       a {
-        color: ${theme.grayTextColor};
+        color: ${theme.mainColorLight};
         font-size: 1rem;
         text-decoration: none;
         font-weight: bolder;
@@ -37,14 +36,14 @@ const Container = styled.header`
 `
 
 const Logo = styled(Link)`
-  font-family: 'Copse';
-  color: white;
+  font-family: 'Quicksand';
+  color: ${theme.mainColorLight};
   text-decoration: none;
   font-size: 1.5rem;
   font-weight: bolder;
 
   span {
-    color: ${theme.info};
+    color: ${theme.mainLightColor};
   }
 `
 

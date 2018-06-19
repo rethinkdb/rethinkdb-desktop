@@ -1,19 +1,13 @@
 const { r } = require('rebirthdb-ts')
-const { getServers, getTables } = require('./queries/stats')
+//const { getServers, getTables } = require('./queries/stats')
 // const r = require('rethinkdb')
 
 let connection
 
 const driver = {
-  getConnection() {
-    return connection
-  },
-  getServers() {
-    return getServers().run(connection)
-  },
-  getTables() {
-    return getTables().run(connection)
-  },
+
+  getConnection: () => connection,
+
   connect: async function(config = {}) {
     if (connection) {
       console.info('there is an active connection - closing current connection')
