@@ -33,17 +33,14 @@ export const saveConnection = ({
   }
 }
 
-export const updateConnection = (uid, { name, address, username, password }) => {
-  const newConnectionId = getHash(name + address)
-  if (!isExist(newConnectionId)) {
-    const obj = { name, address, username, password }
-    const current = getConnection(uid)
-    Object.keys(obj).forEach(key => obj[key] === undefined && delete obj[key])
+export const updateConnection = (uid, values) => {
+  const newConnectionId = getHash(values.name + values.address)
+  const current = getConnection(uid)
+  Object.keys(values).forEach(key => values[key] === undefined && delete values[key])
 
-    const updated = Object.assign({}, current, obj, { connectionId: newConnectionId })
-    storage.set(uid, updated)
-    return updated
-  }
+  const updated = Object.assign({}, current, values, { connectionId: newConnectionId })
+  storage.set(uid, updated)
+  return updated
 }
 
 export const getConnection = uid => {

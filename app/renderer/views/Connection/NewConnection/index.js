@@ -12,7 +12,7 @@ import {
   CONNECTION_DEFAULT_HOST,
   CONNECTION_DEFAULT_PASSWORD,
   CONNECTION_DEFAULT_PORT,
-  CONNECTION_DEFAULT_USERNAME,
+  CONNECTION_DEFAULT_USERNAME
 } from '../../../helpers/constants'
 
 import { ConnectionInfo, ConnectionError, Connecting, Logo } from './styles'

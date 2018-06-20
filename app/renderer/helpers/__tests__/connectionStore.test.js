@@ -3,7 +3,9 @@
 import {
   CONNECTION_DEFAULT_HOST,
   CONNECTION_DEFAULT_NAME,
-  CONNECTION_DEFAULT_PORT
+  CONNECTION_DEFAULT_PORT,
+  CONNECTION_DEFAULT_USERNAME,
+  CONNECTION_DEFAULT_PASSWORD
 } from '../constants'
 
 import {
@@ -35,6 +37,18 @@ test('use defaults ---> default address', () => {
   expect(result.address).toBe(`${CONNECTION_DEFAULT_HOST}:${CONNECTION_DEFAULT_PORT}`)
 })
 
+test('use defaults ---> default username', () => {
+  let uid = saveConnection({ name: 'foo' })
+  const result = getConnection(uid)
+  expect(result.username).toBe(CONNECTION_DEFAULT_USERNAME)
+})
+
+test('use defaults ---> default password', () => {
+  let uid = saveConnection({ name: 'foo' })
+  const result = getConnection(uid)
+  expect(result.password).toBe(CONNECTION_DEFAULT_PASSWORD)
+})
+
 test('remove connection', () => {
   let uid = saveConnection({ address: 'test:123' })
   const result = getConnection(uid)
@@ -61,6 +75,20 @@ test('able to update connection', () => {
   updateConnection(uid, { name: 'test2' })
   const result = getConnection(uid)
   expect(result.name).toBe('test2')
+})
+
+test('able to update username', () => {
+  let uid = saveConnection({ name: 'test-username', address: 'test:8888' })
+  updateConnection(uid, { username: 'user' })
+  const result = getConnection(uid)
+  expect(result.username).toBe('user')
+})
+
+test('able to update password', () => {
+  let uid = saveConnection({ name: 'test-password', address: 'test:8888' })
+  updateConnection(uid, { password: 'password' })
+  const result = getConnection(uid)
+  expect(result.password).toBe('password')
 })
 
 test('getConnectionList can handle empty store', () => {
