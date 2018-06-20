@@ -6,12 +6,7 @@ import ResourcesPanel from './Resources'
 import { StyledPanels, StyledPanel } from './panelStyles'
 
 const Panels = props => {
-  const {
-    servers,
-    tables,
-    indexes,
-    resources
-  } = props
+  const { servers, tables, indexes, resources } = props
 
   return (
     <StyledPanels>
@@ -53,5 +48,3 @@ Panels.defaultProps = {
 }
 
 export default Panels
-
-

@@ -1,11 +1,10 @@
 const { r } = require('rebirthdb-ts')
-//const { getServers, getTables } = require('./queries/stats')
+// const { getServers, getTables } = require('./queries/stats')
 // const r = require('rethinkdb')
 
 let connection
 
 const driver = {
-
   getConnection: () => connection,
 
   connect: async function(config = {}) {

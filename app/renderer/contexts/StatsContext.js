@@ -9,7 +9,7 @@ class StatsProvider extends Component {
     stats: {}
   }
 
-  onLiveStats = (statsData) => {
+  onLiveStats = statsData => {
     this.setState({ stats: statsData })
   }
 
@@ -20,18 +20,8 @@ class StatsProvider extends Component {
   render() {
     const { stats } = this.state
     const { children } = this.props
-    return (
-      <StatsContextProvider value={stats}>
-        {children}
-      </StatsContextProvider>
-    )
+    return <StatsContextProvider value={stats}>{children}</StatsContextProvider>
   }
 }
 
-
 export default StatsProvider
-
-
-
-
-

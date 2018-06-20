@@ -5,9 +5,7 @@ const table = {
     return tableList()
   },
 
-  getTable(matchers = {}) {
-
-  }
+  getTable(matchers = {}) {}
 }
 
 module.exports = table

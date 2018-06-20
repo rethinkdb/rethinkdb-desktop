@@ -12,4 +12,3 @@ export const formatBytes = (bytes, decimals) => {
   const i = Math.floor(Math.log(bytes) / Math.log(k))
   return (bytes / Math.pow(k, i)).toFixed(decimals) + ' ' + sizes[i]
 }
-
