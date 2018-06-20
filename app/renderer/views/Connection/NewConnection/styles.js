@@ -19,7 +19,7 @@ export const StyledNewConnection = styled('div')({
   '.row': {
     width: '100%',
     padding: '15px 0',
-    'input[type="text"]': {
+    'input[type="text"],input[type="password"]': {
       width: '100%',
       height: '38px',
       background: 'transparent',
