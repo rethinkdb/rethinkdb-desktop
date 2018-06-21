@@ -4,7 +4,9 @@ import storage from '../helpers/storage'
 import {
   CONNECTION_DEFAULT_NAME,
   CONNECTION_DEFAULT_HOST,
-  CONNECTION_DEFAULT_PORT
+  CONNECTION_DEFAULT_PORT,
+  CONNECTION_DEFAULT_USERNAME,
+  CONNECTION_DEFAULT_PASSWORD
 } from './constants'
 
 const getHash = str => stringHash(str)
@@ -19,27 +21,26 @@ export const clear = () => storage.clear()
 
 export const saveConnection = ({
   name = CONNECTION_DEFAULT_NAME,
-  address = `${CONNECTION_DEFAULT_HOST}:${CONNECTION_DEFAULT_PORT}`
+  address = `${CONNECTION_DEFAULT_HOST}:${CONNECTION_DEFAULT_PORT}`,
+  username = CONNECTION_DEFAULT_USERNAME,
+  password = CONNECTION_DEFAULT_PASSWORD
 }) => {
   const connectionId = getHash(name + address)
   if (!isExist(connectionId)) {
     const uid = shortid.generate()
-    storage.set(uid, { connectionId, name, address })
+    storage.set(uid, { connectionId, name, address, username, password })
     return uid
   }
 }
 
-export const updateConnection = (uid, { name, address }) => {
-  const newConnectionId = getHash(name + address)
-  if (!isExist(newConnectionId)) {
-    const obj = { name, address }
-    const current = getConnection(uid)
-    Object.keys(obj).forEach(key => obj[key] === undefined && delete obj[key])
+export const updateConnection = (uid, values) => {
+  const newConnectionId = getHash(values.name + values.address)
+  const current = getConnection(uid)
+  Object.keys(values).forEach(key => values[key] === undefined && delete values[key])
 
-    const updated = Object.assign({}, current, obj, { connectionId: newConnectionId })
-    storage.set(uid, updated)
-    return updated
-  }
+  const updated = Object.assign({}, current, values, { connectionId: newConnectionId })
+  storage.set(uid, updated)
+  return updated
 }
 
 export const getConnection = uid => {

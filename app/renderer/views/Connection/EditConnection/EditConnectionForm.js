@@ -20,6 +20,12 @@ const EditConnectionForm = () => {
           <div className="row">
             <Field name="address" type="text" />
           </div>
+          <div className="row">
+            <Field name="username" type="text" />
+          </div>
+          <div className="row">
+            <Field name="password" type="password" />
+          </div>
           <div className="row actions">
             <button>Save</button>
           </div>
@@ -34,7 +40,9 @@ export default withFormik({
   mapPropsToValues: ({ connection }) => {
     return {
       name: connection.name || '',
-      address: connection.address || ''
+      address: connection.address || '',
+      username: connection.username || '',
+      password: connection.password || ''
     }
   },
   handleSubmit(values, { props }) {
