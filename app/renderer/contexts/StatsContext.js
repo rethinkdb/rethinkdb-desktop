@@ -1,5 +1,5 @@
 import React, { Component, createContext } from 'react'
-import query from '../service/query'
+import { liveStats } from '../service/ipc'
 
 export const StatsContext = createContext()
 const StatsContextProvider = StatsContext.Provider
@@ -14,7 +14,7 @@ class StatsProvider extends Component {
   }
 
   componentDidMount() {
-    query.subscribeToLiveStats(this.onLiveStats)
+    liveStats(this.onLiveStats)
   }
 
   render() {

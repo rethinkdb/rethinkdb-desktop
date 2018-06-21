@@ -6,7 +6,7 @@ import theme from '@/style/common'
 const Container = styled.header`
   background: ${theme.mainColor};
   display: flex;
-  padding: 1rem 10%;
+  padding: 10px 10%;
   align-items: center;
 
   nav {
@@ -26,7 +26,6 @@ const Container = styled.header`
         font-size: 1rem;
         text-decoration: none;
         font-weight: bolder;
-
         &.active {
           color: white;
         }
@@ -39,11 +38,11 @@ const Logo = styled(Link)`
   font-family: 'Quicksand';
   color: ${theme.mainColorLight};
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 18px;
   font-weight: bolder;
 
   span {
-    color: ${theme.mainLightColor};
+    color: ${theme.secColor};
   }
 `
 

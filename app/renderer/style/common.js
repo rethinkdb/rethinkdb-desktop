@@ -4,7 +4,7 @@ export default {
   mainColorDark: '#321353',
   mainColorLight: '#ad8cd1',
   secColor: '#F1F0F9',
-  mainLightColor: '#f7f7f7',
+  contrastColor: '#FDFDFD',
   mainGradient: 'linear-gradient(180deg, #FF6FD8 10%, #3813C2 100%)',
   mainBorderColor: '#d9d8ff',
   headerBackground: '#272729',

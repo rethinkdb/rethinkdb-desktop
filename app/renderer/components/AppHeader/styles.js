@@ -5,7 +5,7 @@ export const StyledAppHeader = styled('header')(props => ({
   position: 'fixed',
   width: '100%',
   top: 0,
-  backgroundColor: theme.mainLightColor,
+  backgroundColor: theme.secColor,
   borderBottom: `1px solid ${theme.mainBorderColor}`,
   zIndex: 2,
   height: theme.appHeaderHeight,
