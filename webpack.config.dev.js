@@ -1,6 +1,7 @@
 const { spawn } = require('child_process')
 const path = require('path')
 const webpack = require('webpack')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 const PORT = process.env.PORT || 7000
 const PUBLIC_PATH = `http://localhost:${PORT}/dist/`
@@ -30,7 +31,7 @@ module.exports = {
         loader: 'babel-loader',
         options: {
           // https://github.com/babel/babel-loader#options
-          cacheDirectory: true,
+          cacheDirectory: true
         }
       },
       { test: /\.css$/, loader: 'style-loader!css-loader' },
@@ -59,7 +60,8 @@ module.exports = {
       'process.env': {
         NODE_ENV: JSON.stringify('development')
       }
-    })
+    }),
+    new CopyWebpackPlugin(['./node_modules/monaco-editor/dev'])
   ],
   // manipulations
   resolve: {

@@ -1,6 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
-
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   bail: true,
@@ -23,7 +23,7 @@ module.exports = {
         loader: 'babel-loader',
         options: {
           // https://github.com/babel/babel-loader#options
-          cacheDirectory: true,
+          cacheDirectory: true
         }
       },
       { test: /\.css$/, loader: 'style-loader!css-loader' },
@@ -49,7 +49,8 @@ module.exports = {
       'process.env': {
         NODE_ENV: JSON.stringify('production')
       }
-    })
+    }),
+    new CopyWebpackPlugin(['./node_modules/monaco-editor/min'])
   ],
   // manipulations
   resolve: {

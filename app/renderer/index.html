@@ -1,36 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="theme-color" content="#000000">
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900|Quicksand:700" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css">
-    <title>ReBirthDB - Desktop Client</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="theme-color" content="#000000">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900|Quicksand:700" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css">
+	<title>ReBirthDB - Desktop Client</title>
 </head>
+
 <body>
-<noscript>
-    You need to enable JavaScript to run this app.
-</noscript>
-<div id="root"></div>
-<script>
+	<noscript>
+		You need to enable JavaScript to run this app.
+	</noscript>
+	<div id="root"></div>
+	<script>
+		const path = require('path');
+		const vs = path.join(__dirname, '../dist/vs')
+		var nodeRequire = global.require;
+		var require = { paths: { 'vs': vs } };
+		self.module = undefined;
+		self.process.browser = true;
+	</script>
+	<script src="../dist/vs/loader.js"></script>
+	<script src="../dist/vs/editor/editor.main.nls.js"></script>
+	<script src="../dist/vs/editor/editor.main.js"></script>
+	<script>
+		global.require = nodeRequire;
+	</script>
+	<script>
 
-	{
-		const scripts = [];
-		// Dynamically insert the bundled app script in the renderer process
-		const port = process.env.PORT || 7000;
-		scripts.push(
-			(process.env.HOT)
-				? 'http://localhost:' + port + '/dist/renderer.dev.js'
-              : '../dist/renderer.prod.js'
-		);
-		document.write(
-			scripts
-				.map(script => '<script defer src="' + script + '"><\/script>')
-				.join('')
-		);
-	}
-</script>
-
+		{
+			const scripts = [];
+			// Dynamically insert the bundled app script in the renderer process
+			const port = process.env.PORT || 7000;
+			scripts.push(
+				(process.env.HOT)
+					? 'http://localhost:' + port + '/dist/renderer.dev.js'
+					: '../dist/renderer.prod.js'
+			);
+			document.write(
+				scripts
+					.map(script => '<script defer src="' + script + '"><\/script>')
+					.join('')
+			);
+		}
+	</script>
 </body>
+
 </html>
