@@ -328,9 +328,9 @@ interface RDatum<T = any> extends RQuery<T> {
     round(): T extends number ? RDatum<number> : never;
     ceil(): T extends number ? RDatum<number> : never;
     floor(): T extends number ? RDatum<number> : never;
-    branch(trueBranch: T, falseBranchOrTest: any, ...branches: any[]): T extends boolean ? RDatum<number> : never;
-    and(...bool: Array<RDatum<boolean>>): T extends boolean ? RDatum<number> : never;
-    or(...bool: Array<RDatum<boolean>>): T extends boolean ? RDatum<number> : never;
+    branch(trueBranch: T, falseBranchOrTest: any, ...branches: any[]): T extends boolean ? RDatum<any> : never;
+    and(...bool: Array<RDatum<boolean>>): T extends boolean ? RDatum<boolean> : never;
+    or(...bool: Array<RDatum<boolean>>): T extends boolean ? RDatum<boolean> : never;
     not(): T extends boolean ? RDatum<boolean> : never;
     inTimezone(timezone: string): T extends Date ? RDatum<Date> : never;
     timezone(): T extends Date ? RDatum<string> : never;
@@ -891,9 +891,9 @@ declare namespace r {
     function round<T>(datum: RDatum<T>): T extends number ? RDatum<number> : never;
     function ceil<T>(datum: RDatum<T>): T extends number ? RDatum<number> : never;
     function floor<T>(datum: RDatum<T>): T extends number ? RDatum<number> : never;
-    function branch<T>(datum: RDatum<T>, trueBranch: T, falseBranchOrTest: any, ...branches: any[]): T extends boolean ? RDatum<number> : never;
-    function and<T>(datum: RDatum<T>, ...bool: Array<RDatum<boolean>>): T extends boolean ? RDatum<number> : never;
-    function or<T>(datum: RDatum<T>, ...bool: Array<RDatum<boolean>>): T extends boolean ? RDatum<number> : never;
+    function branch<T>(datum: RDatum<T>, trueBranch: T, falseBranchOrTest: any, ...branches: any[]): T extends boolean ? RDatum<any> : never;
+    function and<T>(datum: RDatum<T>, ...bool: Array<RDatum<boolean>>): T extends boolean ? RDatum<boolean> : never;
+    function or<T>(datum: RDatum<T>, ...bool: Array<RDatum<boolean>>): T extends boolean ? RDatum<boolean> : never;
     function not<T>(datum: RDatum<T>): T extends boolean ? RDatum<boolean> : never;
     function inTimezone<T>(datum: RDatum<T>, timezone: string): T extends Date ? RDatum<Date> : never;
     function timezone<T>(datum: RDatum<T>): T extends Date ? RDatum<string> : never;
