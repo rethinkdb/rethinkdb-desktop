@@ -1,9 +1,14 @@
 const ipc = require('electron-better-ipc')
 const { connect } = require('./driver')
 const { startLiveStats } = require('./models/stats')
-const queryResolver = require('./resolver')
+const queryResolver = require('./resolvers/queryResolver')
+const actionResolver = require('./resolvers/actionResolver')
 const url = require('../helpers/url')
-const { CONNECT_CHANNEL_NAME, QUERIES_CHANNEL_NAME } = require('../../shared/channels')
+const {
+  CONNECT_CHANNEL_NAME,
+  QUERIES_CHANNEL_NAME,
+  ACTIONS_CHANNEL_NAME
+} = require('../../shared/channels')
 
 ipc.answerRenderer(CONNECT_CHANNEL_NAME, async ({ name, address }) => {
   const { host, port } = url.extract(address)
@@ -13,6 +18,10 @@ ipc.answerRenderer(CONNECT_CHANNEL_NAME, async ({ name, address }) => {
   return connectResult
 })
 
-ipc.answerRenderer(QUERIES_CHANNEL_NAME, async (query, args) => {
-  return queryResolver(query, args)
+ipc.answerRenderer(QUERIES_CHANNEL_NAME, async (query) => {
+  return queryResolver(query)
+})
+
+ipc.answerRenderer(ACTIONS_CHANNEL_NAME, async (action) => {
+  return actionResolver(action)
 })

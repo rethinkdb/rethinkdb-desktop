@@ -36,9 +36,25 @@ const tablesByDb = () => {
           status: table('status'),
           id: table('id')
         }))
-    })).run(connection())
+    }))
+    .run(connection())
+}
+
+const deleteTables = (tablesToDelete) => {
+  return r
+    .db(SYSTEM_DB)
+    .table('table_config')
+    .filter(table => {
+      return r.expr(tablesToDelete).contains({
+        db: table('db'),
+        name: table('name')
+      })
+    })
+    .delete({ returnChanges: true })
+    .run(connection())
 }
 
 module.exports = {
-  tablesByDb
+  tablesByDb,
+  deleteTables
 }

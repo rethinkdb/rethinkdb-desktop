@@ -1,4 +1,4 @@
-import styled from 'react-emotion'
+import styled, { css } from 'react-emotion'
 import theme from '@/style/common'
 
 export const StyledDatabaseList = styled('ul')({
@@ -9,19 +9,16 @@ export const StyledDatabaseList = styled('ul')({
 export const StyledDatabaseItem = styled('li')({
   border: `1px solid ${theme.mainBorderColor}`,
   marginBottom: '10px',
-  'header': {
+  header: {
     background: theme.contrastColor,
     padding: '8px',
     borderBottom: `1px solid ${theme.mainBorderColor}`,
+    display: 'flex',
     '.db-name': {
       paddingLeft: '20px',
       fontWeight: 500,
       fontSize: '16px'
     }
-  },
-  'section': {
-    padding: '8px',
-    background: '#fff'
   }
 })
 
@@ -35,5 +32,30 @@ export const DBLabel = styled('span')({
   background: '#fff0f6',
   border: '1px solid #ffadd2',
   fontSize: '12px'
+})
 
+export const DBActions = css({
+  marginLeft: 'auto'
+})
+
+export const DBActionButton = css({
+  marginLeft: '8px',
+  padding: '5px 12px',
+  background: 'transparent',
+  border: '1px solid #603e85',
+  color: '#603e85',
+  transition: 'all ease-in 250ms',
+  cursor: 'pointer',
+  '&:hover': {
+    borderColor: '#eb48ca',
+    color: '#eb48ca'
+  },
+  '&:focus': {
+    outline: 'none'
+  },
+  '&:disabled': {
+    border: '1px solid #aaa',
+    color: '#aaa',
+    cursor: 'auto'
+  }
 })

@@ -1,7 +1,7 @@
 const { spawn } = require('child_process')
 const path = require('path')
 const webpack = require('webpack')
-
+const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin')
 const PORT = process.env.PORT || 7000
 const PUBLIC_PATH = `http://localhost:${PORT}/dist/`
 
@@ -55,10 +55,12 @@ module.exports = {
       multiStep: true
     }),
     new webpack.NoEmitOnErrorsPlugin(),
+    new MonacoWebpackPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('development')
-      }
+      },
+      'process.browser': true
     })
   ],
   // manipulations

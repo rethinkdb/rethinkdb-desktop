@@ -11,6 +11,7 @@ export default {
   headerGradient: '0 1px 3px rgba(0,0,0,.2), inset 0 -2px 4px rgba(0,0,0,.15)',
   success: '#1ad1b5',
   error: '#FD6585',
+  warning: '#fda94e',
   info: '#4C83FF',
   // text
   fontStack: `'Lato', sans-serif`,
