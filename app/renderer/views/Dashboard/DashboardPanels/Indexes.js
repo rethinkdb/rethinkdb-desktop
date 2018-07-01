@@ -11,7 +11,7 @@ const IndexesPanel = props => {
     { text: 'indexes building', value: secondaryIndexesConstructing.length }
   ]
 
-  return <PanelContent title="Indexes" hasIssues={false} statsData={indexesData} />
+  return <PanelContent title='Indexes' hasIssues={false} statsData={indexesData} />
 }
 
 export default IndexesPanel

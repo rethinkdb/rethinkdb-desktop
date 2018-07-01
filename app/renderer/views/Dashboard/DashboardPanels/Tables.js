@@ -12,7 +12,7 @@ const TablesPanel = props => {
   ]
 
   return (
-    <PanelContent title="Tables" hasIssues={hasIssues} statsData={tablesData} />
+    <PanelContent title='Tables' hasIssues={hasIssues} statsData={tablesData} />
   )
 }
 

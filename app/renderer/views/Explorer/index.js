@@ -7,7 +7,7 @@ const options = {
   roundedSelection: false,
   readOnly: false,
   cursorStyle: 'line',
-  automaticLayout: false,
+  automaticLayout: false
 }
 
 const defaultCode = '// type your code... \n'
@@ -15,11 +15,11 @@ const defaultCode = '// type your code... \n'
 const Explorer = () => {
   return (
     <Page>
-    <MonacoEditor
-      language="javascript"
-      value={defaultCode}
-      options={options}
-    />
+      <MonacoEditor
+        language='javascript'
+        value={defaultCode}
+        options={options}
+      />
     </Page>
   )
 }

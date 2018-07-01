@@ -1,11 +1,11 @@
 const { serverList } = require('../queries/server')
 
 const server = {
-  getServers() {
+  getServers () {
     return serverList()
   },
 
-  getServer(matchers = {}) {
+  getServer (matchers = {}) {
 
   }
 }

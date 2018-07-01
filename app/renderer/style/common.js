@@ -22,6 +22,6 @@ export default {
   grayTextColor: '#8f8e9b',
   // elements dimensions
   appHeaderHeight: '38px',
-  sideBarWidth: '180px',
+  sideBarWidth: '180px'
 
 }

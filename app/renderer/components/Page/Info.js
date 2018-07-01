@@ -19,7 +19,6 @@ const Item = styled.li`
   text-align: center;
 `
 
-
 const DD = styled.div`
   display: inline-block;
   padding: 0.5rem;
@@ -47,18 +46,18 @@ const Info = () => (
   <List>
     <Item>
       <DD>
-        <Icon type="connections" size={30} color={theme.mainColorLight} />
+        <Icon type='connections' size={30} color={theme.mainColorLight} />
       </DD>
       <FF>
         <KK>Connected to</KK>
-        {/*<ServersConsumer>*/}
-          {/*{servers => <JJ>{servers[0] ? JSON.stringify(servers[0].server) : ''}</JJ>}*/}
-        {/*</ServersConsumer>*/}
+        {/* <ServersConsumer> */}
+        {/* {servers => <JJ>{servers[0] ? JSON.stringify(servers[0].server) : ''}</JJ>} */}
+        {/* </ServersConsumer> */}
       </FF>
     </Item>
     <Item>
       <DD>
-        <Icon type="danger" size={30} color={theme.mainColorLight} />
+        <Icon type='danger' size={30} color={theme.mainColorLight} />
       </DD>
       <FF>
         <KK>Issues</KK>
@@ -67,26 +66,26 @@ const Info = () => (
     </Item>
     <Item>
       <DD>
-        <Icon type="servers" size={30} color={theme.mainColorLight} />
+        <Icon type='servers' size={30} color={theme.mainColorLight} />
       </DD>
       <FF>
         <kk>Servers</kk>
-        {/*<ServersConsumer>{servers => <JJ>{servers.length} Connected</JJ>}</ServersConsumer>*/}
+        {/* <ServersConsumer>{servers => <JJ>{servers.length} Connected</JJ>}</ServersConsumer> */}
       </FF>
     </Item>
     <Item>
       <DD>
-        <Icon type="table" size={30} color={theme.mainColorLight} />
+        <Icon type='table' size={30} color={theme.mainColorLight} />
       </DD>
       <FF>
         <KK>Tables</KK>
-        {/*<TablesConsumer>*/}
-          {/*{tables => (*/}
-            {/*<JJ>*/}
-              {/*{tables.length}/{tables.length} ready*/}
-            {/*</JJ>*/}
-          {/*)}*/}
-        {/*</TablesConsumer>*/}
+        {/* <TablesConsumer> */}
+        {/* {tables => ( */}
+        {/* <JJ> */}
+        {/* {tables.length}/{tables.length} ready */}
+        {/* </JJ> */}
+        {/* )} */}
+        {/* </TablesConsumer> */}
       </FF>
     </Item>
   </List>

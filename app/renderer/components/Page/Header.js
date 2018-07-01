@@ -48,28 +48,28 @@ const Logo = styled(Link)`
 
 const Header = () => (
   <Container>
-    <Logo to="/newConnection">
+    <Logo to='/newConnection'>
       Rebirth<span>DB</span>
     </Logo>
     <nav>
       <ul>
         <li>
-          <NavLink to="/dashboard" activeClassName="active">
+          <NavLink to='/dashboard' activeClassName='active'>
             Dashboard
           </NavLink>
         </li>
         <li>
-          <NavLink to="/tables" activeClassName="active">
+          <NavLink to='/tables' activeClassName='active'>
             Tables
           </NavLink>
         </li>
         <li>
-          <NavLink to="/explorer" activeClassName="active">
+          <NavLink to='/explorer' activeClassName='active'>
             Data Explorer
           </NavLink>
         </li>
         <li>
-          <NavLink to="/logs" activeClassName="active">
+          <NavLink to='/logs' activeClassName='active'>
             Logs
           </NavLink>
         </li>

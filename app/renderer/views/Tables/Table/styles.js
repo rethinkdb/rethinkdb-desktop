@@ -66,4 +66,3 @@ export const TableStatus = styled('div')(props => ({
     background: sLevels[props.status]
   }
 }))
-

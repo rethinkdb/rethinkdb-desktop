@@ -19,11 +19,11 @@ export const connect = ({ name, address }) => {
   return ipc.callMain(CONNECT_CHANNEL_NAME, { name, address })
 }
 
-export const query = (query='', args={}) => {
+export const query = (query = '', args = {}) => {
   return ipc.callMain(QUERIES_CHANNEL_NAME, query, args)
 }
 
-export const action = (action='', args={}) => {
+export const action = (action = '', args = {}) => {
   return ipc.callMain(ACTIONS_CHANNEL_NAME, action, args)
 }
 

@@ -1,5 +1,4 @@
 import styled, { css } from 'react-emotion'
-import theme from '@/style/common'
 
 export const StyledModal = styled('div')({
   h4: {

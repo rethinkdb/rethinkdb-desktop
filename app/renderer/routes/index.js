@@ -15,17 +15,17 @@ class Routes extends Component {
   //   return <NewConnection onConnected={this.props.onConnected} />
   // }
 
-  render() {
+  render () {
     return (
       <ErrorBoundary FallbackComponent={Error}>
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/newConnection" component={NewConnection} />
-          <Route exact path="/editConnection/:id" component={EditConnection} />
-          <Route exact path="/dashboard" component={Dashboard} />
-          <Route exact path="/tables" component={Tables} />
-          <Route exact path="/explorer" component={Explorer} />
-          <Route exact path="/logs" component={Logs} />
+          <Route exact path='/' component={Home} />
+          <Route exact path='/newConnection' component={NewConnection} />
+          <Route exact path='/editConnection/:id' component={EditConnection} />
+          <Route exact path='/dashboard' component={Dashboard} />
+          <Route exact path='/tables' component={Tables} />
+          <Route exact path='/explorer' component={Explorer} />
+          <Route exact path='/logs' component={Logs} />
         </Switch>
       </ErrorBoundary>
     )

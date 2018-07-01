@@ -14,7 +14,7 @@ const ResourcesPanel = props => {
   ]
 
   return (
-    <PanelContent title="Resources" hasIssues={false} statsData={resourcesData} />
+    <PanelContent title='Resources' hasIssues={false} statsData={resourcesData} />
   )
 }
 

@@ -53,5 +53,3 @@ Panels.defaultProps = {
 }
 
 export default Panels
-
-

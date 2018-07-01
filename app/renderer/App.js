@@ -10,7 +10,7 @@ import './style/app.js'
 const history = createHashHistory()
 
 class App extends Component {
-  render() {
+  render () {
     return (
       <StatsProvider>
         <Router history={history}>

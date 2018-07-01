@@ -13,11 +13,11 @@ class StatsProvider extends Component {
     this.setState({ stats: statsData })
   }
 
-  componentDidMount() {
+  componentDidMount () {
     liveStats(this.onLiveStats)
   }
 
-  render() {
+  render () {
     const { stats } = this.state
     const { children } = this.props
     return (
@@ -28,10 +28,4 @@ class StatsProvider extends Component {
   }
 }
 
-
 export default StatsProvider
-
-
-
-
-

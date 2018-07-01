@@ -1,10 +1,10 @@
 const { tablesByDb, deleteTables } = require('../queries/table')
 
 const table = {
-  tablesByDb() {
+  tablesByDb () {
     return tablesByDb()
   },
-  deleteTables(tables) {
+  deleteTables (tables) {
     return deleteTables(tables)
   }
 }

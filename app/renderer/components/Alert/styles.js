@@ -1,5 +1,4 @@
 import styled, {css} from 'react-emotion'
-import theme from '@/style/common'
 
 const success = css`
     color: #52c41a;

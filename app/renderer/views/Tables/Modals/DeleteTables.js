@@ -9,13 +9,13 @@ const DeleteTables = props => {
   return (
     <Modal {...props}>
       <StyledModal>
-        <Alert type="error">
+        <Alert type='error'>
           Deleting a table will delete all its data. This action cannot be reversed.
         </Alert>
 
         <h4>{`Are you sure you want to delete ${deleteText}:`}</h4>
 
-        <ul className="table-list">
+        <ul className='table-list'>
           {selectedTables.map(table => (
             <li key={table.id}>
               <a href={`#/tables/${table.id}`}>
