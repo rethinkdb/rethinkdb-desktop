@@ -7,6 +7,7 @@ import NewConnection from '../views/Connection/NewConnection'
 import EditConnection from '../views/Connection/EditConnection'
 import Dashboard from '../views/Dashboard'
 import Tables from '../views/Tables'
+import Servers from '../views/Servers'
 import Explorer from '../views/Explorer'
 import Logs from '../views/Logs'
 
@@ -24,6 +25,7 @@ class Routes extends Component {
           <Route exact path="/editConnection/:id" component={EditConnection} />
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/tables" component={Tables} />
+          <Route exact path="/servers" component={Servers} />
           <Route exact path="/explorer" component={Explorer} />
           <Route exact path="/logs" component={Logs} />
         </Switch>

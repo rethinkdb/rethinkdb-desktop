@@ -1,13 +1,13 @@
 import React from 'react'
-import Header from './header'
-import Footer from './footer'
-import Info from './info'
+import Header from './Header'
+import Footer from './Footer'
+import Info from './Info'
 import styled from 'react-emotion'
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
 `
 
 const Body = styled.div`
