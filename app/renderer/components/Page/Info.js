@@ -18,7 +18,6 @@ const Item = styled.li`
   width: 100%;
   text-align: center;
 `
-
 const Header = styled.div`
   display: inline-block;
   padding: 0.5rem;

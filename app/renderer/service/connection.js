@@ -22,16 +22,16 @@ const connection = {
       return { error: e }
     }
   },
-  update(id, values) {
+  update (id, values) {
     updateConnection(id, values)
   },
-  deleteConnection(id) {
+  deleteConnection (id) {
     removeConnection(id)
   },
-  getConnectionById(id) {
+  getConnectionById (id) {
     return getConnection(id)
   },
-  getConnections() {
+  getConnections () {
     return getConnectionList()
   }
 }

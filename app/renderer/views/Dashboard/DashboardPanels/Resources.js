@@ -15,7 +15,9 @@ const ResourcesPanel = props => {
     { text: 'disk used', value: diskUsedFormat }
   ]
 
-  return <PanelContent title="Resources" hasIssues={false} statsData={resourcesData} />
+  return (
+    <PanelContent title='Resources' hasIssues={false} statsData={resourcesData} />
+  )
 }
 
 export default ResourcesPanel

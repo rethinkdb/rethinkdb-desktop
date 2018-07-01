@@ -3,7 +3,6 @@ import { withRouter } from 'react-router'
 import connection from '../../../service/connection'
 import AppHeader from '../../../components/AppHeader'
 import SideBar from '../../../components/SideBar'
-import MainContent from '../../../components/MainContent'
 import ConnectionList from '../Connections/ConnectionList'
 import NewConnectionForm from './NewConnectionForm'
 
@@ -15,11 +14,11 @@ import {
   CONNECTION_DEFAULT_USERNAME
 } from '../../../helpers/constants'
 
-import { ConnectionInfo, ConnectionError, Connecting, Logo } from './styles'
+import { MainContent, ConnectionInfo, ConnectionError, Connecting, Logo } from './styles'
 import logoImg from '../../../static/png/rebirth_logo.png'
 
 class NewConnection extends PureComponent {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.defaultName = CONNECTION_DEFAULT_NAME
     this.defaultAddress = `${CONNECTION_DEFAULT_HOST}:${CONNECTION_DEFAULT_PORT}`
@@ -61,7 +60,7 @@ class NewConnection extends PureComponent {
 
   onQuickConnect = ({ address }) => this.makeConnectionRequest({ address })
 
-  render() {
+  render () {
     const { error, connecting } = this.state
     return (
       <Fragment>

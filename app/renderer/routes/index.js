@@ -12,11 +12,7 @@ import Explorer from '../views/Explorer'
 import Logs from '../views/Logs'
 
 class Routes extends Component {
-  // newConnection = () => {
-  //   return <NewConnection onConnected={this.props.onConnected} />
-  // }
-
-  render() {
+  render () {
     return (
       <ErrorBoundary FallbackComponent={Error}>
         <Switch>
@@ -33,4 +29,5 @@ class Routes extends Component {
     )
   }
 }
+
 export default Routes

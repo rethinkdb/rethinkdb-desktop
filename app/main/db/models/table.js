@@ -1,10 +1,14 @@
-const { tableList } = require('../queries/table')
+const { tablesByDb, deleteTables } = require('../queries/table')
 
 const table = {
-  getTables() {
-    return tableList()
+  tablesByDb () {
+    return tablesByDb()
   },
 
+  deleteTables (tables) {
+    return deleteTables(tables)
+  },
+  
   getTable(matchers = {}) {}
 }
 
