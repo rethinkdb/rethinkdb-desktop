@@ -11,7 +11,7 @@ export const MainContent = styled('main')(props => ({
 export const Title = styled('h2')({
   textAlign: 'center',
   position: 'absolute',
-  top: '32%',
+  top: '20%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: '280px'
@@ -26,7 +26,7 @@ export const StyledNewConnection = styled('div')({
   '.row': {
     width: '100%',
     padding: '15px 0',
-    'input[type="text"]': {
+    'input[type="text"],input[type="password"]': {
       width: '100%',
       height: '38px',
       background: 'transparent',

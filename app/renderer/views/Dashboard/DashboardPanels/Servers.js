@@ -12,9 +12,10 @@ const ServersPanel = props => {
         ? '1+'
         : `${numMissing}`
   const hasIssues = unknownMissing || (numMissing !== 0)
+
   const serversData = [
-    {text: `${pluralize('server', serversConnected)} connected`, value: serversConnected},
-    {text: `${pluralize('server', missing)} missing`, value: numMissing}
+    { text: `${pluralize('server', serversConnected)} connected`, value: serversConnected },
+    { text: `${pluralize('server', missing)} missing`, value: numMissing }
   ]
 
   return (

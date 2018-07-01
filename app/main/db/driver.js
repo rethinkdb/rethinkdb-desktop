@@ -5,7 +5,6 @@ const { r } = require('rebirthdb-ts')
 let connection
 
 const driver = {
-
   getConnection: () => connection,
 
   connect: async function (config = {}) {

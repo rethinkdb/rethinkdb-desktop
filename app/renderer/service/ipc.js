@@ -15,8 +15,8 @@ export const method = (callback) => {
   })
 }
   */
-export const connect = ({ name, address }) => {
-  return ipc.callMain(CONNECT_CHANNEL_NAME, { name, address })
+export const connect = ({ name, address, username, password }) => {
+  return ipc.callMain(CONNECT_CHANNEL_NAME, { name, address, username, password })
 }
 
 export const query = (query = '', args = {}) => {
@@ -30,7 +30,7 @@ export const action = (action = '', args = {}) => {
 // the following channels are for "push" updates from main to renderer
 // answerMain is not really answering anything here...just handling the event sent from main
 // each time the main will "push" a message the callback will be executed
-export const liveStats = (callback) => {
+export const liveStats = callback => {
   ipc.answerMain(STATS_CHANNEL_NAME, data => {
     callback(data)
   })

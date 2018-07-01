@@ -8,12 +8,12 @@ import {
 } from '../helpers/connectionStore'
 
 const connection = {
-  async create ({ name, address }) {
+  async create({ name, address, username, password }) {
     try {
-      const result = await connect({ name, address })
+      const result = await connect({ name, address, username, password })
       if (result.socket.isOpen) {
         // if we got name in args - it's a new connection, we need to save it
-        if (name) saveConnection({ name, address })
+        if (name) saveConnection({ name, address, username, password })
         return { status: 'OK' }
       } else {
         return { error: 'could not establish connection' }

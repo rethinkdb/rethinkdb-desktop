@@ -8,7 +8,6 @@ const Container = styled.header`
   display: flex;
   padding: 10px 10%;
   align-items: center;
-
   nav {
     flex: 1;
     margin-left: 5rem;
@@ -40,7 +39,6 @@ const Logo = styled(Link)`
   text-decoration: none;
   font-size: 18px;
   font-weight: bolder;
-
   span {
     color: ${theme.secColor};
   }
@@ -64,7 +62,12 @@ const Header = () => (
           </NavLink>
         </li>
         <li>
-          <NavLink to='/explorer' activeClassName='active'>
+          <NavLink to="/servers" activeClassName="active">
+            Servers
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/explorer" activeClassName="active">
             Data Explorer
           </NavLink>
         </li>

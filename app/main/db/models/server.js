@@ -4,10 +4,7 @@ const server = {
   getServers () {
     return serverList()
   },
-
-  getServer (matchers = {}) {
-
-  }
+  getServer (matchers = {}) {}
 }
 
 module.exports = server

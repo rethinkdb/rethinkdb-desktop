@@ -23,5 +23,4 @@ export default {
   // elements dimensions
   appHeaderHeight: '38px',
   sideBarWidth: '180px'
-
 }

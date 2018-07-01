@@ -2,9 +2,9 @@ import React from 'react'
 import { StatsContext } from '../../contexts/StatsContext'
 import Dashboard from './Dashboard'
 
-export default (props) => (
+export default props => (
   <StatsContext.Consumer>
-    {(stats) => {
+    {stats => {
       return <Dashboard {...props} stats={stats} />
     }}
   </StatsContext.Consumer>

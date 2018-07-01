@@ -18,25 +18,24 @@ const Item = styled.li`
   width: 100%;
   text-align: center;
 `
-
-const DD = styled.div`
+const Header = styled.div`
   display: inline-block;
   padding: 0.5rem;
   margin-right: 1rem;
 `
 
-const FF = styled.div`
+const Body = styled.div`
   display: inline-block;
   vertical-align: top;
   text-align: left;
   padding-top: 0.25rem;
 `
 
-const KK = styled.div`
+const Title = styled.div`
   color: #909090;
 `
 
-const JJ = styled.div`
+const Value = styled.div`
   color: #4d535c;
   font-size: 1rem;
   font-weight: bold;
@@ -45,48 +44,48 @@ const JJ = styled.div`
 const Info = () => (
   <List>
     <Item>
-      <DD>
-        <Icon type='connections' size={30} color={theme.mainColorLight} />
-      </DD>
-      <FF>
-        <KK>Connected to</KK>
+      <Header>
+        <Icon type="connections" size={30} color={theme.mainColorLight} />
+      </Header>
+      <Body>
+        <Title>Connected to</Title>
         {/* <ServersConsumer> */}
         {/* {servers => <JJ>{servers[0] ? JSON.stringify(servers[0].server) : ''}</JJ>} */}
         {/* </ServersConsumer> */}
-      </FF>
+      </Body>
     </Item>
     <Item>
-      <DD>
-        <Icon type='danger' size={30} color={theme.mainColorLight} />
-      </DD>
-      <FF>
-        <KK>Issues</KK>
-        <JJ>No Issues</JJ>
-      </FF>
+      <Header>
+        <Icon type="danger" size={30} color={theme.mainColorLight} />
+      </Header>
+      <Body>
+        <Title>Issues</Title>
+        <Value>No Issues</Value>
+      </Body>
     </Item>
     <Item>
-      <DD>
-        <Icon type='servers' size={30} color={theme.mainColorLight} />
-      </DD>
-      <FF>
+      <Header>
+        <Icon type="servers" size={30} color={theme.mainColorLight} />
+      </Header>
+      <Body>
         <kk>Servers</kk>
         {/* <ServersConsumer>{servers => <JJ>{servers.length} Connected</JJ>}</ServersConsumer> */}
-      </FF>
+      </Body>
     </Item>
     <Item>
-      <DD>
-        <Icon type='table' size={30} color={theme.mainColorLight} />
-      </DD>
-      <FF>
-        <KK>Tables</KK>
+      <Header>
+        <Icon type="table" size={30} color={theme.mainColorLight} />
+      </Header>
+      <Body>
+        <Title>Tables</Title>
         {/* <TablesConsumer> */}
         {/* {tables => ( */}
-        {/* <JJ> */}
+        {/* <Value> */}
         {/* {tables.length}/{tables.length} ready */}
-        {/* </JJ> */}
+        {/* </Value> */}
         {/* )} */}
         {/* </TablesConsumer> */}
-      </FF>
+      </Body>
     </Item>
   </List>
 )

@@ -9,7 +9,9 @@ import NewConnectionForm from './NewConnectionForm'
 import {
   CONNECTION_DEFAULT_NAME,
   CONNECTION_DEFAULT_HOST,
-  CONNECTION_DEFAULT_PORT
+  CONNECTION_DEFAULT_PASSWORD,
+  CONNECTION_DEFAULT_PORT,
+  CONNECTION_DEFAULT_USERNAME
 } from '../../../helpers/constants'
 
 import { MainContent, ConnectionInfo, ConnectionError, Connecting, Logo } from './styles'
@@ -20,15 +22,17 @@ class NewConnection extends PureComponent {
     super(props)
     this.defaultName = CONNECTION_DEFAULT_NAME
     this.defaultAddress = `${CONNECTION_DEFAULT_HOST}:${CONNECTION_DEFAULT_PORT}`
+    this.defaultUsername = CONNECTION_DEFAULT_USERNAME
+    this.defaultPassword = CONNECTION_DEFAULT_PASSWORD
     this.state = {
       error: undefined,
       connecting: false
     }
   }
 
-  makeConnectionRequest = async ({ name, address }) => {
+  makeConnectionRequest = async ({ name, address, username, password }) => {
     this.setState({ error: undefined, connecting: true })
-    const result = await connection.create({ name, address })
+    const result = await connection.create({ name, address, username, password })
     if (result.error) {
       this.setState({ error: result.error.code, connecting: false })
     } else {
@@ -38,14 +42,20 @@ class NewConnection extends PureComponent {
       history.push('/dashboard')
     }
   }
-  onCreate = (name, address) => {
+  onCreate = (name, address, username, password) => {
     if (!name.trim().length) {
       name = this.defaultName
     }
     if (!address.trim().length) {
       address = this.defaultAddress
     }
-    return this.makeConnectionRequest({ name, address })
+    if (!username.trim().length) {
+      username = this.defaultUsername
+    }
+    if (!password.trim().length) {
+      password = this.defaultPassword
+    }
+    return this.makeConnectionRequest({ name, address, username, password })
   }
 
   onQuickConnect = ({ address }) => this.makeConnectionRequest({ address })
@@ -65,6 +75,8 @@ class NewConnection extends PureComponent {
           <NewConnectionForm
             defaultName={this.defaultName}
             defaultAddress={this.defaultAddress}
+            defaultUsername={this.defaultUsername}
+            defaultPassword={this.defaultPassword}
             onCreate={this.onCreate}
           />
           <ConnectionInfo>

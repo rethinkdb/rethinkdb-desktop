@@ -10,9 +10,9 @@ const {
   ACTIONS_CHANNEL_NAME
 } = require('../../shared/channels')
 
-ipc.answerRenderer(CONNECT_CHANNEL_NAME, async ({ name, address }) => {
+ipc.answerRenderer(CONNECT_CHANNEL_NAME, async ({ name, address, username, password }) => {
   const { host, port } = url.extract(address)
-  const connectResult = await connect({ host, port })
+  const connectResult = await connect({ host, port, username, password })
   // connection created - we can start pushing updates
   startLiveStats()
   return connectResult
