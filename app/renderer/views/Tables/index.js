@@ -4,16 +4,24 @@ import Page from '../../components/Page'
 import ActionsBar from '../../components/ActionsBar'
 import DatabaseList from './Database/DatabaseList'
 import DeleteTables from './Modals/DeleteTables'
-import { processDeleteResult } from './tableHelpers'
+import AddDatabase from './Modals/AddDatabase'
+import {
+  processDeleteTablesResult,
+  processAddDatabaseResult,
+  validateAddDatabase
+} from './tableHelpers'
 import { DBActionButton, DBActions } from './Database/styles'
+import Toast from '../../components/Toast'
 
 class Tables extends PureComponent {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       tablesByDb: [],
       selectedTables: [],
-      deleteTablesVisible: false
+      deleteTablesVisible: false,
+      addDatabaseVisible: false,
+      addDatabaseError: undefined
     }
   }
 
@@ -21,7 +29,38 @@ class Tables extends PureComponent {
     return query({ name: 'tablesByDb' })
   }
 
-  addDatabase = () => {}
+  addDatabase = async name => {
+    let tablesByDb = this.state.tablesByDb
+    try {
+      // validation
+      const validationError = validateAddDatabase(name, tablesByDb)
+      if (validationError) {
+        this.setState({ addDatabaseError: validationError })
+      } else {
+        const result = await action({
+          name: 'addDatabase',
+          payload: { name }
+        })
+        // Add Database operation result doesn't guarantee that the table list was updated
+        // so calling fetchTables here immediately after add will not yield the changes
+        // Thus we need to preform our own dirty local state update
+        if (result.inserted === 1) {
+          let newList = processAddDatabaseResult(name, result, tablesByDb)
+          this.setState({
+            tablesByDb: newList,
+            addDatabaseError: undefined
+          })
+          this.closeModals()
+          Toast.success('Database created!')
+        } else {
+          this.setState({ addDatabaseError: result.first_error || 'Unknown error' })
+        }
+      }
+    } catch (e) {
+      console.error(e)
+      this.setState({ addDatabaseError: e.message })
+    }
+  }
 
   deleteDatabase = () => {}
 
@@ -29,6 +68,9 @@ class Tables extends PureComponent {
 
   deleteTableConfirm = () => {
     this.setState({ deleteTablesVisible: true })
+  }
+  addDatabaseConfirm = () => {
+    this.setState({ addDatabaseVisible: true })
   }
   deleteTables = async () => {
     try {
@@ -42,20 +84,32 @@ class Tables extends PureComponent {
       // so calling fetchTables here immediately after delete will not yield the changes
       // Thus we need to preform our own dirty local state update
       if (result.changes) {
-        let newTablesByDb = processDeleteResult(result.changes, tablesByDb)
-        this.setState({ tablesByDb: newTablesByDb, deleteTablesVisible: false, selectedTables: [] })
-        // TODO: Use Toast with success here
-      } else {
-        // TODO: Use Toast with info here
+        let newList = processDeleteTablesResult(result.changes, tablesByDb)
+        if (result.deleted === tables.length) {
+          this.setState({
+            tablesByDb: newList,
+            selectedTables: []
+          })
+          this.closeModals()
+          Toast.success('Table deleted!')
+        } else {
+          this.closeModals()
+          Toast.warning('The value returned for `deleted` did not match the number of tables.')
+        }
       }
     } catch (e) {
       console.error(e)
-      // TODO: Use Toast with error here
+      this.closeModals()
+      Toast.error(e.message)
     }
   }
 
-  onDeleteTablesClose = e => {
-    this.setState({ deleteTablesVisible: false })
+  closeModals = e => {
+    this.setState({
+      deleteTablesVisible: false,
+      addDatabaseVisible: false,
+      addDatabaseError: undefined
+    })
   }
 
   onTableSelect = table => {
@@ -70,7 +124,7 @@ class Tables extends PureComponent {
     this.setState({ selectedTables: arr })
   }
 
-  async componentDidMount () {
+  async componentDidMount() {
     try {
       const tablesByDb = await this.fetchTables()
       this.setState({ tablesByDb })
@@ -79,14 +133,22 @@ class Tables extends PureComponent {
     }
   }
 
-  render () {
-    const { tablesByDb, selectedTables, deleteTablesVisible } = this.state
+  render() {
+    const {
+      tablesByDb,
+      selectedTables,
+      deleteTablesVisible,
+      addDatabaseVisible,
+      addDatabaseError
+    } = this.state
     return (
       <Fragment>
         <Page>
-          <ActionsBar title='Tables in the cluster'>
+          <ActionsBar title="Tables in the cluster">
             <div className={DBActions}>
-              <button className={DBActionButton}>Add Database</button>
+              <button className={DBActionButton} onClick={this.addDatabaseConfirm}>
+                Add Database
+              </button>
               <button
                 className={DBActionButton}
                 disabled={selectedTables.length < 1}
@@ -100,11 +162,19 @@ class Tables extends PureComponent {
         </Page>
         <DeleteTables
           visible={deleteTablesVisible}
-          onClose={this.onDeleteTablesClose}
-          title='Delete tables'
+          onClose={this.closeModals}
+          title="Delete tables"
           selectedTables={selectedTables}
           onDelete={this.deleteTables}
-          onCancel={this.onDeleteTablesClose}
+          onCancel={this.closeModals}
+        />
+        <AddDatabase
+          visible={addDatabaseVisible}
+          onClose={this.closeModals}
+          title="Add Database"
+          error={addDatabaseError}
+          onSubmit={this.addDatabase}
+          onCancel={this.closeModals}
         />
       </Fragment>
     )

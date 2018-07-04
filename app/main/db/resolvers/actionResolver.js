@@ -1,6 +1,8 @@
 const table = require('../models/table')
+const database = require('../models/database')
 
 const actions = {
+  'addDatabase': database.add,
   'deleteTables': table.deleteTables
 }
 const actionResolver = ({name = 'action', payload = {}}) => {

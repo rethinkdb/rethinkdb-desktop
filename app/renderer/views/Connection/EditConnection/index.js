@@ -1,7 +1,7 @@
 import React, { PureComponent, Fragment } from 'react'
 import connection from '../../../service/connection'
 import AppHeader from '../../../components/AppHeader'
-import Toast, { ToastContainer } from '../../../components/Toast'
+import Toast from '../../../components/Toast'
 import EditConnectionForm from './EditConnectionForm'
 
 class EditConnection extends PureComponent {
@@ -35,7 +35,6 @@ class EditConnection extends PureComponent {
     return (
       <Fragment>
         <AppHeader />
-        <ToastContainer stack effect='slide' timeout={3000} offset={20} />
         <EditConnectionForm connection={selected} onSave={this.onSaveConnection} />
       </Fragment>
     )

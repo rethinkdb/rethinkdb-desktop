@@ -1,11 +1,13 @@
 import React from 'react'
 import TableItem from '../Table/TableItem'
-import { StyledDatabaseItem, DBLabel, DBActions, DBActionButton } from './styles'
+import { StyledDatabaseItem, DBLabel, DBActions, DBActionButton, EmptyList } from './styles'
 import { StyledTableList } from '../Table/styles'
 
 const DatabaseItem = props => {
   const { item, onTableSelect } = props
   const { name, tables } = item
+
+  const renderEmptyList = () => <EmptyList>There are no tables in this database.</EmptyList>
 
   const renderTables = () =>
     tables.map(t => <TableItem key={t.id} table={t} onTableSelect={onTableSelect} />)
@@ -20,7 +22,7 @@ const DatabaseItem = props => {
           <button className={DBActionButton}>Delete Database</button>
         </div>
       </header>
-      <StyledTableList>{renderTables()}</StyledTableList>
+      <StyledTableList>{tables.length ? renderTables() : renderEmptyList()}</StyledTableList>
     </StyledDatabaseItem>
   )
 }
