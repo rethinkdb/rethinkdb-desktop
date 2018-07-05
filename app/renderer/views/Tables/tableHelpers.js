@@ -45,3 +45,15 @@ export const processAddDatabaseResult = (name, result, currentState) => {
   }
   return [...currentState, newDB]
 }
+
+export const processDeleteDatabaseResult = (name, list) => {
+  let _list = [...list]
+  _list.some((item, index) => {
+    if (item.name === name) {
+      _list.splice(index, 1)
+      return true
+    }
+    return false
+  })
+  return _list
+}

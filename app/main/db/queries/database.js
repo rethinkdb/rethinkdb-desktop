@@ -11,6 +11,11 @@ const addDatabase = ({ name }) => {
     .run(connection())
 }
 
+const deleteDatabase = ({ name }) => {
+  return r.dbDrop(name).run(connection())
+}
+
 module.exports = {
-  addDatabase
+  addDatabase,
+  deleteDatabase
 }

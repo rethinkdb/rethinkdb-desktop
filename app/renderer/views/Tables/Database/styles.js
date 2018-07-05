@@ -63,5 +63,5 @@ export const DBActionButton = css({
 export const EmptyList = styled('div')({
   textAlign: 'center',
   fontSize: '15px',
-  padding: '10px 0'
+  padding: '15px 0'
 })

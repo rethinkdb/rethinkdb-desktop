@@ -25,6 +25,7 @@ const basic = css`
     background: #fafafa;
     padding: 8px 12px;
     border-radius: 3px;
+    margin: 5px 0;
 `
 
 const alertTypes = {
