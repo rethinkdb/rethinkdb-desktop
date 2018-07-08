@@ -1,4 +1,5 @@
 import styled, { css } from 'react-emotion'
+import theme from '@/style/common'
 
 export const StyledModal = styled('div')({
   h4: {
@@ -26,6 +27,26 @@ export const StyledModalActions = styled('div')({
   display: 'flex',
   flexDirection: 'row-reverse',
   paddingTop: '10px'
+})
+
+export const ModalTextInput = css({
+  margin: '10px 0',
+  width: '100%',
+  height: '38px',
+  background: 'transparent',
+  border: 'none',
+  borderBottom: '1px solid #603e85',
+  transition: 'all ease-in 500ms',
+  color: theme.mainTextColor,
+  '&:focus': {
+    outline: 'none',
+    borderBottomColor: '#eb48ca'
+  }
+})
+
+export const ModalRow = css({
+  margin: '10px 0',
+  width: '100%'
 })
 
 export const ActionButton = css({

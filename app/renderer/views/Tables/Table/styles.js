@@ -9,7 +9,7 @@ export const StyledTableList = styled('ul')({
 export const StyledTableItem = styled('li')({
   padding: '12px 8px',
   display: 'grid',
-  gridTemplateColumns: '42px 1fr 300px 100px',
+  gridTemplateColumns: '42px 1fr 300px 130px',
   gridTemplateRows: 'auto',
   gridTemplateAreas:
     "'select name shardsReplicas status'",

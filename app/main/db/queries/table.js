@@ -40,7 +40,7 @@ const tablesByDb = () => {
     .run(connection())
 }
 
-const deleteTables = (tablesToDelete) => {
+const deleteTables = tablesToDelete => {
   return r
     .db(SYSTEM_DB)
     .table('table_config')
@@ -54,7 +54,45 @@ const deleteTables = (tablesToDelete) => {
     .run(connection())
 }
 
+const addTable = ({ db, name, primaryKey, durability }) => {
+  return r
+    .db(SYSTEM_DB)
+    .table('server_status')
+    .coerceTo('ARRAY')
+    .do(servers => {
+      return r.branch(
+        servers.isEmpty(),
+        r.error('No server is connected'),
+        servers
+          .sample(1)
+          .nth(0)('name')
+          .do(server => {
+            return r
+              .db(SYSTEM_DB)
+              .table('table_config')
+              .insert(
+                {
+                  db,
+                  name,
+                  primary_key: primaryKey,
+                  durability,
+                  shards: [
+                    {
+                      primary_replica: server,
+                      replicas: [server]
+                    }
+                  ]
+                },
+                { returnChanges: true }
+              )
+          })
+      )
+    })
+    .run(connection())
+}
+
 module.exports = {
   tablesByDb,
+  addTable,
   deleteTables
 }
