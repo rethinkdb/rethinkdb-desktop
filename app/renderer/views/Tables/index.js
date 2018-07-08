@@ -112,7 +112,6 @@ class Tables extends PureComponent {
   }
 
   deleteDatabase = async name => {
-    let tablesByDb = this.state.tablesByDb
     try {
       const result = await action({
         name: 'deleteDatabase',
@@ -152,7 +151,6 @@ class Tables extends PureComponent {
   deleteTables = async () => {
     try {
       const tables = this.state.selectedTables
-      let tablesByDb = this.state.tablesByDb
       const result = await action({
         name: 'deleteTables',
         payload: tables.map(table => ({ db: table.db, name: table.name }))
