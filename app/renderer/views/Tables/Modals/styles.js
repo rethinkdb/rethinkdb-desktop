@@ -44,6 +44,11 @@ export const ModalTextInput = css({
   }
 })
 
+export const ModalRow = css({
+  margin: '10px 0',
+  width: '100%'
+})
+
 export const ActionButton = css({
   marginLeft: '8px',
   padding: '5px 12px',

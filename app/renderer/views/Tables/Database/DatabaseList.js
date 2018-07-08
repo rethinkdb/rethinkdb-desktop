@@ -3,7 +3,7 @@ import { StyledDatabaseList, EmptyList } from './styles'
 import DatabaseItem from './DatabaseItem'
 
 const DatabaseList = props => {
-  const { list, onTableSelect, openDeleteDatabaseModal } = props
+  const { list, onTableSelect, openDeleteDatabaseModal, openAddTableModal } = props
 
   const renderEmptyList = () => <EmptyList>There are no databases in this cluster.</EmptyList>
   const renderList = () =>
@@ -12,6 +12,7 @@ const DatabaseList = props => {
         key={db.id}
         item={db}
         onTableSelect={onTableSelect}
+        openAddTableModal={openAddTableModal}
         openDeleteDatabaseModal={openDeleteDatabaseModal}
       />
     ))

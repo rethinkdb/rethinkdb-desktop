@@ -57,6 +57,7 @@
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "react-s-alert": "^1.4.1",
+    "react-switch": "^3.0.4",
     "rebirthdb-ts": "https://github.com/rebirthdb/rebirthdb-ts.git",
     "rethinkdb": "^2.3.3",
     "shortid": "^2.2.8"

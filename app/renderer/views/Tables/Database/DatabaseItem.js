@@ -4,7 +4,7 @@ import { StyledDatabaseItem, DBLabel, DBActions, DBActionButton, EmptyList } fro
 import { StyledTableList } from '../Table/styles'
 
 const DatabaseItem = props => {
-  const { item, onTableSelect, openDeleteDatabaseModal } = props
+  const { item, onTableSelect, openDeleteDatabaseModal, openAddTableModal } = props
   const { name, tables } = item
 
   const renderEmptyList = () => <EmptyList>There are no tables in this database.</EmptyList>
@@ -16,14 +16,22 @@ const DatabaseItem = props => {
     openDeleteDatabaseModal(name)
   }
 
+  const onAddTable = () => {
+    openAddTableModal(name)
+  }
+
   return (
     <StyledDatabaseItem>
       <header>
         <DBLabel>Database</DBLabel>
-        <span className='db-name'>{name}</span>
+        <span className="db-name">{name}</span>
         <div className={DBActions}>
-          <button className={DBActionButton}>Add Table</button>
-          <button className={DBActionButton} onClick={onDBDelete}>Delete Database</button>
+          <button className={DBActionButton} onClick={onAddTable}>
+            Add Table
+          </button>
+          <button className={DBActionButton} onClick={onDBDelete}>
+            Delete Database
+          </button>
         </div>
       </header>
       <StyledTableList>{tables.length ? renderTables() : renderEmptyList()}</StyledTableList>

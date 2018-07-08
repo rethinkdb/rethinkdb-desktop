@@ -4,7 +4,8 @@ const database = require('../models/database')
 const actions = {
   'addDatabase': database.add,
   'deleteDatabase': database.del,
-  'deleteTables': table.deleteTables
+  'addTable': table.add,
+  'deleteTables': table.del
 }
 const actionResolver = ({name = 'action', payload = {}}) => {
   if (!actions[name]) {
