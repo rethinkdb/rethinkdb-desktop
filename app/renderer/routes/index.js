@@ -10,7 +10,7 @@ import Tables from '../views/Tables'
 import Servers from '../views/Servers'
 import Explorer from '../views/Explorer'
 import Logs from '../views/Logs'
-import LogsProviderRoute from '../contexts/LogsContext'
+import RouteWithLogs from '../contexts/LogsContext'
 
 class Routes extends Component {
   render () {
@@ -20,8 +20,8 @@ class Routes extends Component {
           <Route exact path="/" component={Home} />
           <Route exact path="/newConnection" component={NewConnection} />
           <Route exact path="/editConnection/:id" component={EditConnection} />
-          <LogsProviderRoute exact path="/dashboard" component={Dashboard} />
-          <LogsProviderRoute exact path="/logs" component={Logs} />
+          <RouteWithLogs exact path="/dashboard" component={Dashboard} />
+          <RouteWithLogs exact path="/logs" component={Logs} />
           <Route exact path="/tables" component={Tables} />
           <Route exact path="/servers" component={Servers} />
           <Route exact path="/explorer" component={Explorer} />
