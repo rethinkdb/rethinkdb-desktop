@@ -4,8 +4,6 @@ import Dashboard from './Dashboard'
 
 export default props => (
   <StatsContext.Consumer>
-    {stats => {
-      return <Dashboard {...props} stats={stats} />
-    }}
+    {stats => <Dashboard {...props} stats={stats} />}
   </StatsContext.Consumer>
 )

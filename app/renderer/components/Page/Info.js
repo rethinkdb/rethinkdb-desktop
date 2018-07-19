@@ -68,7 +68,7 @@ const Info = () => (
         <Icon type="servers" size={30} color={theme.mainColorLight} />
       </Header>
       <Body>
-        <kk>Servers</kk>
+        <Title>Servers</Title>
         {/* <ServersConsumer>{servers => <JJ>{servers.length} Connected</JJ>}</ServersConsumer> */}
       </Body>
     </Item>
