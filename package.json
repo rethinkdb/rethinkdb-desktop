@@ -43,6 +43,7 @@
     "formik": "^0.11.11",
     "history": "^4.7.2",
     "lodash": "^4.17.10",
+    "lodash.throttle": "^4.1.1",
     "moment": "^2.22.2",
     "pluralize": "^7.0.0",
     "prop-types": "^15.6.1",
@@ -62,7 +63,8 @@
     "react-switch": "^3.0.4",
     "rethinkdb": "^2.3.3",
     "rethinkdb-ts": "^2.4.0-rc.6",
-    "shortid": "^2.2.8"
+    "shortid": "^2.2.8",
+    "victory": "^30.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",

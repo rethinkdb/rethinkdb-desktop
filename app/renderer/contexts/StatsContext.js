@@ -1,5 +1,5 @@
 import React, { Component, createContext } from 'react'
-import { liveStats } from '../service/ipc'
+import { liveStats, liveClusterReadWrite } from '../service/ipc'
 
 export const StatsContext = createContext()
 const StatsContextProvider = StatsContext.Provider
@@ -13,14 +13,19 @@ class StatsProvider extends Component {
     this.setState({ stats: statsData })
   }
 
+  onLiveClusterReadWrites = data => {
+    this.setState({ cluster: data })
+  }
+
   componentDidMount () {
     liveStats(this.onLiveStats)
+    liveClusterReadWrite(this.onLiveClusterReadWrites)
   }
 
   render () {
-    const { stats } = this.state
+    const { stats, cluster } = this.state
     const { children } = this.props
-    return <StatsContextProvider value={stats}>{children}</StatsContextProvider>
+    return <StatsContextProvider value={{ stats, cluster }}>{children}</StatsContextProvider>
   }
 }
 

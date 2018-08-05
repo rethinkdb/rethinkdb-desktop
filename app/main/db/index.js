@@ -1,6 +1,7 @@
 const ipc = require('electron-better-ipc')
 const { connect } = require('./driver')
 const { startLiveStats } = require('./models/stats')
+const { startClusterReadWriteChanges } = require('./models/cluster')
 const queryResolver = require('./resolvers/queryResolver')
 const actionResolver = require('./resolvers/actionResolver')
 const url = require('../helpers/url')
@@ -15,6 +16,7 @@ ipc.answerRenderer(CONNECT_CHANNEL_NAME, async ({ name, address, username, passw
   const connectResult = await connect({ host, port, username, password })
   // connection created - we can start pushing updates
   startLiveStats()
+  startClusterReadWriteChanges()
   return connectResult
 })
 
