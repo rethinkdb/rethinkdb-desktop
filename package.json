@@ -17,7 +17,7 @@
     "start": "cross-env NODE_ENV=production electron .",
     "start-main-dev": "cross-env HOT=1 NODE_ENV=development electron .",
     "start-renderer-dev": "cross-env NODE_ENV=development node --trace-warnings -r babel-register ./node_modules/webpack-dev-server/bin/webpack-dev-server --mode development --config webpack.config.dev.js",
-    "test": "npm run standard && jest",
+    "test": "npm run standard && jest --env=node",
     "test-all": "npm run lint && npm run flow && npm run build && npm run test && npm run test-e2e",
     "test-e2e": "cross-env NODE_ENV=test BABEL_DISABLE_CACHE=1 node --trace-warnings -r babel-register ./internals/scripts/RunTests.js e2e",
     "test-watch": "npm test -- --watch",
