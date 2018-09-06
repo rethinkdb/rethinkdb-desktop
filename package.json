@@ -22,7 +22,7 @@
     "test-all": "npm run lint && npm run flow && npm run build && npm run test && npm run test-e2e",
     "test-e2e": "cross-env NODE_ENV=test BABEL_DISABLE_CACHE=1 node --trace-warnings -r babel-register ./internals/scripts/RunTests.js e2e",
     "test-watch": "npm test -- --watch",
-    "lint": "prettier 'app/**/*.js' --write"
+    "lint": "prettier-standard 'app/**/*.js' --write"
   },
   "repository": {
     "type": "git",
@@ -98,6 +98,7 @@
     "lint-staged": "^7.2.2",
     "monaco-editor-webpack-plugin": "^1.3.0",
     "prettier": "^1.12.1",
+    "prettier-standard": "^8.0.1",
     "react-hot-loader": "^4.1.2",
     "react-test-renderer": "^16.4.0",
     "standard": "^11.0.1",

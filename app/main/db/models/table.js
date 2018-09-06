@@ -1,21 +1,21 @@
 const { tablesByDb, addTable, deleteTables } = require('../queries/table')
 
 const table = {
-  tablesByDb() {
+  tablesByDb () {
     return tablesByDb()
   },
-  add(table) {
+  add (table) {
     try {
       return addTable(table)
     } catch (e) {
       console.log('e', e)
     }
   },
-  del(tables) {
+  del (tables) {
     return deleteTables(tables)
   },
 
-  getTable(matchers = {}) {}
+  getTable (matchers = {}) {}
 }
 
 module.exports = table

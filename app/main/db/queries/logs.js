@@ -8,7 +8,7 @@ module.exports = {
   getLogs
 }
 
-function getLogs() {
+function getLogs () {
   return r
     .db(SYSTEM_DB)
     .table('logs')

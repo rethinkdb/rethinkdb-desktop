@@ -18,10 +18,10 @@ class AddDatabase extends Component {
     onSubmit(dbName)
   }
   renderError = error => {
-    return <Alert type="error">{error}</Alert>
+    return <Alert type='error'>{error}</Alert>
   }
 
-  render() {
+  render () {
     const { error, onCancel } = this.props
     const { dbName } = this.state
     return (
@@ -29,11 +29,11 @@ class AddDatabase extends Component {
         <StyledModal>
           {error ? this.renderError(error) : null}
           <input
-            name="databaseName"
-            type="text"
+            name='databaseName'
+            type='text'
             maxLength={60}
             className={ModalTextInput}
-            placeholder="Database name"
+            placeholder='Database name'
             onChange={this.onNameChange}
             value={dbName}
           />

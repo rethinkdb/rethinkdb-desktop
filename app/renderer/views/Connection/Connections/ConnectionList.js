@@ -5,7 +5,7 @@ import { StyledConnectionList } from './styles'
 import connection from '../../../service/connection'
 
 class ConnectionList extends PureComponent {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       connections: []
@@ -26,11 +26,11 @@ class ConnectionList extends PureComponent {
     this.fetchConnections()
   }
 
-  componentDidMount() {
+  componentDidMount () {
     this.fetchConnections()
   }
 
-  render() {
+  render () {
     const { onItemClick } = this.props
     const { connections } = this.state
     return (

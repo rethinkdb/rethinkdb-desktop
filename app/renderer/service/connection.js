@@ -8,7 +8,7 @@ import {
 } from '../helpers/connectionStore'
 
 const connection = {
-  async create({ name, address, username, password }) {
+  async create ({ name, address, username, password }) {
     try {
       const result = await connect({ name, address, username, password })
       if (result.socket.isOpen) {
@@ -22,16 +22,16 @@ const connection = {
       return { error: e }
     }
   },
-  update(id, values) {
+  update (id, values) {
     updateConnection(id, values)
   },
-  deleteConnection(id) {
+  deleteConnection (id) {
     removeConnection(id)
   },
-  getConnectionById(id) {
+  getConnectionById (id) {
     return getConnection(id)
   },
-  getConnections() {
+  getConnections () {
     return getConnectionList()
   }
 }

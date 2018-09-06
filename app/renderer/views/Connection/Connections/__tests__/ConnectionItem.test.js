@@ -10,7 +10,7 @@ jest.mock('../styles', () => {
 })
 
 jest.mock('../ConnectionItemActions', () => () => (
-  <div id="ConnectionItemActions">ConnectionItemActions</div>
+  <div id='ConnectionItemActions'>ConnectionItemActions</div>
 ))
 
 test.only('ConnectionList render items', () => {

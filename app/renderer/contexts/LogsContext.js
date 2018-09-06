@@ -10,12 +10,12 @@ class LogsProviderRoute extends Component {
     logs: []
   }
 
-  async componentDidMount() {
+  async componentDidMount () {
     const logs = await query({ name: 'getLogs' })
     this.setState({ logs })
   }
 
-  render() {
+  render () {
     const { logs } = this.state
     const { component: Component, ...rest } = this.props
     return (

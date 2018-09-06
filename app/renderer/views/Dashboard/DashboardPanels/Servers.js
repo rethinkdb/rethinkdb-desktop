@@ -20,7 +20,7 @@ const ServersPanel = props => {
     { text: `${pluralize('server', missing)} missing`, value: numMissing }
   ]
 
-  return <PanelContent title="Servers" hasIssues={hasIssues} statsData={serversData} />
+  return <PanelContent title='Servers' hasIssues={hasIssues} statsData={serversData} />
 }
 
 export default ServersPanel

@@ -7,7 +7,7 @@ let connection
 const driver = {
   getConnection: () => connection,
 
-  connect: async function(config = {}) {
+  connect: async function (config = {}) {
     if (connection) {
       console.info('there is an active connection - closing current connection')
       await driver.disconnect()
@@ -18,7 +18,7 @@ const driver = {
     console.info('connected')
     return connection
   },
-  async disconnect() {
+  async disconnect () {
     if (connection && connection.close) {
       return connection.close()
     }

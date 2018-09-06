@@ -29,28 +29,28 @@ class DeleteDatabase extends Component {
   }
 
   renderError = error => {
-    return <Alert type="error">{error}</Alert>
+    return <Alert type='error'>{error}</Alert>
   }
 
-  render() {
+  render () {
     const { error, onCancel } = this.props
     const { dbName, validationError } = this.state
     const err = error || validationError
     return (
       <Modal {...this.props} afterClose={this.onClose}>
         <StyledModal>
-          <Alert type="warning">
+          <Alert type='warning'>
             Deleting the database will delete all the tables in it.
             <br />
             This action <strong>cannot</strong> be undone.
           </Alert>
           {err ? this.renderError(err) : null}
           <input
-            name="databaseName"
-            type="text"
+            name='databaseName'
+            type='text'
             maxLength={60}
             className={ModalTextInput}
-            placeholder="Name of the database"
+            placeholder='Name of the database'
             onChange={this.onNameChange}
             value={dbName}
           />

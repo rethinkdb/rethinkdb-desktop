@@ -17,7 +17,7 @@ import {
   clear
 } from '../connectionStore'
 
-function cleanTest() {
+function cleanTest () {
   clear()
 }
 

@@ -12,19 +12,19 @@ const TableItem = props => {
 
   return (
     <StyledTableItem>
-      <div className="tableSelect">
-        <input type="checkbox" name="tableSelect" onChange={handleSelect} />
+      <div className='tableSelect'>
+        <input type='checkbox' name='tableSelect' onChange={handleSelect} />
       </div>
-      <div className="tableName">
+      <div className='tableName'>
         <a href={`#/tables/?id=${id}`}>{name}</a>
       </div>
-      <div className="tableShardsReplicas">
-        <Icon type="copy" size={16} color="#333" className="tableShardsReplicasIcon" />
-        <span className="tableShardsReplicasText">
+      <div className='tableShardsReplicas'>
+        <Icon type='copy' size={16} color='#333' className='tableShardsReplicasIcon' />
+        <span className='tableShardsReplicasText'>
           replicas: {replicas}, shards: {shards}
         </span>
       </div>
-      <div className="tableStatus">
+      <div className='tableStatus'>
         <TableStatus status={label}>{value}</TableStatus>
       </div>
     </StyledTableItem>

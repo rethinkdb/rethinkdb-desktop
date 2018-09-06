@@ -39,10 +39,10 @@ class AddTable extends Component {
     onSubmit({ name: tblName, primaryKey, durability })
   }
   renderError = error => {
-    return <Alert type="error">{error}</Alert>
+    return <Alert type='error'>{error}</Alert>
   }
 
-  render() {
+  render () {
     const { error, onCancel } = this.props
     const { dbName, primaryKey, durability } = this.state
     return (
@@ -50,17 +50,17 @@ class AddTable extends Component {
         <StyledModal>
           {error ? this.renderError(error) : null}
           <input
-            name="tableName"
-            type="text"
+            name='tableName'
+            type='text'
             maxLength={60}
             className={ModalTextInput}
-            placeholder="Table name"
+            placeholder='Table name'
             onChange={this.onNameChange}
             value={dbName}
           />
           <input
-            name="primaryKey"
-            type="text"
+            name='primaryKey'
+            type='text'
             maxLength={60}
             className={ModalTextInput}
             placeholder="Primary key (defaults to 'id')"
@@ -71,11 +71,11 @@ class AddTable extends Component {
             <label className={ModalRow}>Acknowledge writes only when written to disk</label>
           </div>
           <div className={ModalRow}>
-            <label htmlFor="durability-switch">
+            <label htmlFor='durability-switch'>
               <Switch
                 onChange={this.onDurabilityChange}
                 checked={durability}
-                id="durability-switch"
+                id='durability-switch'
               />
             </label>
           </div>

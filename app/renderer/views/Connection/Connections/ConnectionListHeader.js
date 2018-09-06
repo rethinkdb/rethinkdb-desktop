@@ -11,7 +11,7 @@ const ConnectionListHeader = () => {
 
   return (
     <div className={connectionListHeader}>
-      <Icon type="database" size={28} color={theme.mainColorLight} />
+      <Icon type='database' size={28} color={theme.mainColorLight} />
     </div>
   )
 }
