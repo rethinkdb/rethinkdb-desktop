@@ -47,7 +47,8 @@ const Logo = styled(Link)`
 const Header = () => (
   <Container>
     <Logo to='/newConnection'>
-      Rebirth<span>DB</span>
+      Rebirth
+      <span>DB</span>
     </Logo>
     <nav>
       <ul>
