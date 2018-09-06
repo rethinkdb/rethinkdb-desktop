@@ -17,7 +17,7 @@ class AddDatabase extends Component {
     this.setState({ dbName: '' })
     onSubmit(dbName)
   }
-  renderError = (error) => {
+  renderError = error => {
     return <Alert type="error">{error}</Alert>
   }
 

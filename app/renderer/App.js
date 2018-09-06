@@ -11,10 +11,10 @@ import './style/app.js'
 const history = createHashHistory()
 
 class App extends Component {
-  render () {
+  render() {
     return (
       <Fragment>
-        <ToastContainer stack effect='slide' timeout={8000} offset={20} />
+        <ToastContainer stack effect="slide" timeout={8000} offset={20} />
         <StatsProvider>
           <Router history={history}>
             <Routes />

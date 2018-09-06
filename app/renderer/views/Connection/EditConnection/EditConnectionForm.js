@@ -5,20 +5,20 @@ import { StyledEditForm, GoBackLink } from './styles'
 const EditConnectionForm = () => {
   return (
     <Fragment>
-      <a href='#/newConnection' className={GoBackLink}>
-        <i className='icon-arrow-left' /> Go Back
+      <a href="#/newConnection" className={GoBackLink}>
+        <i className="icon-arrow-left" /> Go Back
       </a>
       <StyledEditForm>
-        <div className='title'>
-          <Icon type='database' size={32} />
+        <div className="title">
+          <Icon type="database" size={32} />
           <h2>Manage Connection</h2>
         </div>
         <Form>
-          <div className='row'>
-            <Field name='name' type='text' maxLength={20} />
+          <div className="row">
+            <Field name="name" type="text" maxLength={20} />
           </div>
-          <div className='row'>
-            <Field name='address' type='text' />
+          <div className="row">
+            <Field name="address" type="text" />
           </div>
           <div className="row">
             <Field name="username" type="text" />
@@ -45,7 +45,7 @@ export default withFormik({
       password: connection.password || ''
     }
   },
-  handleSubmit (values, { props }) {
+  handleSubmit(values, { props }) {
     props.onSave(values)
   }
 })(EditConnectionForm)

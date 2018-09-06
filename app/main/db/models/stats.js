@@ -13,7 +13,7 @@ const { STATS_CHANNEL_NAME } = require('../../../shared/channels')
 let statsInterval = null
 
 const stats = {
-  async onTick () {
+  async onTick() {
     try {
       const servers = await getServerStats()
       const tables = await getTableStats()
@@ -28,7 +28,7 @@ const stats = {
       console.warn('startLiveStats failed: ', e)
     }
   },
-  async startLiveStats () {
+  async startLiveStats() {
     if (statsInterval) {
       console.info('clearing stats interval...')
       clearInterval(statsInterval)

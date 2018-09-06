@@ -11,15 +11,14 @@ export const StyledTableItem = styled('li')({
   display: 'grid',
   gridTemplateColumns: '42px 1fr 300px 130px',
   gridTemplateRows: 'auto',
-  gridTemplateAreas:
-    "'select name shardsReplicas status'",
+  gridTemplateAreas: "'select name shardsReplicas status'",
   borderBottom: `1px solid ${theme.mainBorderColor}`,
   '.tableSelect': {
     gridArea: 'select'
   },
   '.tableName': {
     gridArea: 'name',
-    'a': {
+    a: {
       fontSize: '16px',
       fontWeight: 600,
       textDecoration: 'none',
@@ -29,7 +28,6 @@ export const StyledTableItem = styled('li')({
         color: '#eb48ca'
       }
     }
-
   },
   '.tableShardsReplicas': {
     gridArea: 'shardsReplicas',
@@ -50,9 +48,9 @@ export const StyledTableItem = styled('li')({
 })
 
 const sLevels = {
-  'success': theme.success,
+  success: theme.success,
   'partial-success': theme.warning,
-  'failure': theme.error
+  failure: theme.error
 }
 export const TableStatus = styled('div')(props => ({
   '&:before': {

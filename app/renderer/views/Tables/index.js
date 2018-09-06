@@ -8,10 +8,7 @@ import AddTable from './Modals/AddTable'
 import DeleteTables from './Modals/DeleteTables'
 import AddDatabase from './Modals/AddDatabase'
 import DeleteDatabase from './Modals/DeleteDatabase'
-import {
-  validateAddTable,
-  validateAddDatabase
-} from './tableHelpers'
+import { validateAddTable, validateAddDatabase } from './tableHelpers'
 
 import { DBActionButton, DBActions } from './Database/styles'
 
@@ -70,9 +67,8 @@ class Tables extends PureComponent {
             const tablesByDb = await this.fetchTables()
             this.setState({ tablesByDb })
           }, 3000)
-
         } else {
-          this.setState({ addTableError: "The returned result was not `{created: 1}`" })
+          this.setState({ addTableError: 'The returned result was not `{created: 1}`' })
         }
       }
     } catch (e) {

@@ -1,7 +1,7 @@
 const { getLogs } = require('../queries/logs')
 
 const logs = {
-  async getLogs () {
+  async getLogs() {
     return getLogs()
   }
 }

@@ -15,11 +15,7 @@ const defaultCode = '// type your code... \n'
 const Explorer = () => {
   return (
     <Page>
-      <MonacoEditor
-        language='javascript'
-        value={defaultCode}
-        options={options}
-      />
+      <MonacoEditor language="javascript" value={defaultCode} options={options} />
     </Page>
   )
 }

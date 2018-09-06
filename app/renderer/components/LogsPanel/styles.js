@@ -12,7 +12,7 @@ export const Message = styled('div')({
 
 export const Server = styled('span')({
   color: `${theme.info}`,
-  fontStyle: 'italic',
+  fontStyle: 'italic'
 })
 
 export const Box = styled('div')({
@@ -40,7 +40,7 @@ export const Box = styled('div')({
   }
 })
 
-export const Level = styled('div')(({value}) => ({
+export const Level = styled('div')(({ value }) => ({
   margin: '1rem',
   width: '1rem',
   height: '1rem',

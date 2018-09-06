@@ -13,7 +13,7 @@ import Logs from '../views/Logs'
 import RouteWithLogs from '../contexts/LogsContext'
 
 class Routes extends Component {
-  render () {
+  render() {
     return (
       <ErrorBoundary FallbackComponent={Error}>
         <Switch>

@@ -8,7 +8,7 @@ export const StyledActionsBar = styled('header')(props => ({
   borderBottom: `1px solid ${theme.mainBorderColor}`,
   height: '50px',
   padding: '15px',
-  'h3': {
+  h3: {
     fontWeight: 500
   }
 }))

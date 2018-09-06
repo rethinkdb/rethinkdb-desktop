@@ -4,7 +4,7 @@ import Dropdown from '../../../components/Dropdown'
 import { StyledActionsButton, MenuItemIcon } from './styles'
 
 class ConnectionItemActions extends PureComponent {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       showActions: false
@@ -27,26 +27,26 @@ class ConnectionItemActions extends PureComponent {
 
   menu = (
     <Menu onSelect={this.onAction}>
-      <MenuItem key='edit' className={MenuItemIcon}>
-        <i className='icon-pencil' /> Edit
+      <MenuItem key="edit" className={MenuItemIcon}>
+        <i className="icon-pencil" /> Edit
       </MenuItem>
       <Divider />
-      <MenuItem key='delete' className={MenuItemIcon}>
-        <i className='icon-trash' /> Delete
+      <MenuItem key="delete" className={MenuItemIcon}>
+        <i className="icon-trash" /> Delete
       </MenuItem>
     </Menu>
   )
 
-  render () {
+  render() {
     return (
       <Dropdown
         trigger={['click']}
         overlay={this.menu}
-        animation='slide-up'
+        animation="slide-up"
         onVisibleChange={this.onVisibleChange}
       >
         <StyledActionsButton>
-          <i className='icon-options' />
+          <i className="icon-options" />
         </StyledActionsButton>
       </Dropdown>
     )

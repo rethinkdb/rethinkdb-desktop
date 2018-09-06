@@ -13,9 +13,7 @@ const TablesPanel = props => {
     { text: `${pluralize('table', tablesNotReady)} with issues`, value: tablesNotReady }
   ]
 
-  return (
-    <PanelContent title='Tables' hasIssues={hasIssues} statsData={tablesData} />
-  )
+  return <PanelContent title="Tables" hasIssues={hasIssues} statsData={tablesData} />
 }
 
 export default TablesPanel

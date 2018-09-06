@@ -5,7 +5,7 @@ import Toast from '../../../components/Toast'
 import EditConnectionForm from './EditConnectionForm'
 
 class EditConnection extends PureComponent {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       id: '',
@@ -20,7 +20,7 @@ class EditConnection extends PureComponent {
     } catch (e) {}
   }
 
-  componentDidMount () {
+  componentDidMount() {
     const {
       match: {
         params: { id }
@@ -30,7 +30,7 @@ class EditConnection extends PureComponent {
     this.setState({ selected, id })
   }
 
-  render () {
+  render() {
     const { selected } = this.state
     return (
       <Fragment>
