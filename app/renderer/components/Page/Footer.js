@@ -26,7 +26,7 @@ const Footer = () => (
   <Container>
     <nav>
       <ul>
-        <li>RebirthDB</li>
+        <li>RethinkDB</li>
       </ul>
     </nav>
   </Container>
