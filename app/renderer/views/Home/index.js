@@ -8,11 +8,11 @@ function Home (props) {
   return (
     <StyledHome>
       <div className='banner'>
-        <h1 className='banner__title'>RebirthDB</h1>
+        <h1 className='banner__title'>RethinkDB</h1>
       </div>
       <div className='empty__message'>
         <h2>No database connections added.</h2>
-        <p>Click the "+" to add a RebirthDB connection.</p>
+        <p>Click the "+" to add a RethinkDB connection.</p>
         <Link to='/newConnection'>
           <Icon type='plus' size={32} />
         </Link>

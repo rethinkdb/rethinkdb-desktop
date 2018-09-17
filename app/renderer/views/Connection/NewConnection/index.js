@@ -80,7 +80,7 @@ class NewConnection extends PureComponent {
             onCreate={this.onCreate}
           />
           <ConnectionInfo>
-            By default RebirthDB will connect to <span>{this.defaultAddress}</span> with connection
+            By default RethinkDB will connect to <span>{this.defaultAddress}</span> with connection
             name <span>{this.defaultName}</span>
           </ConnectionInfo>
         </MainContent>
