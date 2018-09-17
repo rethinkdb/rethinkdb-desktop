@@ -1,5 +1,5 @@
 import driver from '../driver'
-import { r as mockedR } from 'rebirthdb-ts'
+import { r as mockedR } from 'rethinkdb-ts'
 
 const conn = { host: 'test', port: 3000 }
 const conn2 = { host: 'test2', port: 3000 }

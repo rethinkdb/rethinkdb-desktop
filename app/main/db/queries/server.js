@@ -1,4 +1,4 @@
-const { r } = require('rebirthdb-ts')
+const { r } = require('rethinkdb-ts')
 
 const serverList = () => {
   return r
