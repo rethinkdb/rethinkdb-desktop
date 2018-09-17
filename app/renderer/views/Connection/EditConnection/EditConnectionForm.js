@@ -20,13 +20,13 @@ const EditConnectionForm = () => {
           <div className='row'>
             <Field name='address' type='text' />
           </div>
-          <div className="row">
-            <Field name="username" type="text" />
+          <div className='row'>
+            <Field name='username' type='text' />
           </div>
-          <div className="row">
-            <Field name="password" type="password" />
+          <div className='row'>
+            <Field name='password' type='password' />
           </div>
-          <div className="row actions">
+          <div className='row actions'>
             <button>Save</button>
           </div>
         </Form>

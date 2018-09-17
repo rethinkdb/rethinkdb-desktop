@@ -8,7 +8,7 @@ import {
 } from '../helpers/connectionStore'
 
 const connection = {
-  async create({ name, address, username, password }) {
+  async create ({ name, address, username, password }) {
     try {
       const result = await connect({ name, address, username, password })
       if (result.socket.isOpen) {

@@ -10,17 +10,18 @@
     "package-all": "npm run build && build -mwl",
     "package-linux": "npm run build && build --linux",
     "package-win": "npm run build && build --win --x64",
-    "standard": "standard --fix 'app/**/*.js' && yarn run lint",
+    "precommit": "lint-staged",
+    "standard": "standard --fix 'app/**/*.js'",
     "standard-html": "standard --fix --plugin html '**/*.html'",
     "standard-markdown": "standard --fix --plugin markdown '**/*.md'",
     "start": "cross-env NODE_ENV=production electron .",
     "start-main-dev": "cross-env HOT=1 NODE_ENV=development electron .",
     "start-renderer-dev": "cross-env NODE_ENV=development node --trace-warnings -r babel-register ./node_modules/webpack-dev-server/bin/webpack-dev-server --mode development --config webpack.config.dev.js",
-    "test": "npm run standard && jest",
+    "test": "npm run standard && jest --env=node",
     "test-all": "npm run lint && npm run flow && npm run build && npm run test && npm run test-e2e",
     "test-e2e": "cross-env NODE_ENV=test BABEL_DISABLE_CACHE=1 node --trace-warnings -r babel-register ./internals/scripts/RunTests.js e2e",
     "test-watch": "npm test -- --watch",
-    "lint": "prettier 'app/**/*.js' --write"
+    "lint": "prettier 'app/**/*.js' --write && yarn standard && yarn standard-html && yarn standard-markdown"
   },
   "repository": {
     "type": "git",
@@ -88,10 +89,12 @@
     "eslint-plugin-markdown": "^1.0.0-beta.6",
     "file-loader": "^1.1.11",
     "html-loader": "^0.5.5",
+    "husky": "^0.14.3",
     "jest": "^22.4.3",
     "json-loader": "^0.5.7",
     "less": "^3.0.2",
     "less-loader": "^4.1.0",
+    "lint-staged": "^7.2.2",
     "monaco-editor-webpack-plugin": "^1.3.0",
     "prettier": "^1.12.1",
     "react-hot-loader": "^4.1.2",
@@ -111,6 +114,12 @@
     ],
     "env": [
       "jest"
+    ]
+  },
+  "lint-staged": {
+    "*.{html,md,js}": [
+      "yarn lint",
+      "git add"
     ]
   }
 }

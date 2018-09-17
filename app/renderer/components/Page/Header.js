@@ -47,7 +47,8 @@ const Logo = styled(Link)`
 const Header = () => (
   <Container>
     <Logo to='/newConnection'>
-      Rebirth<span>DB</span>
+      Rebirth
+      <span>DB</span>
     </Logo>
     <nav>
       <ul>
@@ -62,12 +63,12 @@ const Header = () => (
           </NavLink>
         </li>
         <li>
-          <NavLink to="/servers" activeClassName="active">
+          <NavLink to='/servers' activeClassName='active'>
             Servers
           </NavLink>
         </li>
         <li>
-          <NavLink to="/explorer" activeClassName="active">
+          <NavLink to='/explorer' activeClassName='active'>
             Data Explorer
           </NavLink>
         </li>

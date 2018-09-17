@@ -45,7 +45,7 @@ const Info = () => (
   <List>
     <Item>
       <Header>
-        <Icon type="connections" size={30} color={theme.mainColorLight} />
+        <Icon type='connections' size={30} color={theme.mainColorLight} />
       </Header>
       <Body>
         <Title>Connected to</Title>
@@ -56,7 +56,7 @@ const Info = () => (
     </Item>
     <Item>
       <Header>
-        <Icon type="danger" size={30} color={theme.mainColorLight} />
+        <Icon type='danger' size={30} color={theme.mainColorLight} />
       </Header>
       <Body>
         <Title>Issues</Title>
@@ -65,7 +65,7 @@ const Info = () => (
     </Item>
     <Item>
       <Header>
-        <Icon type="servers" size={30} color={theme.mainColorLight} />
+        <Icon type='servers' size={30} color={theme.mainColorLight} />
       </Header>
       <Body>
         <Title>Servers</Title>
@@ -74,7 +74,7 @@ const Info = () => (
     </Item>
     <Item>
       <Header>
-        <Icon type="table" size={30} color={theme.mainColorLight} />
+        <Icon type='table' size={30} color={theme.mainColorLight} />
       </Header>
       <Body>
         <Title>Tables</Title>

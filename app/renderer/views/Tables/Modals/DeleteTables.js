@@ -25,8 +25,12 @@ const DeleteTables = props => {
           ))}
         </ul>
         <StyledModalActions>
-          <button className={ActionButton} onClick={onDelete}>Delete</button>
-          <button className={ActionButton} onClick={onCancel}>Cancel</button>
+          <button className={ActionButton} onClick={onDelete}>
+            Delete
+          </button>
+          <button className={ActionButton} onClick={onCancel}>
+            Cancel
+          </button>
         </StyledModalActions>
       </StyledModal>
     </Modal>

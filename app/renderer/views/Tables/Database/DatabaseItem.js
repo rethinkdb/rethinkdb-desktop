@@ -24,7 +24,7 @@ const DatabaseItem = props => {
     <StyledDatabaseItem>
       <header>
         <DBLabel>Database</DBLabel>
-        <span className="db-name">{name}</span>
+        <span className='db-name'>{name}</span>
         <div className={DBActions}>
           <button className={DBActionButton} onClick={onAddTable}>
             Add Table

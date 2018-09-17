@@ -8,15 +8,12 @@ import AddTable from './Modals/AddTable'
 import DeleteTables from './Modals/DeleteTables'
 import AddDatabase from './Modals/AddDatabase'
 import DeleteDatabase from './Modals/DeleteDatabase'
-import {
-  validateAddTable,
-  validateAddDatabase
-} from './tableHelpers'
+import { validateAddTable, validateAddDatabase } from './tableHelpers'
 
 import { DBActionButton, DBActions } from './Database/styles'
 
 class Tables extends PureComponent {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       tablesByDb: [],
@@ -70,9 +67,8 @@ class Tables extends PureComponent {
             const tablesByDb = await this.fetchTables()
             this.setState({ tablesByDb })
           }, 3000)
-
         } else {
-          this.setState({ addTableError: "The returned result was not `{created: 1}`" })
+          this.setState({ addTableError: 'The returned result was not `{created: 1}`' })
         }
       }
     } catch (e) {
@@ -199,7 +195,7 @@ class Tables extends PureComponent {
     this.setState({ selectedTables: arr })
   }
 
-  async componentDidMount() {
+  async componentDidMount () {
     try {
       const tablesByDb = await this.fetchTables()
       this.setState({ tablesByDb })
@@ -208,7 +204,7 @@ class Tables extends PureComponent {
     }
   }
 
-  render() {
+  render () {
     const {
       tablesByDb,
       selectedTables,
@@ -224,7 +220,7 @@ class Tables extends PureComponent {
     return (
       <Fragment>
         <Page>
-          <ActionsBar title="Tables in the cluster">
+          <ActionsBar title='Tables in the cluster'>
             <div className={DBActions}>
               <button className={DBActionButton} onClick={this.openAddDatabaseModal}>
                 Add Database
@@ -248,7 +244,7 @@ class Tables extends PureComponent {
         <AddTable
           visible={addTableVisible}
           onClose={this.closeModals}
-          title="Add Table"
+          title='Add Table'
           error={addTableError}
           onSubmit={this.addTable}
           onCancel={this.closeModals}
@@ -256,7 +252,7 @@ class Tables extends PureComponent {
         <DeleteTables
           visible={deleteTablesVisible}
           onClose={this.closeModals}
-          title="Delete tables"
+          title='Delete tables'
           selectedTables={selectedTables}
           onDelete={this.deleteTables}
           onCancel={this.closeModals}
@@ -264,7 +260,7 @@ class Tables extends PureComponent {
         <AddDatabase
           visible={addDatabaseVisible}
           onClose={this.closeModals}
-          title="Add Database"
+          title='Add Database'
           error={addDatabaseError}
           onSubmit={this.addDatabase}
           onCancel={this.closeModals}
@@ -272,7 +268,7 @@ class Tables extends PureComponent {
         <DeleteDatabase
           visible={deleteDatabaseVisible}
           onClose={this.closeModals}
-          title="Delete Database"
+          title='Delete Database'
           error={deleteDatabaseError}
           dbToDelete={dbToDelete}
           onDelete={this.deleteDatabase}

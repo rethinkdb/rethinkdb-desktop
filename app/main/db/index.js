@@ -18,10 +18,10 @@ ipc.answerRenderer(CONNECT_CHANNEL_NAME, async ({ name, address, username, passw
   return connectResult
 })
 
-ipc.answerRenderer(QUERIES_CHANNEL_NAME, async (query) => {
+ipc.answerRenderer(QUERIES_CHANNEL_NAME, async query => {
   return queryResolver(query)
 })
 
-ipc.answerRenderer(ACTIONS_CHANNEL_NAME, async (action) => {
+ipc.answerRenderer(ACTIONS_CHANNEL_NAME, async action => {
   return actionResolver(action)
 })

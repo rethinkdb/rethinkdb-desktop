@@ -1,4 +1,3 @@
-
 export const validateAddDatabase = (name, list) => {
   let error
   // Empty name is not valid
@@ -28,5 +27,3 @@ export const validateAddTable = (name, list) => {
   }
   return error
 }
-
-

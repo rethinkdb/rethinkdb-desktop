@@ -17,14 +17,14 @@ class Routes extends Component {
     return (
       <ErrorBoundary FallbackComponent={Error}>
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/newConnection" component={NewConnection} />
-          <Route exact path="/editConnection/:id" component={EditConnection} />
-          <RouteWithLogs exact path="/dashboard" component={Dashboard} />
-          <RouteWithLogs exact path="/logs" component={Logs} />
-          <Route exact path="/tables" component={Tables} />
-          <Route exact path="/servers" component={Servers} />
-          <Route exact path="/explorer" component={Explorer} />
+          <Route exact path='/' component={Home} />
+          <Route exact path='/newConnection' component={NewConnection} />
+          <Route exact path='/editConnection/:id' component={EditConnection} />
+          <RouteWithLogs exact path='/dashboard' component={Dashboard} />
+          <RouteWithLogs exact path='/logs' component={Logs} />
+          <Route exact path='/tables' component={Tables} />
+          <Route exact path='/servers' component={Servers} />
+          <Route exact path='/explorer' component={Explorer} />
         </Switch>
       </ErrorBoundary>
     )
