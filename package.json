@@ -36,7 +36,7 @@
   "homepage": "https://github.com/RebirthDB/rebirthdb-desktop#readme",
   "dependencies": {
     "add": "^2.0.6",
-    "babel-plugin-emotion": "^9.1.2",
+    "babel-plugin-emotion": "^9.2.9",
     "electron-better-ipc": "^0.1.1",
     "electron-store": "^1.3.0",
     "emotion": "^9.1.3",
