@@ -1,4 +1,4 @@
-const { r } = require('rebirthdb-ts')
+const { r } = require('rethinkdb-ts')
 // const { getServers, getTables } = require('./queries/stats')
 // const r = require('rethinkdb')
 

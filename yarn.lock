@@ -7905,10 +7905,6 @@ realpath-native@^1.0.0:
   dependencies:
     util.promisify "^1.0.0"
 
-"rebirthdb-ts@https://github.com/rebirthdb/rebirthdb-ts.git":
-  version "2.4.0-rc.5"
-  resolved "https://github.com/rebirthdb/rebirthdb-ts.git#c53f3db6d259189a72202f618f85c2a80462ccc7"
-
 recast@^0.12.5:
   version "0.12.9"
   resolved "https://registry.yarnpkg.com/recast/-/recast-0.12.9.tgz#e8e52bdb9691af462ccbd7c15d5a5113647a15f1"
@@ -8213,6 +8209,10 @@ restore-cursor@^2.0.0:
 ret@~0.1.10:
   version "0.1.15"
   resolved "https://registry.yarnpkg.com/ret/-/ret-0.1.15.tgz#b8a4825d5bdb1fc3f6f53c2bc33f81388681c7bc"
+
+rethinkdb-ts@^2.4.0-rc.6:
+  version "2.4.0-rc.6"
+  resolved "https://registry.yarnpkg.com/rethinkdb-ts/-/rethinkdb-ts-2.4.0-rc.6.tgz#3d92addbdc4483b94f29d3403702dfd07f36d269"
 
 rethinkdb@^2.3.3:
   version "2.3.3"
