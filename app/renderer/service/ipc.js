@@ -3,7 +3,8 @@ const {
   CONNECT_CHANNEL_NAME,
   STATS_CHANNEL_NAME,
   QUERIES_CHANNEL_NAME,
-  ACTIONS_CHANNEL_NAME
+  ACTIONS_CHANNEL_NAME,
+  CLUSTER_CHANNEL_NAME
 } = require('../../shared/channels')
 
 // ToDo: instead of hard coding the channels, we should create a channel factory
@@ -31,7 +32,9 @@ export const action = (action = '', args = {}) => {
 // answerMain is not really answering anything here...just handling the event sent from main
 // each time the main will "push" a message the callback will be executed
 export const liveStats = callback => {
-  ipc.answerMain(STATS_CHANNEL_NAME, data => {
-    callback(data)
-  })
+  ipc.answerMain(STATS_CHANNEL_NAME, data => callback(data))
+}
+
+export const liveClusterReadWrite = callback => {
+  ipc.answerMain(CLUSTER_CHANNEL_NAME, data => callback(data))
 }
