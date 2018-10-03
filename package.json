@@ -12,7 +12,7 @@
     "package-win": "npm run build && build --win --x64",
     "precommit": "lint-staged",
     "standard": "standard --fix 'app/**/*.js'",
-    "standard-html": "standard --fix --plugin html '**/*.html'",
+    "standard-html": "standard --fix --plugin html 'renderer/views/**/*.html'",
     "standard-markdown": "standard --fix --plugin markdown '**/*.md'",
     "start": "cross-env NODE_ENV=production electron .",
     "start-main-dev": "cross-env HOT=1 NODE_ENV=development electron .",
