@@ -28,4 +28,8 @@ injectGlobal`
     font-weight: 300;
     font-size: 14px;
   }
+
+  #root > header {
+    -webkit-app-region: drag;
+  }
 `

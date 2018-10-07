@@ -4,6 +4,7 @@ import { NavLink, Link } from 'react-router-dom'
 import theme from '@/style/common'
 
 const Container = styled.header`
+  -webkit-app-region: drag;
   background: ${theme.mainColor};
   display: flex;
   padding: 10px 10%;
@@ -21,6 +22,7 @@ const Container = styled.header`
       flex: 1;
       text-align: center;
       a {
+        -webkit-app-region: no-drag;
         color: ${theme.mainColorLight};
         font-size: 1rem;
         text-decoration: none;
