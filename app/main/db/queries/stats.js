@@ -6,11 +6,13 @@ const connection = () => driver.getConnection()
 const sysTable = name => r.db(SYSTEM_DB).table(name)
 
 const getServerStats = () => {
+  const serverConfig = sysTable('server_config')
   const serverStatus = sysTable('server_status')
   const tableConfig = sysTable('table_config')
 
   return r
     .do(
+      serverConfig.nth(0),
       // All connected servers
       serverStatus('name').coerceTo('array'),
       // All servers assigned to tables
@@ -18,7 +20,8 @@ const getServerStats = () => {
         .concatMap(row => row('shards').default([]))
         .concatMap(row => row('replicas'))
         .distinct(),
-      (connectedServers, assignedServers) => ({
+      (server, connectedServers, assignedServers) => ({
+        server,
         serversConnected: connectedServers.count(),
         serversMissing: assignedServers.setDifference(connectedServers),
         unknownMissing: tableConfig
@@ -101,7 +104,14 @@ const getResourceStats = async () => {
   }
 }
 
+const getIssuesStats = () => {
+  return sysTable('current_issues')
+    .coerceTo('array')
+    .run(connection())
+}
+
 module.exports = {
+  getIssuesStats,
   getServerStats,
   getTableStats,
   getIndexStats,

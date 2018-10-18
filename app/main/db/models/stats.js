@@ -5,7 +5,8 @@ const {
   getServerStats,
   getTableStats,
   getIndexStats,
-  getResourceStats
+  getResourceStats,
+  getIssuesStats
 } = require('../queries/stats')
 
 const { STATS_CHANNEL_NAME } = require('../../../shared/channels')
@@ -19,10 +20,17 @@ const stats = {
       const tables = await getTableStats()
       const indexes = await getIndexStats()
       const resources = await getResourceStats()
+      const issues = await getIssuesStats()
 
       const win = BrowserWindow.getAllWindows()
       if (win.length) {
-        ipc.callRenderer(win[0], STATS_CHANNEL_NAME, { servers, tables, indexes, resources })
+        ipc.callRenderer(win[0], STATS_CHANNEL_NAME, {
+          servers,
+          tables,
+          indexes,
+          resources,
+          issues
+        })
       }
     } catch (e) {
       console.warn('startLiveStats failed: ', e)

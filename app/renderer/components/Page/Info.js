@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'react-emotion'
 import Icon from '../../components/Icon'
 import theme from '@/style/common'
+import { StatsContext } from '../../contexts/StatsContext'
 
 const List = styled.ul`
   background: ${theme.infoBarsColor};
@@ -42,52 +43,55 @@ const Value = styled.div`
 `
 
 const Info = () => (
-  <List>
-    <Item>
-      <Header>
-        <Icon type='connections' size={30} color={theme.mainColorLight} />
-      </Header>
-      <Body>
-        <Title>Connected to</Title>
-        {/* <ServersConsumer> */}
-        {/* {servers => <JJ>{servers[0] ? JSON.stringify(servers[0].server) : ''}</JJ>} */}
-        {/* </ServersConsumer> */}
-      </Body>
-    </Item>
-    <Item>
-      <Header>
-        <Icon type='danger' size={30} color={theme.mainColorLight} />
-      </Header>
-      <Body>
-        <Title>Issues</Title>
-        <Value>No Issues</Value>
-      </Body>
-    </Item>
-    <Item>
-      <Header>
-        <Icon type='servers' size={30} color={theme.mainColorLight} />
-      </Header>
-      <Body>
-        <Title>Servers</Title>
-        {/* <ServersConsumer>{servers => <JJ>{servers.length} Connected</JJ>}</ServersConsumer> */}
-      </Body>
-    </Item>
-    <Item>
-      <Header>
-        <Icon type='table' size={30} color={theme.mainColorLight} />
-      </Header>
-      <Body>
-        <Title>Tables</Title>
-        {/* <TablesConsumer> */}
-        {/* {tables => ( */}
-        {/* <Value> */}
-        {/* {tables.length}/{tables.length} ready */}
-        {/* </Value> */}
-        {/* )} */}
-        {/* </TablesConsumer> */}
-      </Body>
-    </Item>
-  </List>
+  <StatsContext.Consumer>
+    {({ stats }) => {
+      const { servers, tables, issues = [] } = stats || {}
+      const { server: { name = '' } = {}, serversConnected = 0 } = servers || {}
+      const { tablesReady = 0, tablesNotReady = 0 } = tables || {}
+      return (
+        <List>
+          <Item>
+            <Header>
+              <Icon type='connections' size={30} color={theme.mainColorLight} />
+            </Header>
+            <Body>
+              <Title>Connected to</Title>
+              <Value>{name}</Value>
+            </Body>
+          </Item>
+          <Item>
+            <Header>
+              <Icon type='danger' size={30} color={theme.mainColorLight} />
+            </Header>
+            <Body>
+              <Title>Issues</Title>
+              <Value>{issues.length || 'No'} Issues</Value>
+            </Body>
+          </Item>
+          <Item>
+            <Header>
+              <Icon type='servers' size={30} color={theme.mainColorLight} />
+            </Header>
+            <Body>
+              <Title>Servers</Title>
+              <Value>{serversConnected} connected</Value>
+            </Body>
+          </Item>
+          <Item>
+            <Header>
+              <Icon type='table' size={30} color={theme.mainColorLight} />
+            </Header>
+            <Body>
+              <Title>Tables</Title>
+              <Value>
+                {tablesReady}/{tablesNotReady + tablesReady} ready
+              </Value>
+            </Body>
+          </Item>
+        </List>
+      )
+    }}
+  </StatsContext.Consumer>
 )
 
 export default Info
