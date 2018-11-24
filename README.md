@@ -1,6 +1,6 @@
 # RethinkDB Desktop
 
-[![CircleCI](https://circleci.com/gh/RethinkDB/rethinkdb-desktop.svg?style=svg)](https://circleci.com/gh/RethinkDB/rethinkdb-desktop)
+[![CircleCI](https://circleci.com/gh/rethinkdb/rethinkdb-desktop.svg?style=svg)](https://circleci.com/gh/rethinkdb/rethinkdb-desktop)
 
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
