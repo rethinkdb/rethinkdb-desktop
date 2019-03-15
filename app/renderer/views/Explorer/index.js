@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import MonacoEditor from 'react-monaco-editor'
 import Page from '../../components/Page'
 import { DBActionButton } from '../Tables/Database/styles'
@@ -29,7 +29,7 @@ const Explorer = () => {
           // const value = model.getValue()
           // alert(value)
         }}>
-          Executed
+          Execute
         </button>
       </div>
     </Page>
