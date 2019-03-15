@@ -12,23 +12,22 @@ const options = {
 }
 
 const Explorer = () => {
-  const [code, setCode] = useState('// type your code... \n')
-  function onChange (newValue, e) {
-    console.log('onChange', newValue, e)
-    setCode(newValue)
+  const [code, setCode] = useState('// type your code... \n \n r.tableList()')
+
+  function query () {
+    console.log(code)
   }
 
   return (
     <Page>
       <div style={{ height: '400px', width: '100%' }}>
-        <MonacoEditor language='javascript' theme='vs-dark' value={code}
+        <MonacoEditor
+          language='javascript'
+          theme='vs-dark'
+          value={code}
           options={options}
-          onChange={onChange} />
-        <button className={DBActionButton} onClick={() => {
-          // const model = this.refs.monaco.editor.getModel()
-          // const value = model.getValue()
-          // alert(value)
-        }}>
+          onChange={setCode} />
+        <button className={DBActionButton} onClick={query}>
           Execute
         </button>
       </div>
