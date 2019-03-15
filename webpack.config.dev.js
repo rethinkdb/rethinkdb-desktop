@@ -54,8 +54,10 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin({
       multiStep: true
     }),
-    new webpack.NoEmitOnErrorsPlugin(),
-    // new MonacoWebpackPlugin(),
+    // new webpack.NoEmitOnErrorsPlugin(),
+    new MonacoWebpackPlugin({
+      languages: ['javascript']
+    }),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('development')

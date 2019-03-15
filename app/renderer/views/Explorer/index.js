@@ -20,7 +20,7 @@ const Explorer = () => {
 
   return (
     <Page>
-      <div style={{ height: '300px', width: '100%' }}>
+      <div style={{ height: '400px', width: '100%' }}>
         <MonacoEditor language='javascript' theme='vs-dark' value={code}
           options={options}
           onChange={onChange} />
@@ -29,7 +29,7 @@ const Explorer = () => {
           // const value = model.getValue()
           // alert(value)
         }}>
-          Execute
+          Executed
         </button>
       </div>
     </Page>
