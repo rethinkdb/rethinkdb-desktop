@@ -1,6 +1,7 @@
-import React from 'react'
+import React, {useState} from 'react'
 import MonacoEditor from 'react-monaco-editor'
 import Page from '../../components/Page'
+import { DBActionButton } from '../Tables/Database/styles'
 
 const options = {
   selectOnLineNumbers: true,
@@ -10,12 +11,27 @@ const options = {
   automaticLayout: false
 }
 
-const defaultCode = '// type your code... \n'
-
 const Explorer = () => {
+  const [code, setCode] = useState('// type your code... \n')
+  function onChange (newValue, e) {
+    console.log('onChange', newValue, e)
+    setCode(newValue)
+  }
+
   return (
     <Page>
-      <MonacoEditor language='javascript' value={defaultCode} options={options} />
+      <div style={{ height: '300px', width: '100%' }}>
+        <MonacoEditor language='javascript' theme='vs-dark' value={code}
+          options={options}
+          onChange={onChange} />
+        <button className={DBActionButton} onClick={() => {
+          // const model = this.refs.monaco.editor.getModel()
+          // const value = model.getValue()
+          // alert(value)
+        }}>
+          Execute
+        </button>
+      </div>
     </Page>
   )
 }

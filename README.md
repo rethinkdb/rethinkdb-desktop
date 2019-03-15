@@ -11,6 +11,6 @@ RethinkDB Admin Desktop App - this project goal is to seperate the current admin
 ## Setup
 ### Installation
 
-`yarn install`
+`npm install`
 
-`yarn run dev`
+`npm run dev`
