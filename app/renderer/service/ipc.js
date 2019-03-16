@@ -4,7 +4,8 @@ const {
   STATS_CHANNEL_NAME,
   QUERIES_CHANNEL_NAME,
   ACTIONS_CHANNEL_NAME,
-  CLUSTER_CHANNEL_NAME
+  CLUSTER_CHANNEL_NAME,
+  EVAL_QUERY_CHANNEL_NAME
 } = require('../../shared/channels')
 
 // ToDo: instead of hard coding the channels, we should create a channel factory
@@ -26,6 +27,10 @@ export const query = (query = '', args = {}) => {
 
 export const action = (action = '', args = {}) => {
   return ipc.callMain(ACTIONS_CHANNEL_NAME, action, args)
+}
+
+export const evalQuery = (code) => {
+  return ipc.callMain(EVAL_QUERY_CHANNEL_NAME, code)
 }
 
 // the following channels are for "push" updates from main to renderer
