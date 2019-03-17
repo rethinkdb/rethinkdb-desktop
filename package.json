@@ -87,7 +87,7 @@
     "electron-devtools-installer": "^2.2.4",
     "electron-reload": "^1.2.2",
     "error-overlay-webpack-plugin": "^0.1.4",
-    "eslint-plugin-html": "^4.0.3",
+    "eslint-plugin-html": "^5.0.3",
     "eslint-plugin-markdown": "^1.0.0-beta.6",
     "file-loader": "^1.1.11",
     "html-loader": "^0.5.5",
