@@ -100,7 +100,7 @@
     "monaco-editor-webpack-plugin": "^1.5.3",
     "prettier": "^1.12.1",
     "react-hot-loader": "^4.3.11",
-    "react-test-renderer": "^16.4.0",
+    "react-test-renderer": "^16.8.4",
     "standard": "^11.0.1",
     "style-loader": "^0.21.0",
     "svg-sprite-loader": "^3.7.3",
