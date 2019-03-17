@@ -3083,9 +3083,9 @@ ejs@^2.5.9, ejs@^2.6.1:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/ejs/-/ejs-2.6.1.tgz#498ec0d495655abc6f23cd61868d926464071aa0"
 
-electron-better-ipc@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/electron-better-ipc/-/electron-better-ipc-0.1.1.tgz#36c54a20499ecb061564ac82c054e88611b90efb"
+electron-better-ipc@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/electron-better-ipc/-/electron-better-ipc-0.1.2.tgz#8ff9d216d0a70924bca466699bcb50c5d42911e5"
 
 electron-builder@^20.13.2:
   version "20.28.4"
