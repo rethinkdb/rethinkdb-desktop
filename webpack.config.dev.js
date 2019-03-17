@@ -56,7 +56,7 @@ module.exports = {
     }),
     new webpack.NoEmitOnErrorsPlugin(),
     new MonacoWebpackPlugin({
-      languages: ['javascript']
+      languages: ['javascript', 'typescript']
     }),
     new webpack.DefinePlugin({
       'process.env': {

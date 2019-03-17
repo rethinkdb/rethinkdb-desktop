@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import MonacoEditor from 'react-monaco-editor'
+import * as monaco from 'monaco-editor'
 import Page from '../../components/Page'
 import { evalQuery } from '../../service/ipc'
 import styled from 'react-emotion'
 import { Button as BaseButton } from '../../components/Button'
+import { rebirthdbTypes } from './types'
 
 const options = {
   selectOnLineNumbers: true,
@@ -31,6 +33,19 @@ const Button = styled(BaseButton)`
 const Explorer = () => {
   const [code, setCode] = useState('// type your code... \n \n r.dbList()')
   const [result, setResult] = useState('')
+
+  useEffect(() => {
+    // https://microsoft.github.io/monaco-editor/playground.html#extending-language-services-configure-javascript-defaults
+    monaco.languages.typescript.javascriptDefaults.setDiagnosticsOptions({
+      noSemanticValidation: true,
+      noSyntaxValidation: false
+    })
+    monaco.languages.typescript.javascriptDefaults.setCompilerOptions({
+      target: monaco.languages.typescript.ScriptTarget.ES6,
+      allowNonTsExtensions: true
+    })
+    monaco.languages.typescript.javascriptDefaults.addExtraLib(rebirthdbTypes, 'rebirthdb-ts.d.ts')
+  }, [])
 
   function textChange (value) {
     setCode(value)
