@@ -83,7 +83,7 @@
     "css-loader": "^0.28.11",
     "electron": "^2.0.0",
     "electron-builder": "^20.13.2",
-    "electron-debug": "^1.5.0",
+    "electron-debug": "^2.1.0",
     "electron-devtools-installer": "^2.2.4",
     "electron-reload": "^1.2.2",
     "error-overlay-webpack-plugin": "^0.1.4",
