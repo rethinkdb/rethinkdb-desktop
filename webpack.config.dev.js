@@ -3,7 +3,7 @@ const path = require('path')
 const webpack = require('webpack')
 const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin')
 const PORT = process.env.PORT || 7000
-const PUBLIC_PATH = `http://localhost:${PORT}/dist/`
+const PUBLIC_PATH = `https://localhost:${PORT}/dist/`
 
 module.exports = {
   bail: true,
@@ -12,7 +12,7 @@ module.exports = {
   target: 'electron-renderer',
   // input
   entry: [
-    `webpack-dev-server/client?http://localhost:${PORT}/`,
+    `webpack-dev-server/client?https://localhost:${PORT}/`,
     'webpack/hot/only-dev-server',
     './app/renderer/index.js'
   ],
@@ -73,6 +73,7 @@ module.exports = {
   },
   // dev server
   devServer: {
+    https: true,
     port: PORT,
     publicPath: PUBLIC_PATH,
     compress: true,

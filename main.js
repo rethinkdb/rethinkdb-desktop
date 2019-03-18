@@ -89,3 +89,5 @@ app.on('ready', async () => {
 	// const menuBuilder = new MenuBuilder(mainWindow)
 	// menuBuilder.buildMenu()
 })
+
+app.commandLine.appendSwitch('ignore-certificate-errors', 'true');
