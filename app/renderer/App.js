@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { hot } from 'react-hot-loader'
 import { Router } from 'react-router'
-import createHashHistory from 'history/createHashHistory'
+import { createHashHistory } from 'history'
 import Routes from './routes'
 import StatsProvider from './contexts/StatsContext'
 import { ToastContainer } from './components/Toast'
