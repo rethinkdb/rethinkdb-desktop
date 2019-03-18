@@ -21,7 +21,7 @@
     "test-all": "npm run lint && npm run flow && npm run build && npm run test && npm run test-e2e",
     "test-e2e": "cross-env NODE_ENV=test BABEL_DISABLE_CACHE=1 node --trace-warnings -r babel-register ./internals/scripts/RunTests.js e2e",
     "test-watch": "npm test -- --watch",
-    "lint": "prettier 'app/**/*.js' --write && yarn standard && yarn standard-markdown"
+    "lint": "prettier 'app/**/*.js' --write && npm run standard && npm run standard-markdown"
   },
   "repository": {
     "type": "git",
@@ -46,17 +46,17 @@
     "lodash.throttle": "^4.1.1",
     "moment": "^2.22.2",
     "pluralize": "^7.0.0",
-    "prop-types": "^15.6.1",
+    "prop-types": "^15.7.2",
     "randomcolor": "^0.5.3",
     "rc-dialog": "^7.1.7",
     "rc-dropdown": "^2.2.0",
     "rc-menu": "^7.0.5",
-    "react": "^16.3.2",
+    "react": "^16.8.4",
     "react-burger-menu": "^2.5.0",
-    "react-dom": "^16.3.2",
+    "react-dom": "^16.8.4",
     "react-emotion": "^9.1.3",
     "react-error-boundary": "^1.2.2",
-    "react-monaco-editor": "^0.18.0",
+    "react-monaco-editor": "^0.25.1",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "react-s-alert": "^1.4.1",
@@ -68,7 +68,7 @@
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
-    "babel-eslint": "^8.2.3",
+    "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
     "babel-loader": "^7.1.4",
     "babel-plugin-add-module-exports": "^0.2.1",
@@ -87,7 +87,7 @@
     "electron-devtools-installer": "^2.2.4",
     "electron-reload": "^1.2.2",
     "error-overlay-webpack-plugin": "^0.1.4",
-    "eslint-plugin-html": "^4.0.3",
+    "eslint-plugin-html": "^5.0.3",
     "eslint-plugin-markdown": "^1.0.0-beta.6",
     "file-loader": "^1.1.11",
     "html-loader": "^0.5.5",
@@ -96,17 +96,17 @@
     "json-loader": "^0.5.7",
     "less": "^3.0.2",
     "less-loader": "^4.1.0",
-    "lint-staged": "^7.2.2",
+    "lint-staged": "^8.1.5",
     "monaco-editor-webpack-plugin": "^1.5.3",
     "prettier": "^1.12.1",
-    "react-hot-loader": "^4.3.11",
-    "react-test-renderer": "^16.4.0",
-    "standard": "^11.0.1",
-    "style-loader": "^0.21.0",
+    "react-hot-loader": "^4.8.0",
+    "react-test-renderer": "^16.8.4",
+    "standard": "^12.0.1",
+    "style-loader": "^0.23.1",
     "svg-sprite-loader": "^3.7.3",
     "url-loader": "^1.0.1",
-    "webpack": "^4.6.0",
-    "webpack-cli": "^2.0.15",
+    "webpack": "4.25.1",
+    "webpack-cli": "^3.1.1",
     "webpack-dev-server": "^3.1.3"
   },
   "standard": {
@@ -120,7 +120,7 @@
   },
   "lint-staged": {
     "*.{html,md,js}": [
-      "yarn lint",
+      "npm run lint",
       "git add"
     ]
   }

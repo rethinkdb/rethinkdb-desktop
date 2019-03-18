@@ -55,7 +55,9 @@ module.exports = {
       multiStep: true
     }),
     new webpack.NoEmitOnErrorsPlugin(),
-    new MonacoWebpackPlugin(),
+    new MonacoWebpackPlugin({
+      languages: ['javascript', 'typescript']
+    }),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('development')
