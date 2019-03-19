@@ -70,7 +70,7 @@
     "babel-core": "^6.26.3",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
-    "babel-loader": "^7.1.4",
+    "babel-loader": "^8.0.5",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-import": "^1.7.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
