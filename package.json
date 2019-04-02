@@ -92,7 +92,7 @@
     "file-loader": "^1.1.11",
     "html-loader": "^0.5.5",
     "husky": "^0.14.3",
-    "jest": "^22.4.3",
+    "jest": "^24.6.0",
     "json-loader": "^0.5.7",
     "less": "^3.0.2",
     "less-loader": "^4.1.0",
