@@ -60,7 +60,7 @@
     "react-router": "^4.4.0",
     "react-router-dom": "^4.4.0",
     "react-s-alert": "^1.4.1",
-    "react-switch": "^3.0.4",
+    "react-switch": "^5.0.1",
     "rethinkdb": "^2.3.3",
     "rethinkdb-ts": "^2.4.0-rc.6",
     "shortid": "^2.2.8",
